@@ -8,6 +8,7 @@ This repository is maintained to observe the quality of apps automatically gener
 
 | App Name | Description | Folder |
 |----------|-------------|--------|
+| [Sliding Number Classic Puzzle](category/games/2026/02/1738890307-sliding-number-classic-puzzle/) | Classic 15-puzzle game. Slide numbered tiles to arrange them in order. | `category/games/2026/02/1738890307-sliding-number-classic-puzzle/` |
 | [Circular Brick Breaker Classic](category/games/2026/02/1738886273-circular-brick-breaker-classic/) | 360-degree brick breaker with a ball spawning from center. Rotate the paddle to break circular brick layers. | `category/games/2026/02/1738886273-circular-brick-breaker-classic/` |
 | [Gravity Stack Balance](category/games/2026/02/07-13-gravity-stack-balance/) | Physics-based block stacking on a narrow platform. Blocks tilt and fall if unbalanced. | `category/games/2026/02/07-13-gravity-stack-balance/` |
 | [Neon Snake Retro](category/games/2026/02/07-12-neon-snake-retro/) | Classic snake game with neon visual style. Navigate a snake to eat food while avoiding walls and your own body. | `category/games/2026/02/07-12-neon-snake-retro/` |
@@ -27,6 +28,7 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   ├── 1738890307-sliding-number-classic-puzzle/
 |   |   │   │   ├── 1738886273-circular-brick-breaker-classic/
 |   |   │   │   ├── 07-13-gravity-stack-balance/
 |   |   │   │   ├── 07-12-neon-snake-retro/
