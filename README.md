@@ -8,6 +8,7 @@ This repository is maintained to observe the quality of apps automatically gener
 
 | Date | App Name | Description |
 |----------|----------|-------------|
+| 2026-02-07 | [Ocean Cleanup Bubble Pop](category/games/2026/02/1738918819-ocean-cleanup-bubble-pop/) | Trap ocean trash in bubbles to purify the sea in this addictive puzzle arcade game. |
 | 2026-02-07 | [Binary Crossroad Traffic Control](category/games/2026/02/1738918960-binary-crossroad-traffic-control/) | Manage traffic signals at an intersection to pass vehicles without accidents. |
 | 2026-02-07 | [Lunar Lander Physics Lite](category/games/2026/02/1738891527-lunar-lander-physics-lite/) | Guide your lander to a safe landing on the lunar surface with gravity physics. |
 | 2026-02-07 | [Sliding Number Classic Puzzle](category/games/2026/02/1738890307-sliding-number-classic-puzzle/) | Classic 15-puzzle game. Slide numbered tiles to arrange them in order. |
@@ -30,6 +31,7 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   ├── 1738918819-ocean-cleanup-bubble-pop/
 |   |   │   │   ├── 1738918960-binary-crossroad-traffic-control/
 |   |   │   │   ├── 1738891527-lunar-lander-physics-lite/
 |   |   │   │   ├── 1738890307-sliding-number-classic-puzzle/

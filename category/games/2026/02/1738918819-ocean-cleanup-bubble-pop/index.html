@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Cleanup Bubble Pop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #001e3c 0%, #004d7a 50%, #006994 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            color: white;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .score-box, .combo-box, .level-box {
+            background: rgba(0, 50, 100, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #gameCanvas {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 150, 200, 0.5);
+            cursor: crosshair;
+        }
+
+        .overlay {
+            position: absolute;
+            background: rgba(0, 30, 60, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 150, 200, 0.8);
+        }
+
+        .overlay h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #4fc3f7;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        .overlay p {
+            font-size: 16px;
+            margin: 10px 0;
+            line-height: 1.6;
+            max-width: 350px;
+        }
+
+        .overlay .subtitle {
+            color: #81d4fa;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .start-btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 20px;
+            background: linear-gradient(180deg, #4fc3f7, #0288d1);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.5);
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 20px rgba(0, 150, 200, 0.7);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .bubble-preview {
+            width: 400px;
+            height: 50px;
+            background: rgba(0, 50, 100, 0.5);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .color-legend {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="score-box">Score: <span id="score">0</span></div>
+            <div class="combo-box">Combo: <span id="combo">x1</span></div>
+            <div class="level-box">Level: <span id="level">1</span></div>
+        </div>
+        <canvas id="gameCanvas" width="400" height="500"></canvas>
+        <div class="bubble-preview">
+            <div class="color-legend">
+                <div class="legend-item"><div class="legend-color" style="background: #4fc3f7;"></div>Bottle</div>
+                <div class="legend-item"><div class="legend-color" style="background: #ffeb3b;"></div>Can</div>
+                <div class="legend-item"><div class="legend-color" style="background: #ff7043;"></div>Net</div>
+                <div class="legend-item"><div class="legend-color" style="background: #ffd700;"></div>Gold</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="startScreen" class="overlay">
+        <h1>Ocean Cleanup</h1>
+        <p class="subtitle">Bubble Pop Puzzle Arcade</p>
+        <p>Shoot bubbles to match trash colors!</p>
+        <p>Match blue bubbles with bottles, yellow with cans, orange with nets.</p>
+        <p>Gold bubbles clear nearby trash!</p>
+        <p>Don't let trash reach the bottom line!</p>
+        <button class="start-btn" onclick="startGame()">Start Cleanup</button>
+    </div>
+
+    <div id="gameOverScreen" class="overlay hidden">
+        <h1>Game Over</h1>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <p>Rank: <span id="rank">Ocean Cleaner</span></p>
+        <button class="start-btn" onclick="restartGame()">Try Again</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const COLORS = {
+            blue: '#4fc3f7',
+            yellow: '#ffeb3b',
+            orange: '#ff7043',
+            gold: '#ffd700'
+        };
+
+        const TRASH_TYPES = ['bottle', 'can', 'net'];
+        const COLOR_MAP = {
+            'bottle': COLORS.blue,
+            'can': COLORS.yellow,
+            'net': COLORS.orange
+        };
+
+        let score = 0;
+        let combo = 1;
+        let level = 1;
+        let gameRunning = false;
+        let animationId = null;
+
+        let shooter = {
+            x: canvas.width / 2,
+            y: canvas.height - 40,
+            angle: -Math.PI / 2,
+            currentBubble: null,
+            nextBubble: null
+        };
+
+        let bubbles = [];
+        let trashItems = [];
+        let particles = [];
+
+        const DEADLINE_Y = canvas.height - 60;
+        const ROW_HEIGHT = 45;
+        const COL_WIDTH = 50;
+        const TRASH_RADIUS = 20;
+        const BUBBLE_RADIUS = 15;
+        const BUBBLE_SPEED = 8;
+
+        function createTrashItem(col, row, type) {
+            return {
+                x: col * COL_WIDTH + COL_WIDTH / 2 + 25,
+                y: row * ROW_HEIGHT + TRASH_RADIUS + 30,
+                type: type,
+                color: COLOR_MAP[type],
+                radius: TRASH_RADIUS,
+                active: true
+            };
+        }
+
+        function generateTrashRow() {
+            const row = Math.floor(trashItems.length / 8);
+            const types = TRASH_TYPES.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < 8; i++) {
+                const type = types[i % types.length];
+                trashItems.push(createTrashItem(i, row, type));
+            }
+        }
+
+        function createBubble() {
+            const rand = Math.random();
+            let type;
+
+            if (rand < 0.03) {
+                type = 'gold';
+            } else {
+                type = TRASH_TYPES[Math.floor(Math.random() * TRASH_TYPES.length)];
+            }
+
+            return {
+                x: shooter.x,
+                y: shooter.y,
+                vx: 0,
+                vy: 0,
+                type: type,
+                color: type === 'gold' ? COLORS.gold : COLOR_MAP[type],
+                radius: BUBBLE_RADIUS,
+                active: true
+            };
+        }
+
+        function shootBubble(targetX, targetY) {
+            if (!gameRunning) return;
+
+            const dx = targetX - shooter.x;
+            const dy = targetY - shooter.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            shooter.currentBubble.vx = (dx / dist) * BUBBLE_SPEED;
+            shooter.currentBubble.vy = (dy / dist) * BUBBLE_SPEED;
+            bubbles.push(shooter.currentBubble);
+
+            shooter.currentBubble = shooter.nextBubble;
+            shooter.nextBubble = createBubble();
+        }
+
+        function createParticle(x, y, color) {
+            return {
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 6,
+                vy: (Math.random() - 0.5) * 6,
+                radius: Math.random() * 4 + 2,
+                color: color,
+                life: 1
+            };
+        }
+
+        function updateParticles() {
+            particles = particles.filter(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.1;
+                p.life -= 0.02;
+                return p.life > 0;
+            });
+        }
+
+        function drawParticles() {
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius * p.life, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            });
+        }
+
+        function createExplosion(x, y, color) {
+            for (let i = 0; i < 15; i++) {
+                particles.push(createParticle(x, y, color));
+            }
+        }
+
+        function checkCollision() {
+            bubbles.forEach(bubble => {
+                if (!bubble.active) return;
+
+                // Wall collisions
+                if (bubble.x - bubble.radius <= 0 || bubble.x + bubble.radius >= canvas.width) {
+                    bubble.vx *= -1;
+                    bubble.x = Math.max(bubble.radius, Math.min(canvas.width - bubble.radius, bubble.x));
+                }
+
+                // Top collision
+                if (bubble.y - bubble.radius <= 0) {
+                    bubble.active = false;
+                    attachBubble(bubble);
+                    return;
+                }
+
+                // Trash collisions
+                trashItems.forEach(trash => {
+                    if (!trash.active) return;
+
+                    const dx = bubble.x - trash.x;
+                    const dy = bubble.y - trash.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < bubble.radius + trash.radius) {
+                        bubble.active = false;
+                        handleHit(trash, bubble);
+                    }
+                });
+            });
+        }
+
+        function handleHit(trash, bubble) {
+            let matched = false;
+            let clearedCount = 0;
+
+            if (bubble.type === 'gold') {
+                // Gold bubble clears nearby trash
+                trashItems.forEach(t => {
+                    if (!t.active) return;
+                    const dx = t.x - trash.x;
+                    const dy = t.y - trash.y;
+                    if (Math.sqrt(dx * dx + dy * dy) < 100) {
+                        t.active = false;
+                        createExplosion(t.x, t.y, t.color);
+                        clearedCount++;
+                    }
+                });
+                score += clearedCount * 50;
+                combo++;
+            } else if (bubble.type === trash.type) {
+                // Match!
+                trash.active = false;
+                createExplosion(trash.x, trash.y, trash.color);
+                score += 100 * combo;
+                combo++;
+                matched = true;
+                clearedCount = 1;
+            } else {
+                // Miss - reset combo
+                combo = 1;
+            }
+
+            // Check for level up
+            const activeTrash = trashItems.filter(t => t.active).length;
+            if (activeTrash === 0) {
+                level++;
+                generateTrashRow();
+                generateTrashRow();
+            }
+        }
+
+        function attachBubble(bubble) {
+            // Find nearest position
+            let nearestY = canvas.height;
+            let attached = false;
+
+            trashItems.forEach(trash => {
+                if (!trash.active) return;
+                const dx = bubble.x - trash.x;
+                const dy = bubble.y - trash.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 60 && trash.y < nearestY) {
+                    nearestY = trash.y;
+                    attached = true;
+                }
+            });
+
+            if (attached) {
+                combo = 1;
+            }
+        }
+
+        function checkGameOver() {
+            let maxY = 0;
+            trashItems.forEach(trash => {
+                if (trash.active && trash.y > maxY) {
+                    maxY = trash.y;
+                }
+            });
+
+            if (maxY >= DEADLINE_Y) {
+                gameOver();
+            }
+        }
+
+        function update() {
+            // Update bubbles
+            bubbles.forEach(bubble => {
+                if (bubble.active) {
+                    bubble.x += bubble.vx;
+                    bubble.y += bubble.vy;
+                }
+            });
+
+            bubbles = bubbles.filter(b => b.active);
+
+            checkCollision();
+            updateParticles();
+            checkGameOver();
+        }
+
+        function draw() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw water effect
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#001e3c');
+            gradient.addColorStop(0.5, '#004d7a');
+            gradient.addColorStop(1, '#006994');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw deadline
+            ctx.strokeStyle = 'rgba(255, 100, 100, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([10, 5]);
+            ctx.beginPath();
+            ctx.moveTo(0, DEADLINE_Y);
+            ctx.lineTo(canvas.width, DEADLINE_Y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw deadline warning text
+            ctx.fillStyle = 'rgba(255, 100, 100, 0.6)';
+            ctx.font = '12px Arial';
+            ctx.fillText('DEADLINE', 10, DEADLINE_Y - 5);
+
+            // Draw trash items
+            trashItems.forEach(trash => {
+                if (!trash.active) return;
+
+                // Draw trash body
+                ctx.beginPath();
+                ctx.arc(trash.x, trash.y, trash.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(100, 100, 100, 0.8)';
+                ctx.fill();
+
+                // Draw color border
+                ctx.strokeStyle = trash.color;
+                ctx.lineWidth = 4;
+                ctx.stroke();
+
+                // Draw trash icon
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                let icon = '';
+                switch(trash.type) {
+                    case 'bottle': icon = 'B'; break;
+                    case 'can': icon = 'C'; break;
+                    case 'net': icon = 'N'; break;
+                }
+                ctx.fillText(icon, trash.x, trash.y);
+            });
+
+            // Draw flying bubbles
+            bubbles.forEach(bubble => {
+                if (!bubble.active) return;
+
+                ctx.beginPath();
+                ctx.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);
+                ctx.fillStyle = bubble.color;
+                ctx.fill();
+
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Bubble shine
+                ctx.beginPath();
+                ctx.arc(bubble.x - 4, bubble.y - 4, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                ctx.fill();
+            });
+
+            // Draw particles
+            drawParticles();
+
+            // Draw shooter
+            ctx.beginPath();
+            ctx.arc(shooter.x, shooter.y, 25, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(50, 50, 50, 0.8)';
+            ctx.fill();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Draw current bubble
+            if (shooter.currentBubble) {
+                shooter.currentBubble.x = shooter.x;
+                shooter.currentBubble.y = shooter.y;
+
+                ctx.beginPath();
+                ctx.arc(shooter.currentBubble.x, shooter.currentBubble.y, shooter.currentBubble.radius, 0, Math.PI * 2);
+                ctx.fillStyle = shooter.currentBubble.color;
+                ctx.fill();
+
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Shine
+                ctx.beginPath();
+                ctx.arc(shooter.currentBubble.x - 4, shooter.currentBubble.y - 4, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                ctx.fill();
+            }
+
+            // Update UI
+            document.getElementById('score').textContent = score;
+            document.getElementById('combo').textContent = 'x' + combo;
+            document.getElementById('level').textContent = level;
+        }
+
+        function gameLoop() {
+            if (!gameRunning) return;
+
+            update();
+            draw();
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        function startGame() {
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('gameOverScreen').classList.add('hidden');
+
+            score = 0;
+            combo = 1;
+            level = 1;
+            bubbles = [];
+            trashItems = [];
+            particles = [];
+
+            generateTrashRow();
+            generateTrashRow();
+            generateTrashRow();
+
+            shooter.currentBubble = createBubble();
+            shooter.nextBubble = createBubble();
+
+            gameRunning = true;
+            gameLoop();
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+
+            document.getElementById('finalScore').textContent = score;
+
+            let rank = 'Ocean Cleaner';
+            if (score >= 5000) rank = 'Ocean Hero';
+            else if (score >= 2000) rank = 'Sea Guardian';
+            else if (score >= 500) rank = 'Wave Rider';
+
+            document.getElementById('rank').textContent = rank;
+            document.getElementById('gameOverScreen').classList.remove('hidden');
+        }
+
+        function restartGame() {
+            startGame();
+        }
+
+        // Event listeners
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            shootBubble(x, y);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!gameRunning) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const dx = x - shooter.x;
+            const dy = y - shooter.y;
+            shooter.angle = Math.atan2(dy, dx);
+        });
+
+        // Initial draw
+        draw();
+    </script>
+</body>
+</html>
