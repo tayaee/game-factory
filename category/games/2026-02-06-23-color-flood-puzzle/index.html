@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flood Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Color Flood Puzzle</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Moves:</span>
+                    <span class="value" id="moves">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Max:</span>
+                    <span class="value" id="max-moves">22</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span class="value" id="score">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="board" id="board"></div>
+            <div class="controls">
+                <div class="color-buttons" id="color-buttons"></div>
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="new-game-btn">New Game</button>
+                    <button class="btn btn-secondary" id="size-btn">Board Size: 12x12</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-overlay" id="message-overlay">
+            <div class="message-content">
+                <h2 id="message-title"></h2>
+                <p id="message-text"></p>
+                <button class="btn btn-primary" id="overlay-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[project]
+name = "color-flood-puzzle"
+version = "1.0.0"
+description = "An addictive strategy puzzle game to unify all tiles to one color"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+color-flood-puzzle = "main:main"
+
+[tool.uv]
+dev-dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
