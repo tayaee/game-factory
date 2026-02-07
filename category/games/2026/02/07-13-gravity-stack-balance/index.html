@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Stack Balance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .game-container {
+            text-align: center;
+        }
+
+        .info-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            color: #eee;
+            font-size: 18px;
+        }
+
+        .score-display {
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .high-score {
+            color: #ff6b6b;
+        }
+
+        .rank-display {
+            color: #ffd93d;
+            font-size: 16px;
+        }
+
+        .canvas-container {
+            position: relative;
+        }
+
+        canvas {
+            border: 3px solid #4ecdc4;
+            box-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
+            background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+            display: block;
+            border-radius: 8px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #eee;
+            border-radius: 8px;
+        }
+
+        .overlay.hidden {
+            display: none;
+        }
+
+        .overlay h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .overlay p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #aaa;
+            max-width: 300px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .controls {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .final-score {
+            font-size: 48px;
+            margin: 15px 0;
+            color: #4ecdc4;
+        }
+
+        .final-rank {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffd93d;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="info-bar">
+            <span>SCORE: <span id="score" class="score-display">0</span></span>
+            <span id="rankDisplay" class="rank-display"></span>
+            <span>HIGH: <span id="highScore" class="high-score">0</span></span>
+        </div>
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+            <div id="startOverlay" class="overlay">
+                <h1>GRAVITY STACK</h1>
+                <p>Stack blocks on the platform</p>
+                <p>Click or press SPACE to drop</p>
+                <p>Don't let blocks fall off!</p>
+                <button class="btn" onclick="startGame()">START</button>
+            </div>
+            <div id="gameOverOverlay" class="overlay hidden">
+                <h1>GAME OVER</h1>
+                <p class="final-score"><span id="finalScore">0</span></p>
+                <p class="final-rank" id="finalRank"></p>
+                <button class="btn" onclick="startGame()">RETRY</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const highScoreEl = document.getElementById('highScore');
+        const rankDisplayEl = document.getElementById('rankDisplay');
+        const finalScoreEl = document.getElementById('finalScore');
+        const finalRankEl = document.getElementById('finalRank');
+        const startOverlay = document.getElementById('startOverlay');
+        const gameOverOverlay = document.getElementById('gameOverOverlay');
+
+        // Physics constants
+        const GRAVITY = 0.4;
+        const FRICTION = 0.98;
+        const GROUND_FRICTION = 0.85;
+        const BOUNCE = 0.2;
+        const BLOCK_SIZE = 50;
+        const PLATFORM_WIDTH = 120;
+        const PLATFORM_Y = 550;
+        const SPAWN_Y = 50;
+        const INITIAL_SPEED = 2;
+        const SPEED_INCREMENT = 0.15;
+
+        // Game state
+        let blocks = [];
+        let score = 0;
+        let highScore = localStorage.getItem('gravityStackHighScore') || 0;
+        let gameRunning = false;
+        let currentBlock = null;
+        let blockDirection = 1;
+        let blockSpeed = INITIAL_SPEED;
+        let animationId = null;
+
+        highScoreEl.textContent = highScore;
+
+        // Block class with physics
+        class Block {
+            constructor(x, y, width, height, color) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+                this.vx = 0;
+                this.vy = 0;
+                this.rotation = 0;
+                this.angularVelocity = 0;
+                this.isFalling = false;
+                this.isSettled = false;
+                this.settleTimer = 0;
+            }
+
+            get center() {
+                return { x: this.x + this.width / 2, y: this.y + this.height / 2 };
+            }
+
+            get corners() {
+                const cx = this.x + this.width / 2;
+                const cy = this.y + this.height / 2;
+                const cos = Math.cos(this.rotation);
+                const sin = Math.sin(this.rotation);
+                const hw = this.width / 2;
+                const hh = this.height / 2;
+
+                return [
+                    { x: cx + (-hw * cos - (-hh) * sin), y: cy + (-hw * sin + (-hh) * cos) },
+                    { x: cx + (hw * cos - (-hh) * sin), y: cy + (hw * sin + (-hh) * cos) },
+                    { x: cx + (hw * cos - hh * sin), y: cy + (hw * sin + hh * cos) },
+                    { x: cx + (-hw * cos - hh * sin), y: cy + (-hw * sin + hh * cos) }
+                ];
+            }
+
+            update() {
+                if (!this.isFalling) return;
+
+                // Apply gravity
+                this.vy += GRAVITY;
+
+                // Apply velocity
+                this.x += this.vx;
+                this.y += this.vy;
+                this.rotation += this.angularVelocity;
+
+                // Apply friction
+                this.vx *= FRICTION;
+                this.angularVelocity *= FRICTION;
+
+                // Check if settled
+                if (Math.abs(this.vx) < 0.1 && Math.abs(this.vy) < 0.1 && Math.abs(this.angularVelocity) < 0.01) {
+                    this.settleTimer++;
+                    if (this.settleTimer > 30) {
+                        this.isSettled = true;
+                    }
+                } else {
+                    this.settleTimer = 0;
+                }
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+                ctx.rotate(this.rotation);
+
+                // Block body
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
+
+                // Block border
+                ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(-this.width / 2, -this.height / 2, this.width, this.height);
+
+                // Highlight
+                ctx.fillStyle = 'rgba(255,255,255,0.1)';
+                ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height / 3);
+
+                ctx.restore();
+            }
+
+            isOffScreen() {
+                const center = this.center;
+                return center.y > canvas.height + 100 ||
+                       center.x < -100 ||
+                       center.x > canvas.width + 100;
+            }
+        }
+
+        // Platform class
+        class Platform {
+            constructor() {
+                this.x = (canvas.width - PLATFORM_WIDTH) / 2;
+                this.y = PLATFORM_Y;
+                this.width = PLATFORM_WIDTH;
+                this.height = 20;
+            }
+
+            draw(ctx) {
+                // Platform shadow
+                ctx.fillStyle = 'rgba(0,0,0,0.3)';
+                ctx.fillRect(this.x + 5, this.y + 5, this.width, this.height);
+
+                // Platform base
+                const gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.height);
+                gradient.addColorStop(0, #666);
+                gradient.addColorStop(1, #444);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                // Platform top highlight
+                ctx.fillStyle = '#888';
+                ctx.fillRect(this.x, this.y, this.width, 3);
+            }
+        }
+
+        let platform = new Platform();
+
+        // Color palette for blocks
+        const blockColors = [
+            '#4ecdc4',
+            '#ff6b6b',
+            '#ffd93d',
+            '#a8e6cf',
+            '#dda0dd',
+            '#98d8c8',
+            '#f7dc6f',
+            '#bb8fce'
+        ];
+
+        function getRandomColor() {
+            return blockColors[Math.floor(Math.random() * blockColors.length)];
+        }
+
+        function createCurrentBlock() {
+            const color = getRandomColor();
+            currentBlock = new Block(
+                canvas.width / 2 - BLOCK_SIZE / 2,
+                SPAWN_Y,
+                BLOCK_SIZE,
+                BLOCK_SIZE,
+                color
+            );
+            currentBlock.isFalling = false;
+            blockDirection = Math.random() > 0.5 ? 1 : -1;
+        }
+
+        function spawnBlock() {
+            createCurrentBlock();
+        }
+
+        function dropBlock() {
+            if (currentBlock && !currentBlock.isFalling) {
+                currentBlock.isFalling = true;
+                currentBlock.vy = 0;
+                currentBlock.vx = blockSpeed * blockDirection * 0.5;
+            }
+        }
+
+        // Collision detection
+        function checkCollision(a, b) {
+            const aLeft = a.x;
+            const aRight = a.x + a.width;
+            const aTop = a.y;
+            const aBottom = a.y + a.height;
+
+            const bLeft = b.x;
+            const bRight = b.x + b.width;
+            const bTop = b.y;
+            const bBottom = b.y + b.height;
+
+            return aLeft < bRight && aRight > bLeft && aTop < bBottom && aBottom > bTop;
+        }
+
+        function resolveCollision(block, other) {
+            const blockCenter = block.center;
+            const otherCenter = other.center;
+
+            const dx = blockCenter.x - otherCenter.x;
+            const dy = blockCenter.y - otherCenter.y;
+            const overlapX = (block.width + other.width) / 2 - Math.abs(dx);
+            const overlapY = (block.height + other.height) / 2 - Math.abs(dy);
+
+            if (overlapX < overlapY) {
+                // Horizontal collision
+                if (dx > 0) {
+                    block.x += overlapX / 2;
+                    other.x -= overlapX / 2;
+                } else {
+                    block.x -= overlapX / 2;
+                    other.x += overlapX / 2;
+                }
+                const tempVx = block.vx;
+                block.vx = other.vx * BOUNCE;
+                other.vx = tempVx * BOUNCE;
+
+                // Add some rotation
+                block.angularVelocity += (Math.random() - 0.5) * 0.1;
+            } else {
+                // Vertical collision
+                if (dy > 0) {
+                    block.y += overlapY / 2;
+                    other.y -= overlapY / 2;
+                } else {
+                    block.y -= overlapY / 2;
+                    other.y += overlapY / 2;
+                }
+                const tempVy = block.vy;
+                block.vy = Math.abs(other.vy) * BOUNCE;
+                other.vy = -Math.abs(tempVy) * BOUNCE;
+
+                // Ground friction
+                block.vx *= GROUND_FRICTION;
+                other.vx *= GROUND_FRICTION;
+            }
+        }
+
+        function checkPlatformCollision(block) {
+            const blockBottom = block.y + block.height;
+            const blockLeft = block.x;
+            const blockRight = block.x + block.width;
+
+            // Check if block is on platform
+            if (blockBottom >= platform.y && blockBottom <= platform.y + 20) {
+                if (blockRight > platform.x && blockLeft < platform.x + platform.width) {
+                    // Landing on platform
+                    block.y = platform.y - block.height;
+                    block.vy = -block.vy * BOUNCE;
+                    block.vx *= GROUND_FRICTION;
+                    block.angularVelocity *= GROUND_FRICTION;
+
+                    // Check if block is sliding off
+                    const center = block.center;
+                    if (center.x < platform.x || center.x > platform.x + platform.width) {
+                        // Block is falling off platform
+                        block.angularVelocity += (Math.random() - 0.5) * 0.2;
+                    }
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function checkWallCollisions(block) {
+            if (block.x < 0) {
+                block.x = 0;
+                block.vx = -block.vx * BOUNCE;
+            }
+            if (block.x + block.width > canvas.width) {
+                block.x = canvas.width - block.width;
+                block.vx = -block.vx * BOUNCE;
+            }
+        }
+
+        function getRank(score) {
+            if (score >= 50) return "Gravity Master";
+            if (score >= 30) return "Balance Expert";
+            if (score >= 20) return "Stack Pro";
+            if (score >= 10) return "Stable Builder";
+            if (score >= 5) return "Novice Stacker";
+            return "Beginner";
+        }
+
+        function updateRankDisplay() {
+            const rank = getRank(score);
+            rankDisplayEl.textContent = rank;
+        }
+
+        function update() {
+            if (!gameRunning) return;
+
+            // Update current block (moving horizontally)
+            if (currentBlock && !currentBlock.isFalling) {
+                currentBlock.x += blockSpeed * blockDirection;
+
+                // Bounce off walls
+                if (currentBlock.x <= 0) {
+                    currentBlock.x = 0;
+                    blockDirection = 1;
+                }
+                if (currentBlock.x + currentBlock.width >= canvas.width) {
+                    currentBlock.x = canvas.width - currentBlock.width;
+                    blockDirection = -1;
+                }
+            }
+
+            // Update falling blocks
+            blocks.forEach(block => {
+                if (block.isFalling && !block.isSettled) {
+                    block.update();
+                    checkWallCollisions(block);
+                    checkPlatformCollision(block);
+                }
+            });
+
+            // Check collisions between falling blocks
+            for (let i = 0; i < blocks.length; i++) {
+                for (let j = i + 1; j < blocks.length; j++) {
+                    const a = blocks[i];
+                    const b = blocks[j];
+                    if (a.isFalling && b.isFalling && !a.isSettled && !b.isSettled) {
+                        if (checkCollision(a, b)) {
+                            resolveCollision(a, b);
+                        }
+                    }
+                }
+            }
+
+            // Check if current block has settled
+            if (currentBlock && currentBlock.isFalling && currentBlock.isSettled) {
+                blocks.push(currentBlock);
+                score++;
+                scoreEl.textContent = score;
+                updateRankDisplay();
+
+                // Increase speed
+                blockSpeed = INITIAL_SPEED + score * SPEED_INCREMENT;
+
+                // Check for game over (block fell off)
+                if (currentBlock.isOffScreen()) {
+                    gameOver();
+                    return;
+                }
+
+                spawnBlock();
+            }
+
+            // Check if any settled block fell off
+            for (let i = blocks.length - 1; i >= 0; i--) {
+                if (blocks[i].isSettled && blocks[i].isOffScreen()) {
+                    gameOver();
+                    return;
+                }
+            }
+        }
+
+        function draw() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw platform
+            platform.draw(ctx);
+
+            // Draw all blocks
+            blocks.forEach(block => block.draw(ctx));
+
+            // Draw current block
+            if (currentBlock) {
+                currentBlock.draw(ctx);
+
+                // Draw aim line
+                if (!currentBlock.isFalling) {
+                    ctx.strokeStyle = 'rgba(78, 205, 196, 0.3)';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.moveTo(currentBlock.x + currentBlock.width / 2, currentBlock.y + currentBlock.height);
+                    ctx.lineTo(currentBlock.x + currentBlock.width / 2, platform.y);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            cancelAnimationFrame(animationId);
+
+            if (score > highScore) {
+                highScore = score;
+                highScoreEl.textContent = highScore;
+                localStorage.setItem('gravityStackHighScore', highScore);
+            }
+
+            finalScoreEl.textContent = score;
+            finalRankEl.textContent = getRank(score);
+            gameOverOverlay.classList.remove('hidden');
+        }
+
+        function startGame() {
+            startOverlay.classList.add('hidden');
+            gameOverOverlay.classList.add('hidden');
+
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+
+            // Reset game state
+            blocks = [];
+            score = 0;
+            blockSpeed = INITIAL_SPEED;
+            scoreEl.textContent = score;
+            rankDisplayEl.textContent = "";
+            platform = new Platform();
+
+            spawnBlock();
+            gameRunning = true;
+            gameLoop();
+        }
+
+        // Event listeners
+        canvas.addEventListener('click', () => {
+            if (gameRunning) {
+                dropBlock();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (!gameRunning && !startOverlay.classList.contains('hidden')) {
+                    startGame();
+                } else if (!gameRunning && !gameOverOverlay.classList.contains('hidden')) {
+                    startGame();
+                } else if (gameRunning) {
+                    dropBlock();
+                }
+            }
+        });
+
+        // Initial draw
+        draw();
+    </script>
+</body>
+</html>
