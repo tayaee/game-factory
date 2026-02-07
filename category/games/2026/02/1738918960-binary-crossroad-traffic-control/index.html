@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Crossroad Traffic Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #gameContainer {
+            position: relative;
+        }
+        canvas {
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+        }
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            display: none;
+        }
+        #gameOver h1 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        #gameOver p {
+            color: #ecf0f1;
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        #gameOver button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #gameOver button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="800"></canvas>
+        <div id="ui">
+            <div>Score: <span id="score">0</span></div>
+        </div>
+        <div id="gameOver">
+            <h1>GAME OVER</h1>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Press SPACE or click to restart</p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const finalScoreEl = document.getElementById('finalScore');
+        const gameOverEl = document.getElementById('gameOver');
+        const restartBtn = document.getElementById('restartBtn');
+
+        const ROAD_WIDTH = 120;
+        const CAR_WIDTH = 30;
+        const CAR_LENGTH = 50;
+        const CAR_SPEED = 3;
+        const SPAWN_INTERVAL_INITIAL = 120;
+        const MIN_SPAWN_INTERVAL = 40;
+        const MAX_QUEUE_LENGTH = 8;
+
+        let verticalGreen = true;
+        let score = 0;
+        let gameOver = false;
+        let frameCount = 0;
+        let spawnInterval = SPAWN_INTERVAL_INITIAL;
+        let difficultyFrame = 0;
+
+        const cars = {
+            top: [],
+            bottom: [],
+            left: [],
+            right: []
+        };
+
+        const lanes = {
+            top: { x: canvas.width / 2 - ROAD_WIDTH / 4, y: 0, direction: 'down', signal: 'vertical' },
+            bottom: { x: canvas.width / 2 + ROAD_WIDTH / 4, y: canvas.height, direction: 'up', signal: 'vertical' },
+            left: { x: 0, y: canvas.height / 2 + ROAD_WIDTH / 4, direction: 'right', signal: 'horizontal' },
+            right: { x: canvas.width, y: canvas.height / 2 - ROAD_WIDTH / 4, direction: 'left', signal: 'horizontal' }
+        };
+
+        function createCar(direction) {
+            const lane = lanes[direction];
+            let x, y;
+
+            switch (direction) {
+                case 'top':
+                    x = lane.x - CAR_WIDTH / 2;
+                    y = -CAR_LENGTH;
+                    break;
+                case 'bottom':
+                    x = lane.x - CAR_WIDTH / 2;
+                    y = canvas.height;
+                    break;
+                case 'left':
+                    x = -CAR_LENGTH;
+                    y = lane.y - CAR_WIDTH / 2;
+                    break;
+                case 'right':
+                    x = canvas.width;
+                    y = lane.y - CAR_WIDTH / 2;
+                    break;
+            }
+
+            const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+            return {
+                x, y,
+                width: direction === 'top' || direction === 'bottom' ? CAR_WIDTH : CAR_LENGTH,
+                height: direction === 'top' || direction === 'bottom' ? CAR_LENGTH : CAR_WIDTH,
+                direction: lane.direction,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                stopped: false,
+                passed: false
+            };
+        }
+
+        function getStopLine(direction) {
+            const center = canvas.width / 2;
+            const offset = ROAD_WIDTH / 2 + 10;
+
+            switch (direction) {
+                case 'top': return center - offset;
+                case 'bottom': return center + offset;
+                case 'left': return center - offset;
+                case 'right': return center + offset;
+            }
+        }
+
+        function isGreen(signal) {
+            return (signal === 'vertical' && verticalGreen) ||
+                   (signal === 'horizontal' && !verticalGreen);
+        }
+
+        function checkCollision(car1, car2) {
+            return car1.x < car2.x + car2.width &&
+                   car1.x + car1.width > car2.x &&
+                   car1.y < car2.y + car2.height &&
+                   car1.y + car1.height > car2.y;
+        }
+
+        function isInIntersection(car) {
+            const center = canvas.width / 2;
+            const halfRoad = ROAD_WIDTH / 2;
+            return car.x + car.width > center - halfRoad &&
+                   car.x < center + halfRoad &&
+                   car.y + car.height > center - halfRoad &&
+                   car.y < center + halfRoad;
+        }
+
+        function update() {
+            if (gameOver) return;
+
+            frameCount++;
+            difficultyFrame++;
+
+            if (difficultyFrame % 600 === 0 && spawnInterval > MIN_SPAWN_INTERVAL) {
+                spawnInterval -= 10;
+            }
+
+            if (frameCount % spawnInterval === 0) {
+                const directions = ['top', 'bottom', 'left', 'right'];
+                const dir = directions[Math.floor(Math.random() * directions.length)];
+                cars[dir].push(createCar(dir));
+            }
+
+            for (const dir of ['top', 'bottom', 'left', 'right']) {
+                for (let i = cars[dir].length - 1; i >= 0; i--) {
+                    const car = cars[dir][i];
+                    const lane = lanes[dir];
+                    const stopLine = getStopLine(dir);
+                    const green = isGreen(lane.signal);
+
+                    let shouldMove = true;
+
+                    if (!car.passed) {
+                        const approachingStopLine = (dir === 'top' && car.y + car.height < stopLine) ||
+                                                    (dir === 'bottom' && car.y > stopLine) ||
+                                                    (dir === 'left' && car.x + car.width < stopLine) ||
+                                                    (dir === 'right' && car.x > stopLine);
+
+                        if (approachingStopLine && !green) {
+                            shouldMove = false;
+                        }
+
+                        for (let j = 0; j < i; j++) {
+                            const otherCar = cars[dir][j];
+                            const distance = dir === 'top' || dir === 'bottom' ?
+                                           otherCar.y - (car.y + car.height) :
+                                           otherCar.x - (car.x + car.width);
+                            if (distance > 0 && distance < CAR_SPEED + 5) {
+                                shouldMove = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (shouldMove) {
+                        switch (car.direction) {
+                            case 'down': car.y += CAR_SPEED; break;
+                            case 'up': car.y -= CAR_SPEED; break;
+                            case 'right': car.x += CAR_SPEED; break;
+                            case 'left': car.x -= CAR_SPEED; break;
+                        }
+                    }
+
+                    car.passed = isInIntersection(car) || car.passed;
+
+                    if (!car.passed) {
+                        const queuePos = dir === 'top' ? car.y :
+                                        dir === 'bottom' ? canvas.height - car.y :
+                                        dir === 'left' ? car.x :
+                                        canvas.width - car.x;
+                        const maxQueue = dir === 'top' || dir === 'bottom' ?
+                                        canvas.height / 2 - ROAD_WIDTH / 2 :
+                                        canvas.width / 2 - ROAD_WIDTH / 2;
+
+                        if (queuePos < 0 || queuePos / CAR_LENGTH > MAX_QUEUE_LENGTH) {
+                            endGame();
+                            return;
+                        }
+                    }
+
+                    if (car.x < -CAR_LENGTH - 50 || car.x > canvas.width + 50 ||
+                        car.y < -CAR_LENGTH - 50 || car.y > canvas.height + 50) {
+                        if (car.passed) {
+                            score += 10;
+                            scoreEl.textContent = score;
+                        }
+                        cars[dir].splice(i, 1);
+                    }
+                }
+            }
+
+            const allCars = [...cars.top, ...cars.bottom, ...cars.left, ...cars.right];
+            for (let i = 0; i < allCars.length; i++) {
+                for (let j = i + 1; j < allCars.length; j++) {
+                    if (checkCollision(allCars[i], allCars[j])) {
+                        endGame();
+                        return;
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            ctx.fillStyle = '#2d3436';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            const center = canvas.width / 2;
+            const halfRoad = ROAD_WIDTH / 2;
+
+            ctx.fillStyle = '#636e72';
+            ctx.fillRect(center - halfRoad, 0, ROAD_WIDTH, canvas.height);
+            ctx.fillRect(0, center - halfRoad, canvas.width, ROAD_WIDTH);
+
+            ctx.strokeStyle = '#dfe6e9';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([20, 20]);
+
+            ctx.beginPath();
+            ctx.moveTo(center, 0);
+            ctx.lineTo(center, center - halfRoad);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(center, center + halfRoad);
+            ctx.lineTo(center, canvas.height);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(0, center);
+            ctx.lineTo(center - halfRoad, center);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(center + halfRoad, center);
+            ctx.lineTo(canvas.width, center);
+            ctx.stroke();
+
+            ctx.setLineDash([]);
+
+            const signalSize = 30;
+            const signalY = center - halfRoad - signalSize - 15;
+
+            ctx.fillStyle = '#2d3436';
+            ctx.fillRect(center - signalSize - 5, signalY - signalSize - 5, signalSize * 2 + 10, signalSize * 2 + 10);
+
+            ctx.fillStyle = verticalGreen ? '#2ecc71' : '#e74c3c';
+            ctx.beginPath();
+            ctx.arc(center - signalSize / 2, signalY, 12, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = !verticalGreen ? '#2ecc71' : '#e74c3c';
+            ctx.beginPath();
+            ctx.arc(center + signalSize / 2, signalY, 12, 0, Math.PI * 2);
+            ctx.fill();
+
+            for (const dir of ['top', 'bottom', 'left', 'right']) {
+                for (const car of cars[dir]) {
+                    ctx.fillStyle = car.color;
+                    ctx.fillRect(car.x, car.y, car.width, car.height);
+
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.fillRect(car.x + 5, car.y + 5, car.width - 10, car.height - 10);
+
+                    if (car.direction === 'down' || car.direction === 'up') {
+                        ctx.fillStyle = '#f1c40f';
+                        ctx.fillRect(car.x + 5, car.y + 8, 8, 8);
+                        ctx.fillRect(car.x + car.width - 13, car.y + 8, 8, 8);
+                        ctx.fillStyle = '#c0392b';
+                        ctx.fillRect(car.x + 5, car.y + car.height - 12, 8, 8);
+                        ctx.fillRect(car.x + car.width - 13, car.y + car.height - 12, 8, 8);
+                    } else {
+                        ctx.fillStyle = '#f1c40f';
+                        ctx.fillRect(car.x + 8, car.y + 5, 8, 8);
+                        ctx.fillRect(car.x + 8, car.y + car.height - 13, 8, 8);
+                        ctx.fillStyle = '#c0392b';
+                        ctx.fillRect(car.x + car.width - 12, car.y + 5, 8, 8);
+                        ctx.fillRect(car.x + car.width - 12, car.y + car.height - 13, 8, 8);
+                    }
+                }
+            }
+        }
+
+        function endGame() {
+            gameOver = true;
+            finalScoreEl.textContent = score;
+            gameOverEl.style.display = 'block';
+        }
+
+        function restart() {
+            verticalGreen = true;
+            score = 0;
+            gameOver = false;
+            frameCount = 0;
+            spawnInterval = SPAWN_INTERVAL_INITIAL;
+            difficultyFrame = 0;
+            scoreEl.textContent = '0';
+            gameOverEl.style.display = 'none';
+
+            for (const dir of ['top', 'bottom', 'left', 'right']) {
+                cars[dir] = [];
+            }
+        }
+
+        function toggleSignal() {
+            if (gameOver) {
+                restart();
+                return;
+            }
+            verticalGreen = !verticalGreen;
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                toggleSignal();
+            }
+        });
+
+        canvas.addEventListener('click', toggleSignal);
+        restartBtn.addEventListener('click', restart);
+
+        gameLoop();
+    </script>
+</body>
+</html>
