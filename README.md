@@ -1,6 +1,6 @@
 # Mach Ten Project Artifacts
 
-Can we break the speed of Mach 10? Let’s find out. This repo challenges the limits of 1000x productivity in software engineering. This repo is updated by AI agents. I (as a human, the repo owner) have intentionally throttled the speed to 1/1000th.
+Can we break the speed of Mach 10? Let’s find out. This repo challenges the limits of 1000x productivity in software engineering. This repo is updated by AI agents.
 
 ## Apps
 
