@@ -1,0 +1,11 @@
+README.md
+config.py
+game.py
+main.py
+pyproject.toml
+vector_golf_solitaire_classic.egg-info/PKG-INFO
+vector_golf_solitaire_classic.egg-info/SOURCES.txt
+vector_golf_solitaire_classic.egg-info/dependency_links.txt
+vector_golf_solitaire_classic.egg-info/entry_points.txt
+vector_golf_solitaire_classic.egg-info/requires.txt
+vector_golf_solitaire_classic.egg-info/top_level.txt

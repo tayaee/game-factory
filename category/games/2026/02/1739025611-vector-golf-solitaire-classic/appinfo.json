@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-golf-solitaire-classic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/1739025611-vector-golf-solitaire-classic",
+  "description": "Clear all cards from the tableau by matching numbers in a fast-paced strategic solitaire variant.",
+  "rationale": "Golf Solitaire is a classic card game that balances luck with strategic decision-making. It is ideal for players who enjoy puzzle-solving and quick gameplay sessions. For AI agents, it provides a discrete state-space challenge for pathfinding and sequence optimization.",
+  "details": "The game uses a standard 52-card deck. 35 cards are dealt face-up into 7 columns (tableau), 5 cards each. The remaining 17 cards form the draw pile. One card is flipped from the draw pile to the waste pile to start. The player can move a card from the top of any tableau column to the waste pile if it is exactly one rank higher or lower than the current waste card (e.g., a 4 or 6 can be placed on a 5). Kings are high and Aces are low; in this simplified version, the sequence does not wrap around (cannot put an Ace on a King). The objective is to move all cards from the tableau to the waste pile.",
+  "tech_stack": {
+    "language": "Python 3.12+",
+    "package_manager": "uv",
+    "ui_library": "pygame"
+  },
+  "game_rules": {
+    "win_condition": "Tableau is empty.",
+    "lose_condition": "Draw pile is empty and no more valid moves are available from the tableau.",
+    "card_ranks": "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K",
+    "valid_sequence": "ABS(Rank_A - Rank_B) == 1"
+  },
+  "how_to_build": "uv venv && uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Goal: Clear all cards in the columns. Use the mouse to click on a card at the bottom of any column. The card must be one value higher or lower than the card currently in the waste pile at the bottom of the screen. If no moves are available, click the draw pile to get a new base card. Score +10 for every card cleared, -50 for every card remaining in the tableau at the end.",
+  "how_to_cleanup": "rm -rf .venv",
+  "observation_space": "State of 7 columns, waste pile top card, and count of remaining draw pile.",
+  "action_space": "Discrete(8): Click column 0-6 or draw from pile.",
+  "screenshot": "assets/gameplay_preview.png"
+}

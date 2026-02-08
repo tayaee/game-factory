@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: vector-golf-solitaire-classic
+Version: 0.1.0
+Summary: Clear all cards from the tableau by matching numbers in a fast-paced strategic solitaire variant
+Requires-Python: >=3.11
+Requires-Dist: pygame-ce>=2.5.0
