@@ -1,0 +1,114 @@
+Fix error
+
+C:\src\mach-ten-project-artifacts\category\games\2026\02\20250208-153011-vector-battleship-strategic-fleet>uv run main.py
+      Built vector-battleship-strategic-fleet @ file:///C:/src/mach-ten-project-artifacts/category/games/2026/02/20250208-153011-vector-battleship-strategic-fleet                                                                  x Failed to build `pygame==2.6.1`
+  |-> The build backend returned an error
+  `-> Call to `setuptools.build_meta:__legacy__.build_wheel` failed (exit code: 1)
+
+      [stdout]
+      Skipping Cython compilation
+
+
+      WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
+      Using WINDOWS configuration...
+
+      Path for SDL: prebuilt-x64\SDL2-2.28.4
+      ...Library directory for SDL: prebuilt-x64/SDL2-2.28.4/lib/x64
+      ...Include directory for SDL: prebuilt-x64/SDL2-2.28.4/include
+      Path for FONT: prebuilt-x64\SDL2_ttf-2.20.1
+      ...Library directory for FONT: prebuilt-x64/SDL2_ttf-2.20.1/lib/x64
+      ...Include directory for FONT: prebuilt-x64/SDL2_ttf-2.20.1/include
+      Path for IMAGE: prebuilt-x64\SDL2_image-2.0.5
+      ...Library directory for IMAGE: prebuilt-x64/SDL2_image-2.0.5/lib/x64
+      ...Include directory for IMAGE: prebuilt-x64/SDL2_image-2.0.5/include
+      Path for MIXER: prebuilt-x64\SDL2_mixer-2.6.2
+      ...Library directory for MIXER: prebuilt-x64/SDL2_mixer-2.6.2/lib/x64
+      ...Include directory for MIXER: prebuilt-x64/SDL2_mixer-2.6.2/include
+      Path for PORTMIDI: prebuilt-x64
+      ...Library directory for PORTMIDI: prebuilt-x64/lib
+      ...Include directory for PORTMIDI: prebuilt-x64/include
+      DLL for SDL2: prebuilt-x64/SDL2-2.28.4/lib/x64/SDL2.dll
+      DLL for SDL2_ttf: prebuilt-x64/SDL2_ttf-2.20.1/lib/x64/SDL2_ttf.dll
+      DLL for SDL2_image: prebuilt-x64/SDL2_image-2.0.5/lib/x64/SDL2_image.dll
+      DLL for SDL2_mixer: prebuilt-x64/SDL2_mixer-2.6.2/lib/x64/SDL2_mixer.dll
+      DLL for portmidi: prebuilt-x64/lib/portmidi.dll
+      Path for FREETYPE: prebuilt-x64
+      ...Library directory for FREETYPE: prebuilt-x64/lib
+      ...Include directory for FREETYPE: prebuilt-x64/include
+      Path for PNG not found.
+      ...Found include dir but no library dir in prebuilt-x64.
+      Path for JPEG not found.
+      ...Found include dir but no library dir in prebuilt-x64.
+      DLL for freetype: prebuilt-x64/lib/freetype.dll
+      DLL for png: prebuilt-x64/SDL2_image-2.0.5/lib/x64/libpng16-16.dll
+
+      ---
+      For help with compilation see:
+          https://www.pygame.org/wiki/CompileWindows
+      To contribute to pygame development see:
+          https://www.pygame.org/contribute.html
+      ---
+
+
+      [stderr]
+      WARNING:root:Using the SDL libraries in "prebuilt-x64".
+      Traceback (most recent call last):
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\vstools.py", line 4, in <module>
+          from distutils.msvccompiler import MSVCCompiler, get_build_architecture
+      ModuleNotFoundError: No module named 'distutils.msvccompiler'
+
+      During handling of the above exception, another exception occurred:
+
+      Traceback (most recent call last):
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\config_win.py", line 336, in configure
+          from . import vstools
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\vstools.py", line 6, in <module>
+          from setuptools._distutils.msvccompiler import MSVCCompiler, get_build_architecture
+      ModuleNotFoundError: No module named 'setuptools._distutils.msvccompiler'
+
+      During handling of the above exception, another exception occurred:
+
+      Traceback (most recent call last):
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\vstools.py", line 4, in <module>
+          from distutils.msvccompiler import MSVCCompiler, get_build_architecture
+      ModuleNotFoundError: No module named 'distutils.msvccompiler'
+
+      During handling of the above exception, another exception occurred:
+
+      Traceback (most recent call last):
+        File "<string>", line 14, in <module>
+          requires = get_requires_for_build({})
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\builds-v0\.tmpI5Dn2u\Lib\site-packages\setuptools\build_meta.py", line 333, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=[])
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\builds-v0\.tmpI5Dn2u\Lib\site-packages\setuptools\build_meta.py", line 301, in _get_build_requires
+          self.run_setup()
+          ~~~~~~~~~~~~~~^^
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\builds-v0\.tmpI5Dn2u\Lib\site-packages\setuptools\build_meta.py", line 520, in run_setup
+          super().run_setup(setup_script=setup_script)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\builds-v0\.tmpI5Dn2u\Lib\site-packages\setuptools\build_meta.py", line 317, in run_setup
+          exec(code, locals())
+          ~~~~^^^^^^^^^^^^^^^^
+        File "<string>", line 432, in <module>
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\config.py", line 234, in main
+          deps = CFG.main(**kwds, auto_config=auto)
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\config_win.py", line 493, in main
+          return setup_prebuilt_sdl2(prebuilt_dir)
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\config_win.py", line 453, in setup_prebuilt_sdl2
+          DEPS.configure()
+          ~~~~~~~~~~~~~~^^
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\config_win.py", line 338, in configure
+          from buildconfig import vstools
+        File "C:\Users\soonki.ji\AppData\Local\uv\cache\sdists-v9\pypi\pygame\2.6.1\lAgM-JioBcdr8S7PSjU6K\src\buildconfig\vstools.py", line 6, in <module>
+          from setuptools._distutils.msvccompiler import MSVCCompiler, get_build_architecture
+      ModuleNotFoundError: No module named 'setuptools._distutils.msvccompiler'
+
+      hint: This error likely indicates that `pygame@2.6.1` depends on `setuptools._distutils.msvccompiler`, but doesn't declare it as a build dependency. If `pygame` is a first-party package, consider adding
+      `setuptools._distutils.msvccompiler` to its `build-system.requires`. Otherwise, either add it to your `pyproject.toml` under:
+
+      [tool.uv.extra-build-dependencies]
+      pygame = ["setuptools._distutils.msvccompiler"]
+
+      or `uv pip install setuptools._distutils.msvccompiler` into the environment and re-run with `--no-build-isolation`.
+  help: `pygame` (v2.6.1) was included because `vector-battleship-strategic-fleet` (v0.1.0) depends on `pygame`
