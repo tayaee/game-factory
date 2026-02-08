@@ -1,0 +1,37 @@
+{
+  "app_name": "vector-tetris-grid-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260208-175000-vector-tetris-grid-logic",
+  "description": "Clear horizontal lines using strategically falling geometric blocks in this timeless puzzle classic.",
+  "rationale": "This game targets puzzle enthusiasts and AI researchers focusing on spatial optimization and long-term planning. It provides a structured grid environment perfect for reinforcement learning agents to learn pattern recognition and risk management.",
+  "details": "The game consists of a 10x20 grid where seven different shapes (Tetrominoes) fall from the top one at a time. Each Tetromino is composed of four square blocks. The goal is to rotate and move these pieces to create solid horizontal lines without gaps. When a line is completed, it disappears, and the player earns points. The game ends if the pieces stack up to the top of the grid. As the score increases, the falling speed of the pieces gradually increases.",
+  "game_mechanics": {
+    "grid_size": [
+      10,
+      20
+    ],
+    "shapes": [
+      "I",
+      "O",
+      "T",
+      "S",
+      "Z",
+      "J",
+      "L"
+    ],
+    "scoring_system": "100 points for 1 line, 300 for 2, 500 for 3, 800 for 4 (Tetris).",
+    "speed_increment": "Fall speed increases every 10 lines cleared."
+  },
+  "technical_specs": {
+    "language": "Python",
+    "library": "Pygame",
+    "environment_variables": "TERM=xterm-256color",
+    "state_representation": "2D Integer Array (0 for empty, 1-7 for block types)"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window. For CLI agents, send SIGINT (Ctrl+C).",
+  "how_to_play": "Score increases by completing full horizontal rows. Controls: Left/Right Arrow keys to move pieces, Up Arrow key to rotate 90 degrees clockwise, Down Arrow key for soft drop, Spacebar for hard drop (instant placement).",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/tetris_logic_v1.png"
+}

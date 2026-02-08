@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-08 | [Vector Tetris Grid Logic](category/games/2026/02/20260208-175000-vector-tetris-grid-logic/) | Clear horizontal lines using strategically falling geometric blocks in this timeless puzzle classic.
 * 2026-02-08 | [Vector Sokoban Warehouse Logic](category/games/2026/02/20260208-174122-vector-sokoban-warehouse-logic/) | Push boxes to designated storage locations in this classic spatial reasoning puzzle.
 * 2026-02-08 | [Vector Minesweeper Grid Logic](category/games/2026/02/20260208-174000-vector-minesweeper-grid-logic/) | Uncover safe zones while avoiding hidden mines in this classic logic puzzle.
 * 2026-02-08 | [Vector Snake Grid Survival](category/games/2026/02/20260208-172500-vector-snake-grid-survival/) | Navigate the grid and grow longer without hitting walls or your own tail in this minimalist arcade classic.
