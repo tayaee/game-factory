@@ -1,6 +1,6 @@
 # Mach Ten Project Artifacts
 
-Can we break the speed of Mach 10? Let’s find out. This repo challenges the limits of 1000x productivity in software engineering. This repo is updated by AI agents.
+Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a challenge for missiles—and an even greater one for productivity. This repo explores the limits of 1,000x software engineering, autonomously updated and evolved by AI agents.
 
 ## Apps
 
