@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "Strategic precision physics puzzle inspired by Jenga"
 requires-python = ">=3.10"
 dependencies = [
-    "pygame",
+    "pygame-ce>=2.5.0",
 ]
 
 [project.scripts]
