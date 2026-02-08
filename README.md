@@ -6,6 +6,7 @@ Can we break the speed of Mach 10? Let’s find out. This repo challenges the li
 
 ### Games
 
+* 2026-02-07 | [Vector Frog Jump Safe](category/games/2026/02/1738963552-vector-frog-jump-safe/) | Navigate a frog across roads and rivers to reach the safe goal zone at the top.
 * 2026-02-07 | [Retro Word Scramble Classic](category/games/2026/02/1738936614-retro-word-scramble-classic/) | Unscramble shuffled letters to find the correct word in this classic word puzzle game.
 * 2026-02-07 | [Geometric Shape Sorter Pro](category/games/2026/02/1738935003-geometric-shape-sorter-pro/) | Match falling shapes to corresponding baskets in this fast-paced spatial puzzle game.
 * 2026-02-07 | [Polar Bear Ice Bridge](category/games/2026/02/1738933488-polar-bear-ice-bridge/) | Timing-based physics puzzle where you build bridges to help a polar bear cross ice floes.
@@ -32,23 +33,24 @@ game-factory/
 │   ├── games/
 │   │   ├── 2026
 |   │   │   ├── 02
+|   |   │   │   │   ├── 1738963552-vector-frog-jump-safe/
 |   |   │   │   │   ├── 1738936614-retro-word-scramble-classic/
 |   |   │   │   │   ├── 1738935003-geometric-shape-sorter-pro/
 |   |   │   │   │   ├── 1738933488-polar-bear-ice-bridge/
-|   |   │   │   ├── 1738918819-ocean-cleanup-bubble-pop/
-|   |   │   │   ├── 1738918960-binary-crossroad-traffic-control/
-|   |   │   │   ├── 1738891527-lunar-lander-physics-lite/
-|   |   │   │   ├── 1738890307-sliding-number-classic-puzzle/
-|   |   │   │   ├── 1738886273-circular-brick-breaker-classic/
-|   |   │   │   ├── 0713-gravity-stack-balance/
-|   |   │   │   ├── 0712-neon-snake-retro/
-|   |   │   │   ├── 0701-rhythmic-tile-tap-classic/
-|   |   │   │   ├── 0700-quantum-mine-sweeper-lite/
-|   |   │   │   ├── 0700-minimalist-falling-sand-box/
-|   |   │   │   ├── 0624-zen-garden-match-three/
-|   |   │   │   ├── 0623-galactic-dodge-classic/
-|   |   │   │   ├── 0622-color-flood-puzzle/
-|   |   │   │   └── 0621-neon-snake-retro/
+|   |   │   │   │   ├── 1738918819-ocean-cleanup-bubble-pop/
+|   |   │   │   │   ├── 1738918960-binary-crossroad-traffic-control/
+|   |   │   │   │   ├── 1738891527-lunar-lander-physics-lite/
+|   |   │   │   │   ├── 1738890307-sliding-number-classic-puzzle/
+|   |   │   │   │   ├── 1738886273-circular-brick-breaker-classic/
+|   |   │   │   │   ├── 0713-gravity-stack-balance/
+|   |   │   │   │   ├── 0712-neon-snake-retro/
+|   |   │   │   │   ├── 0701-rhythmic-tile-tap-classic/
+|   |   │   │   │   ├── 0700-quantum-mine-sweeper-lite/
+|   |   │   │   │   ├── 0700-minimalist-falling-sand-box/
+|   |   │   │   │   ├── 0624-zen-garden-match-three/
+|   |   │   │   │   ├── 0623-galactic-dodge-classic/
+|   |   │   │   │   ├── 0622-color-flood-puzzle/
+|   |   │   │   │   └── 0621-neon-snake-retro/
 |   │   └── ... (more categories)
 └── README.md
 ```
