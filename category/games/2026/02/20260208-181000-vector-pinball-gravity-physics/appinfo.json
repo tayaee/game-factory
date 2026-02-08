@@ -1,0 +1,39 @@
+{
+  "app_name": "vector-pinball-gravity-physics",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260208-181000-vector-pinball-gravity-physics",
+  "description": "A high-stakes minimalist pinball simulation with realistic physics and score multipliers.",
+  "rationale": "Pinball offers a perfect environment for AI agents to learn predictive physics and timing-based decision making. It targets casual players looking for classic arcade thrills and developers interested in 2D collision dynamics.",
+  "details": "The game consists of a 400x600 rectangular field. Key components include a metal ball (circle), two flippers (rotating lines/rectangles) at the bottom, and various circular bumpers and triangular slingshots. Gravity constantly pulls the ball down. The ball bounces off walls and objects based on reflection vectors. Scoring occurs when the ball hits bumpers. If the ball falls through the gap between flippers, the game ends. Physics should handle variable velocity and basic friction.",
+  "how_to_build": "uv init --app; uv add pygame; touch README.md pyproject.toml",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Score points by hitting bumpers. Each bumper hit increases the current score. Use the Left Arrow key to trigger the left flipper and the Right Arrow key for the right flipper. Flippers rotate upward rapidly when pressed and return to baseline when released. The goal is to keep the ball in play as long as possible while maximizing the score through combo hits.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "technical_specs": {
+    "screen_resolution": "400x600",
+    "fps_limit": 60,
+    "gravity_constant": 0.5,
+    "restitution_coefficient": 0.8
+  },
+  "state_space_for_rl": [
+    "ball_x_position",
+    "ball_y_position",
+    "ball_x_velocity",
+    "ball_y_velocity",
+    "left_flipper_angle",
+    "right_flipper_angle"
+  ],
+  "action_space_for_rl": [
+    "idle",
+    "left_flipper_up",
+    "right_flipper_up",
+    "both_flippers_up"
+  ],
+  "reward_structure": {
+    "bumper_hit": "+10",
+    "survival_per_frame": "+0.1",
+    "ball_lost": "-100"
+  },
+  "screenshot": "assets/screenshots/pinball_preview.png"
+}

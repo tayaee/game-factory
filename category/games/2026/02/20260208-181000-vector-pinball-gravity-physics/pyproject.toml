@@ -1,0 +1,12 @@
+[project]
+name = "vector-pinball-gravity-physics"
+version = "0.1.0"
+description = "A high-stakes minimalist pinball simulation with realistic physics and score multipliers"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

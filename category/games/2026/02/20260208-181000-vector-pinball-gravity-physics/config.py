@@ -1,0 +1,56 @@
+"""Game configuration constants."""
+
+SCREEN_WIDTH = 400
+SCREEN_HEIGHT = 600
+FPS = 60
+
+# Colors (R, G, B)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (50, 50, 50)
+DARK_GRAY = (30, 30, 30)
+RED = (255, 50, 50)
+ORANGE = (255, 140, 0)
+YELLOW = (255, 215, 0)
+GREEN = (50, 200, 50)
+BLUE = (50, 100, 255)
+PURPLE = (150, 50, 200)
+CYAN = (0, 200, 200)
+SILVER = (192, 192, 192)
+
+# Ball settings
+BALL_RADIUS = 8
+BALL_START_X = SCREEN_WIDTH // 2
+BALL_START_Y = 100
+GRAVITY = 0.5
+FRICTION = 0.995
+RESTITUTION = 0.8
+MAX_SPEED = 20
+
+# Flipper settings
+FLIPPER_LENGTH = 70
+FLIPPER_WIDTH = 8
+FLIPPER_REST_ANGLE = 30  # degrees from horizontal
+FLIPPER_ACTIVE_ANGLE = -30  # degrees from horizontal
+FLIPPER_SPEED = 0.5  # rotation speed per frame
+LEFT_FLIPPER_PIVOT = (120, 530)
+RIGHT_FLIPPER_PIVOT = (280, 530)
+
+# Bumper settings
+BUMPER_RADIUS = 20
+BUMPER_POINTS = 10
+
+# Slingshot settings
+SLINGSHOT_POINTS = 5
+
+# Wall settings
+WALL_THICKNESS = 5
+
+# Reward structure for AI training
+REWARD_BUMPER_HIT = 10
+REWARD_SURVIVAL_FRAME = 0.1
+REWARD_BALL_LOST = -100
+
+# Fonts
+SCORE_FONT_SIZE = 32
+MESSAGE_FONT_SIZE = 24
