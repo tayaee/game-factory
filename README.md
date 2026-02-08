@@ -6,88 +6,67 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
-* 2026-02-08 | [Vector Frogger Road Cross](category/games/2026/02/20260208-131132-000-vector-frogger-road-cross/) | Navigate a busy highway and rushing river to reach safety in this classic arcade reimagining.
-* 2026-02-08 | [Vector Tumble Tower Collapse](category/games/2026/02/20260208-130000-000-vector-tumble-tower-collapse/) | Strategic physics puzzle: carefully remove and stack blocks without toppling the 18-layer tower.
-* 2026-02-08 | [Vector Lemmings Path Bridge](category/games/2026/02/20260208-124720-000-vector-lemmings-path-bridge/) | Guide autonomous explorers to the exit by assigning critical path-finding roles in this Lemmings-inspired puzzle.
-* 2026-02-08 | [Vector Parking Valet Pro](category/games/2026/02/20260208-123804-000-vector-parking-valet-pro/) | Master precision driving and navigate obstacles to park in challenging spots with realistic steering physics.
-* 2026-02-08 | [Vector Puyo Chain Reaction](category/games/2026/02/1739028000-vector-puyo-chain-reaction/) | Chain matching blobs to create massive explosive combos in this physics-lite puzzle classic.
-* 2026-02-08 | [Vector Golf Solitaire Classic](category/games/2026/02/1739025611-vector-golf-solitaire-classic/) | Clear all cards from the tableau by matching numbers in a fast-paced strategic solitaire variant.
-* 2026-02-08 | [Vector Battleship Strategic Fleet](category/games/2026/02/1739025011-vector-battleship-strategic-fleet/) | Classic tactical naval warfare game against a smart AI opponent.
-* 2026-02-08 | [Vector Plumber Pipe Connector](category/games/2026/02/1739023920-vector-plumber-pipe-connector/) | Rotate and connect pipe segments to create a seamless flow from source to drain.
-* 2026-02-08 | [Vector Simon Says Logic](category/games/2026/02/1739023900-vector-simon-says-logic/) | Master your memory with a high-speed, logic-driven sequence challenge.
-* 2026-02-08 | [Vector Flappy Bird Classic](category/games/2026/02/1738973200-vector-flappy-bird-classic/) | Navigate a minimalist bird through moving pipes in this physics-based vertical scroller.
-* 2026-02-07 | [Vector Memory Pattern Match](category/games/2026/02/1738972630-vector-memory-pattern-match/) | Remember and reproduce increasingly long light patterns in this Simon-style memory game.
-* 2026-02-07 | [Vector Tic-Tac-Toe Strategic](category/games/2026/02/1738965018-vector-tictactoe-strategic-variant/) | Strategic tic-tac-toe with limited pieces and movement mechanics for deeper gameplay.
-* 2026-02-07 | [Vector Tower Defense Lite](category/games/2026/02/1738964309-vector-tower-defense-lite/) | Place geometric towers along a winding path to defend against waves of incoming enemies.
-* 2026-02-07 | [Vector Frog Jump Safe](category/games/2026/02/1738963552-vector-frog-jump-safe/) | Navigate a frog across roads and rivers to reach the safe goal zone at the top.
-* 2026-02-07 | [Geometric Shape Sorter Pro](category/games/2026/02/1738935003-geometric-shape-sorter-pro/) | Match falling shapes to corresponding baskets in this fast-paced spatial puzzle game.
-* 2026-02-07 | [Polar Bear Ice Bridge](category/games/2026/02/1738933488-polar-bear-ice-bridge/) | Timing-based physics puzzle where you build bridges to help a polar bear cross ice floes.
-* 2026-02-07 | [Ocean Cleanup Bubble Pop](category/games/2026/02/1738918819-ocean-cleanup-bubble-pop/) | Trap ocean trash in bubbles to purify the sea in this addictive puzzle arcade game.
-* 2026-02-07 | [Binary Crossroad Traffic Control](category/games/2026/02/1738918960-binary-crossroad-traffic-control/) | Manage traffic signals at an intersection to pass vehicles without accidents.
-* 2026-02-07 | [Lunar Lander Physics Lite](category/games/2026/02/1738891527-lunar-lander-physics-lite/) | Guide your lander to a safe landing on the lunar surface with gravity physics.
-* 2026-02-07 | [Sliding Number Classic Puzzle](category/games/2026/02/1738890307-sliding-number-classic-puzzle/) | Classic 15-puzzle game. Slide numbered tiles to arrange them in order.
-* 2026-02-07 | [Circular Brick Breaker Classic](category/games/2026/02/1738886273-circular-brick-breaker-classic/) | 360-degree brick breaker with a ball spawning from center. Rotate the paddle to break circular brick layers.
-* 2026-02-06 | [Gravity Stack Balance](category/games/2026/02/0713-gravity-stack-balance/) | Physics-based block stacking on a narrow platform. Blocks tilt and fall if unbalanced.
-* 2026-02-06 | [Neon Snake Retro](category/games/2026/02/0712-neon-snake-retro/) | Classic snake game with neon visual style. Navigate a snake to eat food while avoiding walls and your own body.
-* 2026-02-06 | [Rhythmic Tile Tap Classic](category/games/2026/02/0701-rhythmic-tile-tap-classic/) | Tap black tiles falling to the beat in 4 lanes. Speed increases as you score higher - miss a tile or tap empty space and it's game over.
-* 2026-02-06 | [Quantum Mine Sweeper Lite](category/games/2026/02/0700-quantum-mine-sweeper-lite/) | Classic minesweeper with logical deduction. Find 15 mines on a 10x10 grid using number clues.
-* 2026-02-06 | [Minimalist Falling Sand Box](category/games/2026/02/0700-minimalist-falling-sand-box/) | Pixel art physics simulation with gravity and particle interactions. Draw sand, water, and walls to create falling experiments.
-* 2026-02-06 | [Zen Garden Match Three](category/games/2026/02/0624-zen-garden-match-three/) | A relaxing match-three puzzle game with calm vibes. Swap flowers to match 3+ and score points in 60 seconds.
-* 2026-02-06 | [Galactic Dodge Classic](category/games/2026/02/0623-galactic-dodge-classic/) | Dodge endless asteroids in this classic arcade survival game. Pilot your spaceship and achieve the highest survival score. 
-* 2026-02-06 | [Color Flood Puzzle](category/games/2026/02/0622-color-flood-puzzle/) | An addictive strategy puzzle game to unify all tiles to one color in minimum moves. 
-* 2026-02-06 | [Neon Snake Retro](category/games/2026/02/0621-neon-snake-retro/) | Classic snake game with neon visual style. Navigate a snake to eat food while avoiding walls and your own body.
+* 2026-02-08 | [Vector Bomberman Grid Arena](category/games/2026/02/20260208-132000-000-vector-bomberman-grid-arena/) | Place bombs strategically to destroy walls and defeat enemies in this grid-based tactical action game.
+* 2026-02-08 | [Vector Frogger Road Cross](category/games/2026/02/20260208-131132-vector-frogger-road-cross/) | Navigate a busy highway and rushing river to reach safety in this classic arcade reimagining.
+* 2026-02-08 | [Vector Tumble Tower Collapse](category/games/2026/02/20260208-130000-vector-tumble-tower-collapse/) | Strategic physics puzzle: carefully remove and stack blocks without toppling the 18-layer tower.
+* 2026-02-08 | [Vector Lemmings Path Bridge](category/games/2026/02/20260208-124720-vector-lemmings-path-bridge/) | Guide autonomous explorers to the exit by assigning critical path-finding roles in this Lemmings-inspired puzzle.
+* 2026-02-08 | [Vector Parking Valet Pro](category/games/2026/02/20260208-123804-vector-parking-valet-pro/) | Master precision driving and navigate obstacles to park in challenging spots with realistic steering physics.
+* 2026-02-08 | [Vector Puyo Chain Reaction](category/games/2026/02/20250208-162000-vector-puyo-chain-reaction/) | Chain matching blobs to create massive explosive combos in this physics-lite puzzle classic.
+* 2026-02-08 | [Vector Golf Solitaire Classic](category/games/2026/02/20250208-154011-vector-golf-solitaire-classic/) | Clear all cards from the tableau by matching numbers in a fast-paced strategic solitaire variant.
+* 2026-02-08 | [Vector Battleship Strategic Fleet](category/games/2026/02/20250208-153011-vector-battleship-strategic-fleet/) | Classic tactical naval warfare game against a smart AI opponent.
+* 2026-02-08 | [Vector Plumber Pipe Connector](category/games/2026/02/20250208-151200-vector-plumber-pipe-connector/) | Rotate and connect pipe segments to create a seamless flow from source to drain.
+* 2026-02-08 | [Vector Simon Says Logic](category/games/2026/02/20250208-151140-vector-simon-says-logic/) | Master your memory with a high-speed, logic-driven sequence challenge.
+* 2026-02-08 | [Vector Flappy Bird Classic](category/games/2026/02/20250208-010640-vector-flappy-bird-classic/) | Navigate a minimalist bird through moving pipes in this physics-based vertical scroller.
+* 2026-02-08 | [Vector Memory Pattern Match](category/games/2026/02/20250208-005710-vector-memory-pattern-match/) | Remember and reproduce increasingly long light patterns in this Simon-style memory game.
+* 2026-02-07 | [Vector Tic-Tac-Toe Strategic](category/games/2026/02/20250207-225018-vector-tictactoe-strategic-variant/) | Strategic tic-tac-toe with limited pieces and movement mechanics for deeper gameplay.
+* 2026-02-07 | [Vector Tower Defense Lite](category/games/2026/02/20250207-223829-vector-tower-defense-lite/) | Place geometric towers along a winding path to defend against waves of incoming enemies.
+* 2026-02-07 | [Vector Frog Jump Safe](category/games/2026/02/20250207-222552-vector-frog-jump-safe/) | Navigate a frog across roads and rivers to reach the safe goal zone at the top.
+* 2026-02-07 | [Geometric Shape Sorter Pro](category/games/2026/02/20250207-143003-geometric-shape-sorter-pro/) | Match falling shapes to corresponding baskets in this fast-paced spatial puzzle game.
+* 2026-02-07 | [Polar Bear Ice Bridge](category/games/2026/02/20250207-140448-polar-bear-ice-bridge/) | Timing-based physics puzzle where you build bridges to help a polar bear cross ice floes.
+* 2026-02-07 | [Binary Crossroad Traffic Control](category/games/2026/02/20250207-100240-binary-crossroad-traffic-control/) | Manage traffic signals at an intersection to pass vehicles without accidents.
+* 2026-02-07 | [Ocean Cleanup Bubble Pop](category/games/2026/02/20250207-100019-ocean-cleanup-bubble-pop/) | Trap ocean trash in bubbles to purify the sea in this addictive puzzle arcade game.
+* 2026-02-07 | [Lunar Lander Physics Lite](category/games/2026/02/20250207-022527-lunar-lander-physics-lite/) | Guide your lander to a safe landing on the lunar surface with gravity physics.
+* 2026-02-07 | [Sliding Number Classic Puzzle](category/games/2026/02/20250207-020507-sliding-number-classic-puzzle/) | Classic 15-puzzle game. Slide numbered tiles to arrange them in order.
+* 2026-02-07 | [Circular Brick Breaker Classic](category/games/2026/02/20250207-005753-circular-brick-breaker-classic/) | 360-degree brick breaker with a ball spawning from center. Rotate the paddle to break circular brick layers.
 
 ## Project Structure
 
 ```
-game-factory/
+mach-ten-project-artifacts/
 ├── category/
-│   ├── games/
-│   │   ├── 2026
-|   │   │   ├── 02
-|   │   │   │   ├── 20260208-131132-000-vector-frogger-road-cross/
-|   │   │   │   │   ├── 20260208-130000-000-vector-tumble-tower-collapse/
-|   │   │   │   │   ├── 20260208-124720-000-vector-lemmings-path-bridge/
-|   |   │   │   │   ├── 20260208-123804-000-vector-parking-valet-pro/
-|   |   │   │   │   ├── 1739028000-vector-puyo-chain-reaction/
-|   |   │   │   │   │   ├── 1739025611-vector-golf-solitaire-classic/
-|   |   │   │   │   ├── 1739025011-vector-battleship-strategic-fleet/
-|   |   │   │   │   ├── 1739023920-vector-plumber-pipe-connector/
-|   |   │   │   │   ├── 1739023900-vector-simon-says-logic/
-|   |   │   │   │   ├── 1738973200-vector-flappy-bird-classic/
-|   |   │   │   │   ├── 1738972630-vector-memory-pattern-match/
-|   |   │   │   │   ├── 1738965018-vector-tictactoe-strategic-variant/
-|   |   │   │   │   ├── 1738964309-vector-tower-defense-lite/
-|   |   │   │   │   ├── 1738963552-vector-frog-jump-safe/
-|   |   │   │   │   ├── 1738935003-geometric-shape-sorter-pro/
-|   |   │   │   │   ├── 1738933488-polar-bear-ice-bridge/
-|   |   │   │   │   ├── 1738918819-ocean-cleanup-bubble-pop/
-|   |   │   │   │   ├── 1738918960-binary-crossroad-traffic-control/
-|   |   │   │   │   ├── 1738891527-lunar-lander-physics-lite/
-|   |   │   │   │   ├── 1738890307-sliding-number-classic-puzzle/
-|   |   │   │   │   ├── 1738886273-circular-brick-breaker-classic/
-|   |   │   │   │   ├── 0713-gravity-stack-balance/
-|   |   │   │   │   ├── 0712-neon-snake-retro/
-|   |   │   │   │   ├── 0701-rhythmic-tile-tap-classic/
-|   |   │   │   │   ├── 0700-quantum-mine-sweeper-lite/
-|   |   │   │   │   ├── 0700-minimalist-falling-sand-box/
-|   |   │   │   │   ├── 0624-zen-garden-match-three/
-|   |   │   │   │   ├── 0623-galactic-dodge-classic/
-|   |   │   │   │   ├── 0622-color-flood-puzzle/
-|   |   │   │   │   └── 0621-neon-snake-retro/
-|   │   └── ... (more categories)
+│   └── games/
+│       └── 2026/
+│           └── 02/
+│               ├── YYYYMMDD-HHMMSS-app-name/
+│               │   ├── main.py              # Entry point
+│               │   ├── game.py              # Main game logic
+│               │   ├── entities.py          # Game entities
+│               │   ├── config.py            # Game constants
+│               │   ├── pyproject.toml       # Dependencies & build config
+│               │   ├── uv.lock              # UV dependency lock
+│               │   ├── appinfo.json        # Metadata
+│               │   └── README.md            # Game documentation
+│               └── ...
 └── README.md
 ```
 
 ## Running the Apps
 
-Each app is self-contained with its own dependencies. Navigate to the app's folder and follow the instructions in its README.md.
+Each app is self-contained with its own dependencies. Navigate to the app's folder and run:
+
+```bash
+# Install dependencies
+uv sync
+
+# Run the game
+uv run python main.py
+```
 
 ## Contributing
 
 Apps are organized by category and dated. When adding a new app:
 
-1. Create a new directory following the naming convention: `category/{category}/{YYYY}/{YYYY-MM-DD}-{index}-{app-name}/`
+1. Create a new directory following the naming convention: `category/{category}/{YYYY}/{YYYYMMDD-HHMMSS-{app-name}/`
 2. Include a `main.py` (or appropriate entry point)
 3. Add a `README.md` with the app description, how to build/run, and examples
 4. Update this root `README.md` to include the new app
