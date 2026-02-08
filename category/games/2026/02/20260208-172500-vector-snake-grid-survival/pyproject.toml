@@ -1,0 +1,18 @@
+[project]
+name = "vector-snake-grid-survival"
+version = "1.0.0"
+description = "Navigate the grid and grow longer without hitting walls or your own tail"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-snake-grid-survival = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

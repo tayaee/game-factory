@@ -1,0 +1,18 @@
+{
+  "app_name": "vector-snake-grid-survival",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260208-172500-vector-snake-grid-survival",
+  "description": "Navigate the grid and grow longer without hitting walls or your own tail in this minimalist arcade classic.",
+  "rationale": "Snake is a fundamental benchmark for reinforcement learning and logic-based AI agents. It provides a clear objective with simple state-space transitions, making it ideal for testing pathfinding algorithms and spatial awareness.",
+  "details": "The game consists of a 20x20 grid where a snake moves continuously in a cardinal direction. The snake starts at length 3. A single food item spawns at a random empty coordinate. When the snake eats food, its length increases by 1, the score increases by 10, and a new food item spawns. The game ends if the snake's head hits the grid boundary or any part of its own body. The frame rate increases slightly as the snake grows to add difficulty.",
+  "game_engine": "Pygame",
+  "state_space": "Grid coordinates (x, y), snake body positions, food position, current direction.",
+  "action_space": "0: Up, 1: Down, 2: Left, 3: Right.",
+  "reward_structure": "Food consumption: +10, Each step survived: +0.1, Collision/Game Over: -100.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py')",
+  "how_to_play": "Use the Arrow Keys (Up, Down, Left, Right) to control the snake's direction. You cannot reverse direction directly (e.g., cannot go Down if moving Up). Eat the red food squares to grow and increase your score. Avoid colliding with the edges of the screen or yourself.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/snake_preview.png"
+}
