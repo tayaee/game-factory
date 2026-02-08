@@ -1,0 +1,15 @@
+[project]
+name = "vector-simon-says-logic"
+version = "0.1.0"
+description = "A high-speed, logic-driven sequence memory game"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+start = "main:main"

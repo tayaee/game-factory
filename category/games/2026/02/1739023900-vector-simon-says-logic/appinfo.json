@@ -1,0 +1,23 @@
+{
+  "app_name": "vector-simon-says-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/1739023900-vector-simon-says-logic",
+  "description": "Master your memory with a high-speed, logic-driven sequence challenge.",
+  "rationale": "Memory games provide a clear baseline for AI agent training in sequential data processing and pattern recognition. This app targets puzzle enthusiasts and developers looking for a clean, logic-heavy environment for reinforcement learning.",
+  "details": "The game features a 2x2 grid of distinct colored panels: Red (Top-Left), Blue (Top-Right), Green (Bottom-Left), and Yellow (Bottom-Right). The game begins by flashing a sequence of colors. The user or agent must replicate the sequence exactly. Each round, the sequence length increases by one. If a wrong panel is selected, the game resets. It uses Python with the Pygame library for rendering and event handling. A pyproject.toml file defines dependencies, and uv manages the environment.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Observe the light sequence. Use the mouse to click the panels in the exact order shown. Alternatively, use keyboard mapping: Q (Red), W (Blue), A (Green), S (Yellow). Score increases by 10 points for every successfully completed sequence length. The objective is to achieve the highest round count without error.",
+  "how_to_cleanup": "rm -rf .venv && rm uv.lock",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "libraries": [
+      "pygame"
+    ],
+    "observation_space": "RGB pixel array or 4-element state vector representing panel states",
+    "action_space": "Discrete(4) corresponding to the four colored panels",
+    "reward_structure": "Round completion: +10, Final score: cumulative points"
+  },
+  "screenshot": "assets/screenshots/simon-says-preview.png"
+}
