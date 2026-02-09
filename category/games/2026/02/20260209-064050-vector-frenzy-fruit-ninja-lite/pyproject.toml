@@ -1,0 +1,6 @@
+[project]
+name = "20260209-064050-vector-frenzy-fruit-ninja-lite"
+version = "0.1.0"
+description = "Slice falling fruits with precision swipes while avoiding dangerous bombs in this vector-style reflex challenge."
+requires-python = ">=3.10"
+dependencies = ["pygame"]

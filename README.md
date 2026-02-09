@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Frenzy: Fruit Ninja Lite](category/games/2026/02/20260209-064050-vector-frenzy-fruit-ninja-lite/) | Slice falling fruits with precision swipes while avoiding dangerous bombs in this vector-style reflex challenge.
 * 2026-02-09 | [Vector Rampaging Gorilla City](category/games/2026/02/20260209-063052-vector-rampaging-gorilla-city/) | Destroy high-rise buildings while dodging defense helicopters in this classic monster rampage simulation.
 * 2026-02-09 | [Vector Kung Fu Master Climb](category/games/2026/02/20260209-061052-vector-kung-fu-master-climb/) | Side-scrolling martial arts action where timing and positioning are everything.
 * 2026-02-09 | [Vector Motos: Gravity Clash](category/games/2026/02/20260209-060000-vector-motos-gravity-clash/) | Bump enemies off the edge in a high-stakes physics-based arena combat.
