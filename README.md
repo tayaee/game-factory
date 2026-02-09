@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Snow Bros Platform Clear](category/games/2026/02/20260209-083015-vector-snowbros-platform-clear/) | Turn enemies into snowballs and roll them to clear the floor in this classic arcade platformer.
 * 2026-02-09 | [Vector Heian-Kyo Alien Trap](category/games/2026/02/20260209-074052-vector-heian-kyo-alien-trap/) | Strategic pitfall trapping game - dig holes, lure aliens, and bury them before they escape.
 * 2026-02-09 | [Vector Columns Falling Match](category/games/2026/02/20260209-072051-vector-columns-falling-match/) | Align three or more matching gems in vertical, horizontal, or diagonal lines as they fall.
 * 2026-02-09 | [Vector Pental Line Connector](category/games/2026/02/20260209-070051-vector-pental-line-connector/) | A strategic logic puzzle where you connect five stones to dominate the board.

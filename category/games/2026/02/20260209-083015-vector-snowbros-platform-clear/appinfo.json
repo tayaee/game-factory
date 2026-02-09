@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-snowbros-platform-clear",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-083015-vector-snowbros-platform-clear",
+  "description": "Turn enemies into snowballs and roll them to clear the floor in this classic arcade platformer.",
+  "rationale": "This game focuses on complex state transitions and chain-reaction physics. It targets developers interested in collision logic, enemy AI states, and those who enjoy the classic bubble-bobble style gameplay with a freezing twist.",
+  "details": "The game consists of a single-screen platform layout. The player controls a character that shoots snow breath. Enemies hit by snow breath gradually freeze. Once fully frozen, the enemy becomes a snowball. The player can then push the snowball, which rolls along platforms, falls down ledges, and bounces off walls, destroying any non-frozen enemies in its path. A level is cleared when all enemies are defeated. The game includes gravity physics, platform jumping, and distinct enemy behaviors like patrolling and chasing.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "frame_rate": 60,
+    "physics": "Rigid body collision for snowballs, grid-based patrolling for enemies"
+  },
+  "how_to_build": "uv init && uv add pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI termination, use Ctrl+C.",
+  "how_to_play": "Move with arrow keys. Jump with 'Space'. Shoot snow with 'Z'. Push a fully frozen snowball with 'Z' or by walking into it. Score +100 for freezing an enemy, +500 for a snowball kill, and +1000 for clearing a level. Avoid contact with unfrozen enemies to prevent life loss.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "screenshot": "assets/screenshots/gameplay.png"
+}
