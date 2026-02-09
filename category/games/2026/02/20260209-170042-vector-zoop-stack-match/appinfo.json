@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-zoop-stack-match",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-170042-vector-zoop-stack-match",
+  "description": "A high-speed elimination puzzle where you fire shapes from a central pointer to clear advancing walls.",
+  "rationale": "Inspired by the 90s classic Zoop, this game tests spatial awareness and quick reflexes. It targets puzzle enthusiasts who enjoy fast-paced action and pattern matching beyond the standard falling-block mechanics.",
+  "details": "The game features a central 1x1 grid where the player character resides. Four rectangular zones (top, bottom, left, right) surround the center. Colored shapes advance from the outer edges toward the center in a grid-based movement. The player can move the central pointer to face any of the four directions. When the player fires, if the color of the fired projectile matches the first shape in that row/column, all consecutive shapes of that same color are cleared, and the player earns points. If the color does not match, the player swaps colors with the shape hit. The game ends if any shape reaches the central player zone. Progression increases the speed of advancing shapes and the variety of colors.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x800",
+    "input_type": "Keyboard",
+    "state_representation": "Grid matrix of colors and player orientation",
+    "reward_structure": "Positive for clearing blocks, negative for swapping colors (time penalty), terminal negative for game over"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill the process or press ESC",
+  "how_to_play": "Use Arrow Keys to move the central pointer and Spacebar to fire. Match your color with incoming shapes to clear them. If colors differ, you will swap colors. Score increases by clearing multiple shapes in a single shot. Prevent any shape from touching the 2x2 central safety zone.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/vector-zoop-stack-match.png"
+}
