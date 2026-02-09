@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-frog-river-log-jump",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-164052-vector-frog-river-log-jump",
+  "description": "Cross the treacherous river by hopping on moving logs in this classic timing challenge.",
+  "rationale": "This game focuses on the core river-crossing mechanic of the classic arcade genre, emphasizing velocity matching and precise spatial timing. It provides a clean environment for AI agents to learn movement relative to moving platforms.",
+  "details": "The game features a grid-based movement system where a frog must navigate from the bottom bank to the top goal. The middle area is a river with multiple lanes. Each lane has logs moving at different speeds and directions. If the frog is on a log, it inherits the log's horizontal velocity. The game ends if the frog touches the water (falling off a log or missing a jump) or hits the screen boundaries while drifting on a log. Obstacles include varying log lengths and speeds. The goal is to reach the safety of the top bank to score points.",
+  "technical_requirements": {
+    "language": "Python 3.10+",
+    "dependencies": [
+      "pygame"
+    ],
+    "build_system": "uv"
+  },
+  "game_rules": {
+    "grid_size": "40x40 pixels per unit",
+    "win_condition": "Reach the top-most row (y=0)",
+    "lose_condition": "Touch river area without a log, or move outside x-axis boundaries",
+    "scoring": "10 points for forward movement, 500 points for reaching the goal"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill the process or press the ESC key",
+  "how_to_play": "Use the arrow keys (UP, DOWN, LEFT, RIGHT) to move the frog one grid cell at a time. Jump onto moving logs to cross the river. Ensure you stay within the screen boundaries while the log carries you horizontally. Reach the top grass area to win.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No screenshot available"
+}
