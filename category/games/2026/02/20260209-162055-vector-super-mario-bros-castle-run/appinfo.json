@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-super-mario-bros-castle-run",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-162055-vector-super-mario-bros-castle-run",
+  "description": "Navigate a treacherous castle filled with firebars and lava pits in this precision platformer.",
+  "rationale": "This game focuses on the high-difficulty 'Castle' levels of classic platformers. It targets players who enjoy tight hitboxes, rhythmic obstacle patterns, and physics-based jumping challenges. It serves as an excellent environment for RL agents to learn timing and spatial awareness.",
+  "details": "The game is a 2D side-scrolling platformer set in a castle environment. The player controls a character that must reach the axe at the end of the level. Key elements include: 1. Firebars: Rotating lines of fire balls that rotate at fixed speeds. 2. Lava Pits: Instant death zones if the character falls in. 3. Moving Platforms: Horizontal and vertical oscillating platforms. 4. Boss (Bowser-lite): A static enemy at the end that jumps and throws projectiles at fixed intervals. The game uses a 16x16 grid-based collision system with gravity and acceleration physics.",
+  "technical_specs": {
+    "resolution": "800x400",
+    "fps": 60,
+    "physics_engine": "AABB collision detection",
+    "state_space": "Player(x, y, vx, vy), Obstacles[(type, x, y, state)], Distance to goal",
+    "action_space": "Left, Right, Jump, Idle"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py') or press ESC in the game window",
+  "how_to_play": "Goal: Reach the axe at the far right of the stage. Scoring: +10 points for every meter moved right, +1000 for completing the level, -500 for death. Controls: Left Arrow to move left, Right Arrow to move right, Spacebar to jump. Avoid touching red fire particles and falling into the floor gaps.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
