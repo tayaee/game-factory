@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Columns Falling Match](category/games/2026/02/20260209-072051-vector-columns-falling-match/) | Align three or more matching gems in vertical, horizontal, or diagonal lines as they fall.
 * 2026-02-09 | [Vector Pental Line Connector](category/games/2026/02/20260209-070051-vector-pental-line-connector/) | A strategic logic puzzle where you connect five stones to dominate the board.
 * 2026-02-09 | [Vector Kaboom: Bomb Catch](category/games/2026/02/20260209-065100-vector-kaboom-bomb-catch/) | Catch falling bombs from the Mad Bomber to save the city in this high-speed reaction challenge.
 * 2026-02-09 | [Vector Frenzy: Fruit Ninja Lite](category/games/2026/02/20260209-064050-vector-frenzy-fruit-ninja-lite/) | Slice falling fruits with precision swipes while avoiding dangerous bombs in this vector-style reflex challenge.

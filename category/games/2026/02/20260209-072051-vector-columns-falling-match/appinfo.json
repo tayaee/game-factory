@@ -1,0 +1,23 @@
+{
+  "app_name": "vector-columns-falling-match",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-072051-vector-columns-falling-match",
+  "description": "Align three or more matching gems in vertical, horizontal, or diagonal lines as they fall.",
+  "rationale": "This project aims to recreate the classic falling-block puzzle 'Columns'. It targets puzzle enthusiasts and serves as an excellent environment for RL agents to learn pattern matching, spatial anticipation, and gravity-based decision making.",
+  "details": "The game consists of a vertical grid (6x13). Triplets of gems (columns) fall from the top. Each triplet contains three gems of different or identical colors. The player can shift the column left or right, and more importantly, cycle the order of the three gems within the falling column. When a column lands, if three or more gems of the same color align vertically, horizontally, or diagonally, they disappear, and the gems above fall into the empty spaces, potentially causing chain reactions. The game ends when the gems reach the top of the grid.",
+  "technical_specs": {
+    "grid_size": "6 columns by 13 rows",
+    "gem_types": 6,
+    "gravity_step": "Decreases as score increases",
+    "input_type": "Keyboard (Discrete)"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PID or close the window",
+  "how_to_play": "Use LEFT/RIGHT arrow keys to move the falling column. Use the UP arrow key to cycle the order of gems within the column. Use the DOWN arrow key to drop the column faster. Align 3+ matching colors in any direction to score points. Higher chains result in multiplier bonuses.",
+  "rl_observation_space": "13x6 grid state (integer values for gem colors) + current falling triplet colors and position.",
+  "rl_action_space": "0: No op, 1: Left, 2: Right, 3: Cycle, 4: Hard drop",
+  "rl_reward_function": "Points gained from clearing gems + Bonus for chain reactions - Penalty for game over.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
