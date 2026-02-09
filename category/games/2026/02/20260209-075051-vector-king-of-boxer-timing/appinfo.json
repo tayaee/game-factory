@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-king-of-boxer-timing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-075051-vector-king-of-boxer-timing",
+  "description": "Master the art of timing and distance in this minimalist arcade boxing duel.",
+  "rationale": "Boxing games provide a perfect environment for AI agents to learn reactive timing, distance management, and state-based decision making. This simplified version focuses on the core mechanics of 'King of Boxer' or 'Punch-Out!!', making it accessible for casual play and robust for reinforcement learning.",
+  "details": "The game features a 2D side-view boxing ring. The player controls a boxer who can move left/right, block high/low, and punch high/low. The opponent AI has predictable but fast attack patterns. The goal is to deplete the opponent's stamina bar before your own runs out. Damage is dealt only if the opponent is not blocking the correct area (High/Low) or is caught during an attack animation (counter-hit). Physical distance determines if a punch connects.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "input_type": "keyboard",
+    "dependencies": [
+      "pygame"
+    ]
+  },
+  "game_rules": {
+    "scoring": "100 points per successful hit, 500 points for a counter-hit, 2000 points for a knockout.",
+    "win_condition": "Reduce opponent health to zero within the time limit.",
+    "lose_condition": "Player health reaches zero or time expires while trailing in health."
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py')",
+  "how_to_play": "Use Left/Right arrow keys to move. Use 'A' for high punch, 'Z' for low punch. Use 'S' for high block, 'X' for low block. Score increases by landing hits. Timing a punch exactly when the opponent starts their animation triggers a counter-hit for double damage and extra points.",
+  "how_to_cleanup": "rm -rf .venv",
+  "state_space_for_rl": "Player_Pos, Opponent_Pos, Player_Action_State, Opponent_Action_State, Player_Health, Opponent_Health, Distance_Between",
+  "action_space_for_rl": "0: Idle, 1: Move_Left, 2: Move_Right, 3: Punch_High, 4: Punch_Low, 5: Block_High, 6: Block_Low",
+  "screenshot": "assets/game_preview.png"
+}
