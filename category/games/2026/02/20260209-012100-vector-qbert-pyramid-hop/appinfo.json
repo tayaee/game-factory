@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-qbert-pyramid-hop",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-012100-vector-qbert-pyramid-hop",
+  "description": "Master the pyramid by changing block colors in this isometric logic-action puzzle.",
+  "rationale": "This game targets players who enjoy spatial reasoning and timing-based challenges. It is an excellent candidate for reinforcement learning due to its discrete grid-based movement and clear objective-driven reward system.",
+  "details": "The game features a 2D isometric pyramid composed of 28 tiles (7 rows). The player controls a character that starts at the top. The objective is to change the color of every tile on the pyramid by jumping on them. Enemies spawn from the top and move downwards or diagonally. Falling off the edge of the pyramid results in immediate game over. A level is cleared when all tiles match the target color. Complexity increases with multiple jumps required per tile in later stages.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "state_space": "Coordinate of player, coordinates of enemies, and a bitmask of tile states",
+    "action_space": "Up-Left, Up-Right, Down-Left, Down-Right"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. System process: kill -9 <pid>",
+  "how_to_play": "Score increases by 25 points for every tile color change and 1000 points for clearing a level. Use Arrow Keys or WASD to jump diagonally: Up-Left (Q/7), Up-Right (E/9), Down-Left (A/1), Down-Right (D/3). Avoid purple enemies and do not jump off the pyramid grid. The game ends if the player touches an enemy or falls.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/qbert_preview.png"
+}
