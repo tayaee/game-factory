@@ -1,0 +1,33 @@
+{
+  "app_name": "vector-tron-light-cycle-grid",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-013206-vector-tron-light-cycle-grid",
+  "description": "Engage in a high-speed strategic battle of survival on a glowing grid where movement creates lethal barriers.",
+  "rationale": "This game focuses on spatial reasoning and predictive logic. It targets players who enjoy classic competitive arcade games and provides a clear environment for AI agents to learn obstacle avoidance and territorial containment.",
+  "details": "The game is a simplified 2D version of the classic Light Cycle race. Two cycles move continuously on a grid. Every move leaves a permanent solid trail behind. Players lose if they collide with the walls of the arena or any trail (their own or the opponent's). The game speeds up over time to increase difficulty. The goal is to outlast the opponent by forcing them into a position where they have no legal moves left.",
+  "technical_specifications": {
+    "language": "Python 3.12+",
+    "libraries": [
+      "pygame"
+    ],
+    "display": "600x600 pixels",
+    "grid_size": "10x10 pixels per cell",
+    "frame_rate": "15-30 FPS (variable difficulty)"
+  },
+  "how_to_build": "uv init && uv add pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press ESC or close the window.",
+  "how_to_play": "Player 1 uses WASD keys. Player 2 (or AI) uses Arrow keys. Score increases for every second survived. You earn a massive bonus if the opponent crashes first. Avoid colliding with walls and lines. Plan your path to trap the opponent in a smaller area of the grid.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "agent_training_data": {
+    "state_space": "Grid matrix (0: empty, 1: wall/trail, 2: P1 head, 3: P2 head)",
+    "action_space": [
+      "UP",
+      "DOWN",
+      "LEFT",
+      "RIGHT"
+    ],
+    "reward_structure": "+0.1 for each safe move, -100 for collision, +50 for winning."
+  },
+  "screenshot": "N/A"
+}

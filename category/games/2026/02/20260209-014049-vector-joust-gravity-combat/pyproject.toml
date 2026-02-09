@@ -1,0 +1,11 @@
+[project]
+name = "vector-joust-gravity-combat"
+version = "0.1.0"
+description = "A simplified gravity-defying aerial duel where height and timing determine the victor"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"
