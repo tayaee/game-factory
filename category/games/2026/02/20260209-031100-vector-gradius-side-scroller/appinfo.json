@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-gradius-side-scroller",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-031100-vector-gradius-side-scroller",
+  "description": "Navigate a high-speed spacecraft through a dangerous cavern while managing tactical power-up systems.",
+  "rationale": "This game focuses on horizontal scrolling mechanics and a unique upgrade system. It provides a strategic layer for AI agents to decide between immediate survival and long-term firepower upgrades, making it an excellent environment for reinforcement learning.",
+  "details": "The game is a simplified side-scrolling shooter inspired by Gradius. The player controls a ship moving through a horizontally scrolling environment filled with obstacles and enemies. Key features include: 1. Continuous auto-scrolling to the right. 2. Enemies appearing in patterns from the right side of the screen. 3. A power-up bar at the bottom consisting of Speed Up, Missile, Double, Laser, and Shield. 4. Collecting red orbs advances the selection pointer on the power-up bar. 5. Tactical decision-making: the player must press a specific key to activate the currently highlighted power-up. 6. Collision with enemies or walls results in immediate life loss.",
+  "how_to_build": "uv init --app; uv add pygame; echo '[project]\nname = \"vector-gradius-side-scroller\"\nversion = \"0.1.0\"\ndependencies = [\"pygame\"]\n' > pyproject.toml",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Control the ship using Arrow Keys (Up, Down, Left, Right). Collect red orbs dropped by specific enemy waves to move the selection pointer on the bottom power-up bar. Press 'Space' to activate the selected power-up. Press 'Z' to fire the primary weapon. Scoring: Destroying a minor enemy adds 100 points, destroying a power-up carrier adds 200 points, and distance traveled adds 1 point per meter. The game ends when all lives are lost.",
+  "how_to_cleanup": "rm -rf .venv pyproject.toml uv.lock",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "input_vector": "ship_y, enemy_positions[], projectile_positions[], powerup_bar_index, current_orbs",
+    "action_space": "up, down, left, right, fire, activate_powerup"
+  },
+  "screenshot": "N/A"
+}
