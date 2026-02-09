@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-super-mario-bros-underwater-dash",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-163052-vector-super-mario-bros-underwater-dash",
+  "description": "Navigate Mario through a dangerous underwater cavern filled with Bloopers and Cheep Cheeps.",
+  "rationale": "Underwater levels offer a unique physics challenge compared to land-based platformers. This app focuses on buoyancy mechanics and precise movement timing, providing a specialized environment for AI agents to learn navigation in high-friction, gravity-defying scenarios.",
+  "details": "This is a simplified 2D side-scrolling underwater action game. The player controls a character with buoyancy; constant input is required to stay afloat. The screen scrolls automatically or as the player moves right. Enemies move in predictable but obstructive patterns. The goal is to reach the end of the stage while collecting coins and avoiding contact with enemies. The game environment includes solid blocks, floating obstacles, and hazard zones. Collision detection is pixel-perfect for sprites.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "physics_engine": "Custom buoyancy-based gravity",
+    "assets": "Vector-based sprite rendering"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'python main.py')",
+  "how_to_play": "Goal: Reach the flagpole at the right end of the level. Score: 100 points per coin collected, 500 points for finishing the level. Controls: Spacebar or Up Arrow to swim upward (overcoming gravity), Left/Right Arrow keys to move horizontally. Losing: Touching an enemy (Blooper or Cheep Cheep) results in an immediate game over and a score of 0 for that run.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "reward_function": {
+    "survival": "+1 per frame",
+    "progression": "+10 per unit of distance moved right",
+    "collection": "+100 per coin",
+    "collision": "-1000 and terminate"
+  },
+  "screenshot": "N/A"
+}

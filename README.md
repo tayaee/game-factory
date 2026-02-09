@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Super Mario Bros Underwater Dash](category/games/2026/02/20260209-163052-vector-super-mario-bros-underwater-dash/) | Navigate through a dangerous underwater cavern filled with Bloopers and Cheep Cheeps using buoyancy-based physics.
 * 2026-02-09 | [Vector Super Mario World Physics](category/games/2026/02/20260209-160000-vector-super-mario-world-physics/) | Master momentum and physics with variable jump height, acceleration, friction, and gravity in a side-scrolling platformer.
 * 2026-02-09 | [Vector Tapper Root Beer Dash](category/games/2026/02/20260209-152030-vector-tapper-root-beer-dash/) | Serve root beer to thirsty customers and catch empty mugs in this high-speed service simulation.
 * 2026-02-09 | [Vector Mappy Trampoline Bounce](category/games/2026/02/20260209-151000-vector-mappy-trampoline-bounce/) | Master trampoline physics to recover stolen items while dodging pursuing cats.
