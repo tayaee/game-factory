@@ -1,0 +1,23 @@
+{
+  "app_name": "vector-tumblepop-vacuum-combat",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-161530-vector-tumblepop-vacuum-combat",
+  "description": "Vacuum up enemies and blast them away in this simplified arcade action platformer.",
+  "rationale": "This game introduces a unique 'inhale and exhale' combat mechanic that differs from standard shooting games. It is designed for players who enjoy strategic positioning and timing, providing a clear reward loop for RL agents to learn crowd control and projectile physics.",
+  "details": "The game is a single-screen platformer. The player controls a character equipped with a vacuum cleaner. Enemies move around the platforms following simple AI patterns (patrolling or chasing). The vacuum has two states: Inhaling and Launching. When inhaling, enemies within a certain range and cone of vision are pulled toward the player. Once an enemy is caught, it is stored in the vacuum (turning into a ball). The player can then launch this ball as a high-speed projectile. If the ball hits other enemies, they are defeated and the ball continues until it hits a wall. The goal is to clear all enemies on the screen within a time limit.",
+  "mechanics": {
+    "gravity": 9.8,
+    "vacuum_range": 150,
+    "vacuum_cone_angle": 45,
+    "max_stored_enemies": 1,
+    "projectile_speed": 400
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f main.py) or press ESC",
+  "how_to_play": "Use LEFT/RIGHT arrow keys to move, SPACE to jump. Press and hold 'Z' to inhale enemies. Once an enemy is captured, release 'Z' and press 'X' to fire the enemy ball in the current facing direction. Scoring: 100 points for capturing an enemy, 500 points for defeating an enemy with a projectile, and a 1000 point bonus for defeating multiple enemies with a single shot.",
+  "rl_observation_space": "Player position (x, y), Player state (empty/full), Enemy positions (x, y) list, Projectile positions (x, y) list, Platform boundaries.",
+  "rl_action_space": "Discrete(6): Move Left, Move Right, Jump, Inhale (Hold Z), Fire (Press X), Idle.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
