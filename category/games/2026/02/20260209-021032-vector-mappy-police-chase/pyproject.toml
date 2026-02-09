@@ -1,0 +1,11 @@
+[project]
+name = "vector-mappy-police-chase"
+version = "0.1.0"
+description = "Navigate a multi-story mansion as a police mouse to retrieve stolen goods while avoiding agile cats."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pygame>=2.6.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

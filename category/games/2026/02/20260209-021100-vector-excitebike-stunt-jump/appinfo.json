@@ -1,0 +1,18 @@
+{
+  "app_name": "vector-excitebike-stunt-jump",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-021100-vector-excitebike-stunt-jump",
+  "description": "Master the rhythm of the track and perform perfect mid-air stunts in this physics-based motocross challenge.",
+  "rationale": "Excitebike is a foundational classic that teaches physics-based balance and resource management (engine heat). This simplified version targets retro gaming fans and provides a high-quality environment for reinforcement learning agents to learn optimal acceleration and tilt control.",
+  "details": "The game is a side-scrolling motocross racer. The player controls a bike on a multi-lane track filled with hurdles, ramps, and mud pits. Key mechanics include: 1. Acceleration: Two types of speed (Normal and Turbo). Turbo increases speed significantly but raises the engine temperature bar. 2. Heat Management: If the temperature bar fills up, the bike overheats and stops for several seconds. 3. Tilt Control: While in the air after a ramp, the player must adjust the bike's angle to land parallel to the ground to maintain speed and avoid crashing. 4. Obstacles: Mud slows the bike down, while ramps provide jump opportunities.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "pkill -f 'python main.py'",
+  "how_to_play": "Score increases based on the distance traveled within the time limit. Use the 'Right Arrow' to accelerate and 'Z' key for Turbo boost. While in the air, use 'Left/Right Arrows' to adjust the pitch (tilt) of the bike. Land flat on both wheels to avoid speed loss or crashing. Avoid overheating the engine by monitoring the heat bar at the bottom.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "game_loop_frequency": "60Hz",
+  "input_space": "Discrete(4) - [None, Accelerate, Turbo, Tilt Left, Tilt Right]",
+  "observation_space": "Box(0, 255, (84, 84, 3)) - RGB screen buffer or Vector(Distance, Speed, Heat, Pitch, Next_Obstacle_Type)",
+  "reward_function": "Positive reward for distance covered; Negative reward for crashing or overheating; Bonus reward for perfect landings.",
+  "screenshot": "assets/screenshots/excitebike_preview.png"
+}

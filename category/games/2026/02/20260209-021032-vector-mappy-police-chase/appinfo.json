@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-mappy-police-chase",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-021032-vector-mappy-police-chase",
+  "description": "Navigate a multi-story mansion as a police mouse to retrieve stolen goods while avoiding agile cats.",
+  "rationale": "This game focuses on pathfinding, timing, and strategic movement within a platformer environment. It is targeted at fans of classic arcade maze games and provides a complex environment for RL agents to learn optimal routing and hazard avoidance.",
+  "details": "The game is a 2D side-scrolling platformer with multiple floors connected by trampolines. The player controls a mouse (Mappy). Objective: Collect all items (stolen goods) scattered across the floors. Hazard: Cats (Meowkies) roam the mansion. Touching a cat on the floor results in a lost life. Trampolines: Jumping on a trampoline allows access to different floors; however, jumping more than three times consecutively without landing on a floor causes the trampoline to break. Doors: Mappy can open/close doors to stun cats or create barriers. Physics: Gravity-based jumping and horizontal movement.",
+  "requirements": {
+    "python": ">=3.12",
+    "dependencies": [
+      "pygame"
+    ]
+  },
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "state_space": "Player coordinates, enemy coordinates, item locations, trampoline health, door states",
+    "action_space": "Left, Right, Jump, No-op"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Goal: Collect all items to advance to the next level. Controls: Use Left/Right arrow keys to move. Press Space to jump. Mappy bounces automatically on trampolines. Doors auto-toggle when Mappy stands near them. Score: Points are awarded for each item collected (100-500 points). A time bonus is awarded for completing levels quickly. Reward for AI: Positive reward for item collection and level completion, negative reward for cat collision or breaking a trampoline.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "screenshot": "N/A"
+}
