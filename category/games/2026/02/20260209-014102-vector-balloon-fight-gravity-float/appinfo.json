@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-balloon-fight-gravity-float",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-014102-vector-balloon-fight-gravity-float",
+  "description": "Master gravity and momentum to pop enemy balloons in this classic aerial combat duel.",
+  "rationale": "This game targets players and AI agents interested in physics-based movement and momentum management. It provides a unique challenge compared to standard platformers by requiring constant input to maintain altitude, making it an excellent environment for testing control algorithms and timing-based decision making.",
+  "details": "The game is a simplified 2D aerial combat arena. The player controls a character suspended by two balloons. The environment features platforms and a water hazard at the bottom. Physics include gravity, inertia, and buoyancy. Enemies (AI agents or bots) also fly using balloons. Collision detection determines outcomes: if an entity hits another from above, the lower entity's balloon pops. If both balloons are popped, the entity falls. Power-ups or extra lives can be spawned on platforms. The game loop manages frame-rate independent physics updates and rendering via a standard graphics library like Pygame.",
+  "game_rules": {
+    "gravity": 0.5,
+    "flap_force": -10.0,
+    "max_balloons": 2,
+    "win_condition": "Eliminate all enemy balloons",
+    "lose_condition": "Player loses all balloons or touches the water"
+  },
+  "technical_spec": {
+    "language": "Python 3.10+",
+    "dependencies": [
+      "pygame"
+    ],
+    "build_system": "uv",
+    "canvas_size": "800x600"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI agents, send SIGINT.",
+  "how_to_play": "Goal: Pop all enemy balloons while protecting your own. Use the 'Left' and 'Right' arrow keys to move horizontally. Press the 'Up' arrow key or 'Space' to flap and gain altitude. Collide with enemies from above to pop their balloons. Each kill grants 500 points. Staying alive increases score over time (+10 per second). If you hit an enemy from below or the side, you may lose a balloon. Touching the water at the bottom results in immediate game over.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/balloon-fight-preview.png"
+}
