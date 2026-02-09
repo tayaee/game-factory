@@ -1,0 +1,19 @@
+[project]
+name = "vector-pental-line-connector"
+version = "0.1.0"
+description = "A strategic logic puzzle where you connect five stones to dominate the board"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[dependency-groups]
+dev = []
