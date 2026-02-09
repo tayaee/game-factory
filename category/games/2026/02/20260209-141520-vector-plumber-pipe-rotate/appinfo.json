@@ -1,0 +1,17 @@
+{
+  "app_name": "vector-plumber-pipe-rotate",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-141520-vector-plumber-pipe-rotate",
+  "description": "Connect the water flow by rotating pipe segments in a race against time.",
+  "rationale": "This game targets puzzle enthusiasts and logic learners. It provides a structured grid environment perfect for AI agents to practice pathfinding and state-optimization algorithms while remaining intuitive for human players of all ages.",
+  "details": "The game consists of a 7x7 grid. Each cell contains a pipe segment of various shapes: straight, L-shaped, T-shaped, or Cross-shaped. One cell is designated as the 'Source' (Water Inlet) and another as the 'Sink' (Target Exit). Water starts flowing from the Source after a 10-second countdown. The player must click on individual pipe segments to rotate them 90 degrees clockwise. A level is cleared if a continuous path is formed from Source to Sink before the water reaches a dead end or an open pipe edge. The game features a minimalist monochrome UI with high-contrast lines for pipes and a filling animation for water flow.",
+  "how_to_build": "uv init; uv add pygame; echo '[project]\nname = \"vector-plumber-pipe-rotate\"\nversion = \"0.1.0\"\ndependencies = [\"pygame\"]\n' > pyproject.toml",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Score increases based on the number of pipes used in the successful path and the speed of completion. Use the Mouse Left Click to rotate a pipe segment. Form a closed path from the designated start point to the end point. If water leaks, the game ends. Score formula: $Score = (Pipes \times 100) + (RemainingTime \times 50)$.",
+  "how_to_cleanup": "rm -rf .venv pyproject.toml",
+  "state_space": "7x7 grid with integer values 0-3 representing rotation and 0-4 representing pipe type.",
+  "action_space": "Discrete(49) representing the cell index to click for rotation.",
+  "reward_structure": "Positive reward for each pipe connected to the flow; Large positive reward for reaching the Sink; Negative reward for time elapsed; Terminal negative reward for leaks.",
+  "screenshot": "assets/game_preview.png"
+}
