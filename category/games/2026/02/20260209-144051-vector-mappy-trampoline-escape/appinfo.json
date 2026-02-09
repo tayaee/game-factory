@@ -1,0 +1,37 @@
+{
+  "app_name": "vector-mappy-trampoline-escape",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-144051-vector-mappy-trampoline-escape",
+  "description": "Bounce on trampolines to collect loot and dodge cats in this simplified classic arcade chase.",
+  "rationale": "This game focuses on timing-based navigation and risk management. It provides an excellent environment for AI agents to learn spatial awareness and vertical movement patterns using a finite resource (trampoline durability).",
+  "details": "The game is a 2D side-scroller with a multi-floor building structure connected by vertical trampoline zones. The player (Mappy) must collect all target items (radio, TV, safe) spread across floors to complete the level. Enemies (cats) move horizontally on floors and will chase Mappy. Mappy is safe while bouncing on a trampoline, but each consecutive bounce changes the trampoline color (Green -> Blue -> Yellow -> Red). If the player bounces on a Red trampoline, it breaks, and Mappy falls. Landing on a floor resets the trampoline durability. The game ends if a cat touches Mappy on a floor or if Mappy falls to the bottom of a broken trampoline shaft.",
+  "game_rules": {
+    "scoring": {
+      "item_radio": 100,
+      "item_tv": 200,
+      "item_safe": 500,
+      "level_clear_bonus": 1000
+    },
+    "trampoline_states": [
+      "Green",
+      "Blue",
+      "Yellow",
+      "Red",
+      "Broken"
+    ],
+    "win_condition": "Collect all items in the stage.",
+    "lose_condition": "Collision with enemy on floor or falling through a broken trampoline."
+  },
+  "technical_specs": {
+    "resolution": "800x600",
+    "framework": "Pygame",
+    "input_type": "Keyboard",
+    "observation_space": "RGB Array or Entity Coordinates"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'uv run main.py') or press ESC",
+  "how_to_play": "Use LEFT and RIGHT arrow keys to move Mappy on floors. Use the SPACE bar or direction keys to jump into the trampoline shaft. While in the air, Mappy cannot be harmed by cats. The objective is to navigate floors to touch all items. Avoid cats on the floors. Do not bounce more than 3 times on a single trampoline without landing on a floor.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No screenshot available"
+}
