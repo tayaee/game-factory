@@ -15,12 +15,12 @@
     "resolution": "800x600",
     "fps": 60,
     "state_space": "Player coordinates, enemy coordinates, item locations, trampoline health, door states",
-    "action_space": "Left, Right, Jump, No-op"
+    "action_space": "Left, Right, Open/Close Door, No-op"
   },
-  "how_to_build": "uv sync",
-  "how_to_start": "uv run python main.py",
+  "how_to_build": "uv init && uv add pygame",
+  "how_to_start": "uv run main.py",
   "how_to_stop": "pkill -f main.py",
-  "how_to_play": "Goal: Collect all items to advance to the next level. Controls: Use Left/Right arrow keys to move. Press Space to jump. Mappy bounces automatically on trampolines. Doors auto-toggle when Mappy stands near them. Score: Points are awarded for each item collected (100-500 points). A time bonus is awarded for completing levels quickly. Reward for AI: Positive reward for item collection and level completion, negative reward for cat collision or breaking a trampoline.",
+  "how_to_play": "Goal: Collect all items to advance to the next level. Controls: Use Left/Right arrow keys to move. Mappy jumps automatically on trampolines. Press Space to interact with doors. Score: Points are awarded for each item collected. A bonus is given for completing the level quickly. Reward for AI: Positive reward for item collection and level completion, negative reward for cat collision or breaking a trampoline.",
   "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
   "screenshot": "N/A"
 }
