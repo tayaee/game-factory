@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-tapper-soda-shop-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-015105-vector-tapper-soda-shop-logic",
+  "description": "Serve thirsty customers before they reach the end of the bar in this fast-paced retro management sim.",
+  "rationale": "This game tests multitasking skills, reflexes, and resource management. It is designed for players who enjoy high-pressure arcade classics and for AI agents to learn optimal pathfinding and task prioritization.",
+  "details": "The game consists of four horizontal bars. Customers appear at the left end of each bar and slowly advance toward the right. The player controls a bartender who must pour drinks and send them sliding down the bar to the customers. When a customer receives a drink, they are pushed back or exit the screen. If a customer reaches the right end of the bar, or if the player throws a drink where there is no customer, a life is lost. Empty mugs are occasionally sent back by customers, which the player must catch to avoid breakage. The game speed and customer frequency increase over time.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "input_type": "keyboard",
+    "state_space": "Customer positions, bartender position, drink positions, empty mug positions",
+    "action_space": "Move Up, Move Down, Pour/Throw Drink"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill -9 $(pgrep -f vector-tapper-soda-shop-logic)",
+  "how_to_play": "Use the UP and DOWN arrow keys to switch between the four bars. Press the SPACEBAR to pour a drink and send it sliding left. Scoring: 100 points for serving a customer, 50 points for catching an empty mug. Game ends when a customer reaches the bartender's end or 3 lives are lost.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/vector-tapper-soda-shop-logic.png"
+}

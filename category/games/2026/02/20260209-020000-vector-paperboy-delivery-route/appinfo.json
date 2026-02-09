@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-paperboy-delivery-route",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-020000-vector-paperboy-delivery-route",
+  "description": "Navigate the suburban streets and deliver newspapers to subscribers while dodging obstacles in this isometric-style arcade challenge.",
+  "rationale": "This game targets fans of retro arcade classics and physics-based timing puzzles. It provides a structured environment for AI agents to learn pathfinding, projectile physics (throwing newspapers), and collision avoidance in a constrained 2D/pseudo-3D space.",
+  "details": "The player controls a cyclist moving forward through a scrolling suburban neighborhood. The goal is to throw newspapers into the mailboxes or onto the porches of highlighted houses. Obstacles include parked cars, pedestrians, runaway lawnmowers, and street grates. The game ends if the player crashes or misses too many deliveries. Houses are color-coded: subscribers (bright) and non-subscribers (dark). Breaking windows of non-subscribers is penalized, while breaking windows of subscribers leads to losing them as customers next round.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "input_type": "Keyboard",
+    "state_space": "Player position, obstacle coordinates, mailbox target coordinates, newspaper ammo count",
+    "action_space": "Move Left, Move Right, Accelerate, Brake, Throw Left"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window.",
+  "how_to_play": "Use the Arrow Keys to steer and control speed. Press Spacebar to throw a newspaper to the left. Score increases by 100 for every mailbox hit and 50 for every porch landing. Avoiding obstacles keeps the streak multiplier active. Crashing loses one life; the game ends when all lives are gone.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/paperboy_preview.png"
+}

@@ -1,0 +1,13 @@
+[project]
+name = "vector-paperboy-delivery-route"
+version = "0.1.0"
+description = "Navigate suburban streets and deliver newspapers to subscribers while dodging obstacles"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
