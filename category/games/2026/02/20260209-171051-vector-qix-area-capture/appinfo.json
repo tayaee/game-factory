@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-qix-area-capture",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-171051-vector-qix-area-capture",
+  "description": "Claim territory while dodging the deadly geometric flicker in this classic arcade reimagining.",
+  "rationale": "This project offers a high-stakes spatial reasoning challenge for both humans and AI agents. It requires precise timing and path planning under pressure, making it an excellent environment for testing reinforcement learning models in dynamic boundary-assertion scenarios.",
+  "details": "The game is a simplified clone of the classic arcade game Qix. The player controls a small marker on the edges of a rectangular field. The goal is to move into the empty space, draw a closed shape, and return to an edge to 'claim' that area. A wandering enemy entity (the Qix) moves unpredictably within the unclaimed space. If the Qix touches the marker's trail while a shape is being drawn, the player loses a life. Sparks also travel along the claimed boundaries to pursue the player. The level is cleared when the player claims 75% or more of the total area.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "rendering_library": "pygame-ce",
+    "resolution": "800x600",
+    "frame_rate": 60,
+    "state_space": "Grid-based occupancy map and vector coordinates of player and enemies"
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window",
+  "how_to_play": "Use ARROW KEYS to move the marker. Hold 'SPACE' while moving to draw a line and capture territory. Score increases based on the percentage of area captured in a single move. Capturing large chunks at once yields higher multipliers. Avoid contact with the Qix (flickering lines) and the Sparks (moving along existing borders).",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "reward_structure": {
+    "area_captured": "+10 points per 1% area",
+    "risk_bonus": "Capture multiplier based on distance from Qix during draw",
+    "death_penalty": "-500 points",
+    "level_complete": "+2000 points"
+  },
+  "screenshot": "N/A"
+}

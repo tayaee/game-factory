@@ -1,0 +1,19 @@
+[project]
+name = "vector-qix-area-capture"
+version = "1.0.0"
+description = "Claim territory while dodging the deadly geometric flicker in this classic arcade reimagining"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[dependency-groups]
+dev = []

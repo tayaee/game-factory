@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-09 | [Vector Qix Area Capture](category/games/2026/02/20260209-171051-vector-qix-area-capture/) | Claim territory while dodging the deadly geometric flicker in this classic arcade reimagining.
 * 2026-02-09 | [Vector Brick Puzzle Tetromino Fit](category/games/2026/02/20260209-165052-vector-brick-puzzle-tetromino-fit/) | Fit classic tetromino shapes into a 10x10 grid to clear lines and score high points.
 * 2026-02-09 | [Vector Frog River Log Jump](category/games/2026/02/20260209-164052-vector-frog-river-log-jump/) | Cross the treacherous river by hopping on moving logs in this classic timing challenge.
 * 2026-02-09 | [Vector Super Mario Bros Underwater Dash](category/games/2026/02/20260209-163052-vector-super-mario-bros-underwater-dash/) | Navigate through a dangerous underwater cavern filled with Bloopers and Cheep Cheeps using buoyancy-based physics.
