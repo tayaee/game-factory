@@ -1,0 +1,18 @@
+[project]
+name = "vector-heian-kyo-alien-trap"
+version = "1.0.0"
+description = "Strategic pitfall trapping game inspired by the 1980 classic Heian-kyo Alien"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-heian-kyo-alien-trap = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

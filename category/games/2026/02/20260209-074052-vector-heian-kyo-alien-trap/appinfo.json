@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-heian-kyo-alien-trap",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-074052-vector-heian-kyo-alien-trap",
+  "description": "Strategic pitfall trapping game inspired by the 1980 classic Heian-kyo Alien.",
+  "rationale": "This game focuses on spatial management and timing rather than fast reflexes alone. It targets players who enjoy classic arcade strategy and provides a clear environment for reinforcement learning agents to learn pathfinding and predictive movement.",
+  "details": "The player controls a character in a grid-based maze. Aliens roam the maze randomly or with simple pursuit logic. The player must dig a hole in the floor, wait for an alien to fall into it, and then fill the hole to eliminate the alien. If the player touches an alien, a life is lost. If an alien stays in a hole for too long without being buried, it crawls out. The goal is to clear all aliens from the stage. Digging and filling take a short amount of time, during which the player is vulnerable.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "grid_size": "20x15",
+    "fps": 60,
+    "input_type": "Keyboard",
+    "state_representation": "Grid-based matrix (0: empty, 1: wall, 2: hole, 3: player, 4: alien)"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill process or press ESC",
+  "how_to_play": "Use arrow keys to move. Press 'Z' to dig a hole and 'X' to fill it. Earn 500 points for burying an alien. Earn 100 points for trapping an alien in a hole. Lose 1 life if an alien touches you. Clear all aliens to advance to the next level. High scores are recorded based on speed and accuracy of elimination.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "rl_agent_info": {
+    "observation_space": "Box(0, 4, (15, 20))",
+    "action_space": "Discrete(6) - Up, Down, Left, Right, Dig, Fill",
+    "reward_structure": {
+      "step_penalty": -0.01,
+      "trap_alien": 1.0,
+      "bury_alien": 5.0,
+      "death_penalty": -10.0,
+      "win_bonus": 20.0
+    }
+  },
+  "screenshot": "assets/screenshots/gameplay.png"
+}
