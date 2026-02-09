@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-ice-hockey-classic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-045050-vector-ice-hockey-classic",
+  "description": "A fast-paced 1v1 ice hockey duel featuring physics-based puck movement and strategic positioning.",
+  "rationale": "Ice hockey offers a unique challenge for AI agents due to the frictionless movement (sliding) and the need to predict puck trajectories. This simplified version focuses on core mechanics, making it an ideal environment for testing competitive multi-agent reinforcement learning or simple reflex-based logic.",
+  "details": "The game is a 2D top-down ice hockey match played on a rectangular rink with two goals at opposite ends. Each team consists of one player (the Mallet/Paddle). The puck moves with low friction, bouncing off walls. Players can move in 8 directions and must collide with the puck to shoot it. Features include: 1. Continuous physics for puck and players. 2. Scoring system when the puck enters the goal area. 3. Timed matches (e.g., 3 minutes). 4. Boundary collision handling. 5. Simple AI opponent logic for single-player mode.",
+  "tech_stack": {
+    "language": "Python 3.12+",
+    "library": "Pygame-ce",
+    "manager": "uv"
+  },
+  "game_rules": {
+    "win_condition": "Score more goals than the opponent within the time limit.",
+    "puck_reset": "After a goal, the puck resets to the center of the rink.",
+    "player_constraints": "Players cannot cross the center line into the opponent's half (optional rule for balance)."
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI termination, use Ctrl+C.",
+  "how_to_play": "Goal: Hit the puck into the opponent's goal. Controls: Use Arrow Keys to move the player character. The character's velocity is transferred to the puck upon impact. Score +1 point for every goal scored. Higher velocity hits result in faster puck movement.",
+  "how_to_cleanup": "rm -rf .venv",
+  "observation_space": "Puck position (x, y), Puck velocity (vx, vy), Player position (x, y), Opponent position (x, y), Goal positions.",
+  "action_space": "Discrete(9): [None, Up, Down, Left, Right, Up-Left, Up-Right, Down-Left, Down-Right]",
+  "screenshot": "assets/gameplay_preview.png"
+}

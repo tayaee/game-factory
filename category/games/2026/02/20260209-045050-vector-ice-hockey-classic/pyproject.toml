@@ -1,0 +1,18 @@
+[project]
+name = "vector-ice-hockey-classic"
+version = "1.0.0"
+description = "A fast-paced 1v1 ice hockey duel featuring physics-based puck movement"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+vector-ice-hockey-classic = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

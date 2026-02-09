@@ -1,0 +1,38 @@
+"""Game configuration constants for Vector Ice Hockey Classic."""
+
+# Screen settings
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+FPS = 60
+
+# Colors
+COLOR_RINK = (220, 230, 255)
+COLOR_RINK_BORDER = (50, 80, 150)
+COLOR_LINES = (200, 50, 50)
+COLOR_CENTER_LINE = (100, 100, 255)
+COLOR_GOAL = (50, 200, 50)
+COLOR_PUCK = (20, 20, 20)
+COLOR_PLAYER = (200, 50, 50)
+COLOR_OPPONENT = (50, 50, 200)
+COLOR_TEXT = (30, 30, 30)
+COLOR_OVERLAY = (0, 0, 0, 180)
+
+# Game settings
+MATCH_TIME_SECONDS = 180  # 3 minutes
+GOAL_WIDTH = 120
+PUCK_RADIUS = 12
+PLAYER_RADIUS = 25
+
+# Physics
+PUCK_FRICTION = 0.995
+PLAYER_SPEED = 5.0
+PUCK_MAX_SPEED = 15.0
+BOUNCE_DAMPING = 0.9
+
+# AI settings
+AI_SPEED = 3.5
+AI_REACTION_DELAY = 10  # frames
+AI_ERROR_CHANCE = 0.15
+
+# Scoring
+SCORE_GOAL = 1
