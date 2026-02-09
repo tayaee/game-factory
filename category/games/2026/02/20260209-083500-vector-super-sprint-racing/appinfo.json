@@ -1,0 +1,18 @@
+{
+  "app_name": "vector-super-sprint-racing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260209-083500-vector-super-sprint-racing",
+  "description": "A top-down 2D racing game focusing on precision cornering and high-speed laps.",
+  "rationale": "Classic top-down racers provide a perfect environment for training AI agents in continuous control and path optimization. This version targets retro gaming fans and reinforcement learning researchers interested in navigation efficiency.",
+  "details": "The game features a fixed-screen race track viewed from above. Players control a small car that accelerates and steers through corners. The track is defined by inner and outer boundaries; colliding with boundaries or obstacles significantly reduces speed. The goal is to complete 3 laps in the shortest time possible. The physics model includes basic friction, momentum, and turning radii. The race environment is rendered using a clean, monochromatic vector style to ensure high contrast for computer vision processing.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Accelerate using the Up arrow key and steer with Left and Right arrow keys. Braking is mapped to the Down arrow key. Score increases based on the number of checkpoints passed. A massive bonus is awarded upon completing a full lap. For AI agents, the reward function is: +0.1 per frame for moving forward, +10 for passing a checkpoint, and -5 for hitting a wall.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/racing_top_down.png",
+  "state_space": "Continuous (X, Y coordinates, velocity, rotation angle, distance to nearest track boundaries in 8 directions)",
+  "action_space": "Discrete (0: No action, 1: Accelerate, 2: Left, 3: Right, 4: Brake)",
+  "win_condition": "Complete 3 laps",
+  "lose_condition": "None (Time-limited trial)"
+}
