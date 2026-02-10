@@ -1,0 +1,11 @@
+[project]
+name = "vector-ice-hockey-slapshot"
+version = "0.1.0"
+description = "A fast-paced 1v1 ice hockey duel with physics-based puck control"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.6.0",
+]
+
+[project.scripts]
+start = "main:main"

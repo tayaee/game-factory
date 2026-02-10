@@ -1,0 +1,19 @@
+{
+  "app_name": "vector-ice-hockey-slapshot",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-070052-vector-ice-hockey-slapshot",
+  "description": "A fast-paced 1v1 ice hockey duel focusing on physics-based puck control and strategic positioning.",
+  "rationale": "This game targets casual players and AI researchers. It provides a clean environment for testing multi-agent reinforcement learning (MARL) where agents must coordinate movement and shot timing in a low-friction physics environment.",
+  "details": "The game consists of a rectangular rink with two goals on opposite ends. Two circular players (Home and Away) move in a 2D space. A puck starts at the center. Players use physics-based momentum to bump the puck into the opponent's goal. Rules: 1. Friction is extremely low to simulate ice. 2. Players cannot cross the center line (simplified version). 3. First to 5 points wins. 4. Puck bounces off walls with elastic collisions.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Goal: Hit the puck into the enemy goal (right side for Player 1). Scoring: Each goal grants 1 point. Controls: Player 1 uses Arrow Keys for movement and 'Space' for a short-range burst (slapshot). Player 2 (or AI) uses WASD and 'Shift'. Scoring a goal resets the puck to the center.",
+  "how_to_cleanup": "rm -rf .venv",
+  "game_engine": "pygame",
+  "resolution": "800x400",
+  "state_space": "Player positions (x,y), Player velocities (vx,vy), Puck position (x,y), Puck velocity (vx,vy), Scores",
+  "action_space": "Continuous (2D force vector) or Discrete (Up, Down, Left, Right, Slapshot)",
+  "reward_structure": "+1.0 for scoring a goal, -1.0 for conceding a goal, +0.1 for puck contact, -0.01 per step to encourage speed.",
+  "screenshot": "Not available"
+}
