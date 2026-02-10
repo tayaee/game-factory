@@ -1,0 +1,7 @@
+[project]
+name = "vector-karateka-clash-timing"
+version = "0.1.0"
+dependencies = ["pygame-ce"]
+
+[tool.uv]
+dev-dependencies = []

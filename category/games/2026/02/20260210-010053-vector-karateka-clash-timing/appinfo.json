@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-karateka-clash-timing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-010053-vector-karateka-clash-timing",
+  "description": "Master the art of karate by timing your strikes and blocks in a minimalist duel.",
+  "rationale": "This game focuses on timing and state-based combat, providing a perfect environment for AI agents to learn predictive modeling and reactive decision-making in a 1-on-1 competitive setting.",
+  "details": "A 2D side-view martial arts duel. Two fighters (Player and AI) face each other on a single plane. Each character has a stance, a health bar (Ki), and three primary actions: High Strike, Low Strike, and Block. A High Strike can be blocked by a neutral stance/block, while a Low Strike must be avoided or countered. Movement is limited to stepping forward or backward to manage distance. The simplified physics ensures that every hit has a clear recovery frame, making it a strategic battle of frames rather than button mashing.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "rendering_library": "pygame-ce",
+    "state_space": "Player position, Enemy position, Player stance, Enemy stance, Animation frame index",
+    "action_space": "Move Left, Move Right, High Punch, Low Kick, Block, Idle"
+  },
+  "pyproject_toml": "[project]\nname = \"vector-karateka-clash-timing\"\nversion = \"0.1.0\"\ndependencies = [\"pygame-ce\"]\n\n[tool.uv]\ndev-dependencies = []",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Goal: Reduce the opponent's health to zero. \n- Left/Right Arrow Keys: Move character. \n- 'A' Key: High Punch (targets upper body). \n- 'S' Key: Low Kick (targets legs). \n- 'D' Key: Block (reduces incoming strike damage). \n- Scoring: 100 points for a successful hit, 500 points for winning a round. Penalties applied for taking damage.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/game_preview.png"
+}
