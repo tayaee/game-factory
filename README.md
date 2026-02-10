@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Mushroom Chase](category/games/2026/02/20260210-073052-vector-super-mario-bros-mushroom-chase/) | Catch the bouncing magic mushroom across moving platforms before it falls into the abyss.
 * 2026-02-10 | [Vector Ice Hockey Slapshot](category/games/2026/02/20260210-070052-vector-ice-hockey-slapshot/) | Physics-based 1v1 ice hockey duel with slapshot mechanics and elastic puck collisions.
 * 2026-02-10 | [Vector Paper Plane Glide](category/games/2026/02/20260210-060052-vector-paper-plane-glide/) | Master the art of gliding through evolving narrow corridors in this physics-based flight skill game.
 * 2026-02-10 | [Vector Super Mario Bros Enemy Stomp](category/games/2026/02/20260210-053052-vector-super-mario-bros-enemy-stomp/) | Master the art of the precision jump by stomping enemies in a continuous gauntlet.

@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-super-mario-bros-mushroom-chase",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-073052-vector-super-mario-bros-mushroom-chase",
+  "description": "Catch the magic mushroom across moving platforms before it falls into the abyss.",
+  "rationale": "This game focuses on tracking a dynamic objective while navigating complex terrain. It targets users who enjoy classic platforming mechanics and serves as an excellent environment for AI agents to learn predictive movement and spatial navigation.",
+  "details": "The game is a single-screen platformer. A Super Mushroom spawns at a random location and moves horizontally, bouncing off walls and falling due to gravity. The player (Mario) must catch the mushroom to score points. The environment consists of multiple floating platforms with gaps. If the mushroom falls off the bottom of the screen, it is lost and a new one spawns with a score penalty. The game features 2D vector graphics with a professional monochrome or high-contrast dual-tone palette.",
+  "game_rules": {
+    "scoring": "Catching a mushroom: +100 points. Mushroom falling off-screen: -50 points.",
+    "win_condition": "Reach 1000 points.",
+    "lose_condition": "Losing 5 mushrooms.",
+    "physics": "Gravity affects both the player and the mushroom. The mushroom reverses direction upon hitting a vertical boundary."
+  },
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "frame_rate": "60 FPS",
+    "package_manager": "uv"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PPID or press ESC",
+  "how_to_play": "Use LEFT and RIGHT arrow keys to move. Press SPACE to jump. Collision with the mushroom increases the score. Avoid falling into the gaps between platforms.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
