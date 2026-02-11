@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-11 | [Vector Super Mario Bros Springboard Physics](category/games/2026/02/20260211-044336-vector-super-mario-bros-springboard-physics/) | Master the timing of physics-based spring jumps to reach high-altitude platforms.
 * 2026-02-11 | [Vector Kung Fu Kick Timing](category/games/2026/02/20260211-042627-vector-kung-fu-kick-timing/) | Master the art of the perfect strike in this rhythm-based martial arts defense game.
 * 2026-02-11 | [Vector Trench Run Pursuit](category/games/2026/02/20260211-041000-vector-trench-run-pursuit/) | Navigate a high-speed narrow corridor while dodging barriers and destroying enemy nodes.
 * 2026-02-11 | [Vector Super Mario Bros Underwater Treasure Hunt](category/games/2026/02/20260211-034800-vector-super-mario-bros-underwater-treasure-hunt/) | Navigate the deep sea to collect coins while dodging relentless Bloopers and Cheep Cheeps.

@@ -1,0 +1,39 @@
+{
+  "app_name": "vector-super-mario-bros-springboard-physics",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-044336-vector-super-mario-bros-springboard-physics",
+  "description": "Master the timing of physics-based spring jumps to reach high-altitude platforms.",
+  "rationale": "This game focuses on the specific mechanic of variable jump heights using a springboard, a classic element in platformers. It provides a specialized environment for AI agents to learn momentum conservation and timing-dependent velocity multipliers, which are core to advanced platforming logic.",
+  "details": "The game features a single-screen environment with a character (Mario-like) and several springboards (jump pads) scattered on the floor. Platforms are positioned at varying heights, some unreachable by normal jumping. The primary mechanic is the springboard logic: if the player lands on a spring and presses the jump key at the exact moment of compression, they receive a 2.5x vertical velocity boost. If they don't press jump, they receive a standard 1.2x bounce. The goal is to collect all floating coins by navigating through these high-altitude platforms. The game uses a simple AABB collision system and basic gravity physics.",
+  "requirements": [
+    "python >= 3.10",
+    "pygame-ce"
+  ],
+  "game_rules": {
+    "gravity": 0.8,
+    "normal_jump_velocity": -12,
+    "spring_boost_multiplier": 2.5,
+    "passive_bounce_multiplier": 1.2,
+    "win_condition": "Collect all coins (10 coins total)",
+    "lose_condition": "Falling below the screen boundary"
+  },
+  "technical_specs": {
+    "resolution": "800x600",
+    "fps": 60,
+    "input_type": "Keyboard",
+    "state_representation": [
+      "player_x",
+      "player_y",
+      "player_vx",
+      "player_vy",
+      "nearest_spring_dist",
+      "spring_compression_state"
+    ]
+  },
+  "how_to_build": "uv run python -m pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window.",
+  "how_to_play": "Move left and right using ARROW KEYS. Press 'SPACE' to jump. To perform a high jump, land on a red springboard and press 'SPACE' exactly when the spring is compressed. Score increases by 100 points for each coin collected. Reaching the highest platform grants a 500-point bonus.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "N/A"
+}

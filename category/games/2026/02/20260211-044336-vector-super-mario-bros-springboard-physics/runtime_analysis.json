@@ -1,0 +1,95 @@
+{
+  "overall_status": "PASSED",
+  "tests": [
+    {
+      "name": "pygame_init",
+      "passed": true,
+      "details": "pygame initialized successfully"
+    },
+    {
+      "name": "display_creation",
+      "passed": true,
+      "details": "Created 800x600 display"
+    },
+    {
+      "name": "clock_creation",
+      "passed": true,
+      "details": "Clock created for FPS control"
+    },
+    {
+      "name": "font_creation",
+      "passed": true,
+      "details": "Fonts created successfully"
+    },
+    {
+      "name": "player_creation",
+      "passed": true,
+      "details": "Player created at (100, 450)"
+    },
+    {
+      "name": "platform_creation",
+      "passed": true,
+      "details": "Created 3 platforms"
+    },
+    {
+      "name": "springboard_creation",
+      "passed": true,
+      "details": "Created 2 springboards"
+    },
+    {
+      "name": "coin_creation",
+      "passed": true,
+      "details": "Created 2 coins"
+    },
+    {
+      "name": "physics_constants",
+      "passed": true,
+      "details": "Gravity=0.8, Jump=-12, SpringBoost=2.5x"
+    },
+    {
+      "name": "jump_mechanic",
+      "passed": true,
+      "details": "Jump executed, vy=-12"
+    },
+    {
+      "name": "spring_boost_jump",
+      "passed": true,
+      "details": "Spring boost jump, vy=-30.0 (expected -30)"
+    },
+    {
+      "name": "game_loop",
+      "passed": true,
+      "details": "Ran 180 iterations in 2.93s, avg FPS: 57.9"
+    },
+    {
+      "name": "spring_physics_calculation",
+      "passed": true,
+      "details": "Spring boost velocity correctly calculated: -30.0"
+    },
+    {
+      "name": "passive_bounce_calculation",
+      "passed": true,
+      "details": "Passive bounce velocity correctly calculated: -14.399999999999999"
+    },
+    {
+      "name": "aabb_collision",
+      "passed": true,
+      "details": "AABB collision detection working correctly"
+    },
+    {
+      "name": "coin_collection",
+      "passed": true,
+      "details": "Coin collection detection working"
+    },
+    {
+      "name": "input_handling",
+      "passed": true,
+      "details": "Keyboard input system accessible"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "start_time": "2026-02-11 04:52:48",
+  "duration_seconds": 3.1,
+  "end_time": "2026-02-11 04:52:51"
+}
