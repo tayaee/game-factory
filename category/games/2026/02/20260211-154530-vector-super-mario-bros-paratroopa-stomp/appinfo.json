@@ -1,0 +1,34 @@
+{
+  "app_name": "vector-super-mario-bros-paratroopa-stomp",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-154530-vector-super-mario-bros-paratroopa-stomp",
+  "description": "Master the art of mid-air precision by stomping on flying Koopa Paratroopas to stay aloft.",
+  "rationale": "This game focuses on verticality and timing, challenging players to maintain momentum in a gravity-based environment. It serves as a specialized training ground for reinforcement learning agents to learn aerial trajectory prediction and sequential jumping logic.",
+  "details": "The game features a player character at the bottom of the screen and a series of Paratroopas (flying turtles) descending from the top in various sinusoidal patterns. The player must jump and collide with the top of a Paratroopa to bounce higher. If the player misses and falls to the bottom of the screen, the game ends. If the player hits the side or bottom of a Paratroopa, they lose a life. The goal is to survive as long as possible while accumulating points for each successful consecutive stomp.",
+  "game_mechanics": {
+    "gravity": 0.5,
+    "jump_impulse": -10.0,
+    "bounce_impulse": -12.0,
+    "enemy_speed_range": [
+      2.0,
+      5.0
+    ],
+    "spawn_rate": "1.5 seconds"
+  },
+  "technical_specs": {
+    "language": "Python 3.11+",
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "color_palette": [
+      "#FFFFFF",
+      "#000000",
+      "#FF0000"
+    ]
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Use the Left and Right Arrow keys to move horizontally. Use the Spacebar to initiate the first jump from the ground. Score increases by 100 points for each enemy stomped. A combo multiplier (x1, x2, x4, etc.) is applied for every consecutive stomp performed without touching the ground. Avoid falling off the bottom edge.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml",
+  "screenshot": "assets/screenshots/paratroopa_stomp.png"
+}
