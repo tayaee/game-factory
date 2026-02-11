@@ -1,0 +1,31 @@
+{
+  "app_name": "vector-super-mario-bros-turtle-shell-kick",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-191500-vector-super-mario-bros-turtle-shell-kick",
+  "description": "Master the chain reaction by kicking turtle shells to clear waves of enemies.",
+  "rationale": "This game focuses on the specific mechanic of projectile physics and chain reactions found in classic platformers. It serves as an excellent environment for AI agents to learn timing, trajectory prediction, and maximizing scores through indirect interaction.",
+  "details": "The game is a single-screen survival/score-attack challenge. The player controls a character on a flat platform. Enemies (Koopas) spawn from both sides. When the player jumps on a Koopa, it retreats into its shell and stops moving. If the player touches a stationary shell from the side, the shell is 'kicked' and travels rapidly across the screen, bouncing off edges. Any enemy hit by a moving shell is defeated and adds to a score multiplier. The shell can also hit and hurt the player if it bounces back. The goal is to clear as many enemies as possible using kicked shells without getting hit.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x400",
+    "fps": 60,
+    "input_type": "Keyboard",
+    "entities": [
+      "Player",
+      "Koopa (Enemy)",
+      "Shell (Projectile)"
+    ]
+  },
+  "game_rules": {
+    "stomp_enemy": "Transforms Koopa into a stationary Shell.",
+    "kick_shell": "Touching a stationary shell moves it in the direction of impact.",
+    "chain_reaction": "A moving shell kills other Koopas. Each consecutive kill with the same shell increases points exponentially (100, 200, 400, 800, etc.).",
+    "game_over": "Player collides with a walking Koopa or a moving Shell."
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use 'LEFT' and 'RIGHT' arrow keys to move. Use 'SPACE' to jump. Jump on a Koopa to turn it into a shell, then walk into the shell to kick it. Maximize score by hitting multiple enemies with a single shell kick. Avoid touching walking enemies or shells that are already in motion.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
