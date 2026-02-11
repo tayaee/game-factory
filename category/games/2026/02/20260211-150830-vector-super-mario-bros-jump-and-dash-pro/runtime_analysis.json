@@ -1,0 +1,92 @@
+{
+  "app_name": "vector-super-mario-bros-jump-and-dash-pro",
+  "analysis_date": "2026-02-11T15:20:03.558602",
+  "overall_status": "PASSED",
+  "tests": {
+    "pygame_import": {
+      "passed": true,
+      "message": "pygame-ce 2.5.6 imported successfully",
+      "details": null
+    },
+    "config_import": {
+      "passed": true,
+      "message": "Configuration module imported successfully",
+      "details": null
+    },
+    "level_import": {
+      "passed": true,
+      "message": "Level module imported successfully",
+      "details": null
+    },
+    "player_import": {
+      "passed": true,
+      "message": "Player module imported successfully",
+      "details": null
+    },
+    "game_import": {
+      "passed": true,
+      "message": "Game module imported successfully",
+      "details": null
+    },
+    "pygame_init": {
+      "passed": true,
+      "message": "pygame initialized successfully",
+      "details": null
+    },
+    "display_creation": {
+      "passed": true,
+      "message": "Display created: 1000x700",
+      "details": null
+    },
+    "level_creation": {
+      "passed": true,
+      "message": "Level created with 52 platforms and 12 checkpoints",
+      "details": {
+        "platforms": 52,
+        "checkpoints": 12
+      }
+    },
+    "player_creation": {
+      "passed": true,
+      "message": "Player created at (100, 510)",
+      "details": null
+    },
+    "player_jump": {
+      "passed": true,
+      "message": "Jump mechanic works (vy=-14)",
+      "details": null
+    },
+    "player_dash": {
+      "passed": true,
+      "message": "Dash mechanic works",
+      "details": null
+    },
+    "platform_collision": {
+      "passed": true,
+      "message": "Platform collision detection works",
+      "details": null
+    },
+    "game_creation": {
+      "passed": true,
+      "message": "Game instance created successfully",
+      "details": null
+    },
+    "game_loop": {
+      "passed": true,
+      "message": "Game loop ran for 120 frames in 1.96s (61.4 FPS)",
+      "details": null
+    },
+    "pygame_cleanup": {
+      "passed": true,
+      "message": "pygame cleaned up successfully",
+      "details": null
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "performance_metrics": {
+    "frames_rendered": 120,
+    "elapsed_time_seconds": 1.96,
+    "average_fps": 61.36
+  }
+}

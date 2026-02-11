@@ -1,0 +1,201 @@
+{
+  "analysis_date": "2026-02-11T15:08:30Z",
+  "app_name": "vector-super-mario-bros-jump-and-dash-pro",
+  "overall_status": "PASSED",
+  "summary": "Static analysis completed successfully. All critical checks passed.",
+  "checks": {
+    "build_analysis": {
+      "status": "PASSED",
+      "description": "Build configuration and dependency analysis",
+      "details": {
+        "pyproject.toml_exists": true,
+        "pyproject.toml_valid": true,
+        "dependencies_declared": true,
+        "dependencies": [
+          "pygame-ce>=2.5.0"
+        ],
+        "python_version_required": ">=3.12",
+        "python_version_available": "3.12",
+        "build_system": "hatchling",
+        "package_manager": "uv"
+      }
+    },
+    "syntax_analysis": {
+      "status": "PASSED",
+      "description": "Python syntax validation for all source files",
+      "files": [
+        {
+          "name": "main.py",
+          "status": "PASSED",
+          "syntax_valid": true,
+          "lines": 16,
+          "issues": []
+        },
+        {
+          "name": "game.py",
+          "status": "PASSED",
+          "syntax_valid": true,
+          "lines": 211,
+          "issues": []
+        },
+        {
+          "name": "player.py",
+          "status": "PASSED",
+          "syntax_valid": true,
+          "lines": 173,
+          "issues": []
+        },
+        {
+          "name": "config.py",
+          "status": "PASSED",
+          "syntax_valid": true,
+          "lines": 61,
+          "issues": []
+        },
+        {
+          "name": "level.py",
+          "status": "PASSED",
+          "syntax_valid": true,
+          "lines": 141,
+          "issues": []
+        }
+      ]
+    },
+    "import_analysis": {
+      "status": "PASSED",
+      "description": "Module import dependency verification",
+      "modules": [
+        {
+          "name": "pygame",
+          "status": "PASSED",
+          "installed": true,
+          "version": "2.5.6",
+          "meets_requirement": true
+        },
+        {
+          "name": "sys",
+          "status": "PASSED",
+          "built_in": true
+        },
+        {
+          "name": "random",
+          "status": "PASSED",
+          "built_in": true
+        }
+      ],
+      "internal_imports": [
+        {
+          "from": "main.py",
+          "imports": ["pygame", "sys", "game.Game"],
+          "status": "PASSED"
+        },
+        {
+          "from": "game.py",
+          "imports": ["pygame", "sys", "config.*", "player.Player", "level.Level"],
+          "status": "PASSED"
+        },
+        {
+          "from": "player.py",
+          "imports": ["pygame", "config.*"],
+          "status": "PASSED"
+        },
+        {
+          "from": "level.py",
+          "imports": ["pygame", "random", "config.*"],
+          "status": "PASSED"
+        }
+      ]
+    },
+    "startup_analysis": {
+      "status": "PASSED",
+      "description": "Application startup entry point verification",
+      "details": {
+        "entry_point": "main.py",
+        "main_function_exists": true,
+        "if __name__ == '__main__'": true,
+        "initialization_chain": [
+          "main.py -> main()",
+          "main.py -> Game()",
+          "game.py -> __init__() -> pygame.init()",
+          "game.py -> reset_game()",
+          "game.py -> Level()",
+          "game.py -> Player()"
+        ],
+        "potential_issues": []
+      }
+    },
+    "code_quality_analysis": {
+      "status": "PASSED",
+      "description": "Basic code quality and structure assessment",
+      "metrics": {
+        "total_lines_of_code": 602,
+        "total_files": 5,
+        "classes": [
+          "Game",
+          "Player",
+          "Platform",
+          "Level"
+        ],
+        "functions": 30,
+        "uses_type_hints": false,
+        "has_docstrings": true
+      }
+    },
+    "runtime_dependencies": {
+      "status": "PASSED",
+      "description": "External runtime dependency verification",
+      "dependencies": [
+        {
+          "name": "pygame-ce",
+          "required": true,
+          "installed": true,
+          "version": "2.5.6",
+          "minimum_required": "2.5.0",
+          "compatible": true
+        }
+      ]
+    },
+    "appinfo_consistency": {
+      "status": "PASSED",
+      "description": "Consistency between appinfo.json and actual code",
+      "checks": [
+        {
+          "field": "how_to_build",
+          "expected": "uv venv && uv pip install pygame-ce",
+          "actual_build_cmd_possible": true,
+          "status": "PASSED"
+        },
+        {
+          "field": "how_to_start",
+          "expected": "uv run main.py",
+          "entry_point_exists": true,
+          "status": "PASSED"
+        },
+        {
+          "field": "tech_stack.language",
+          "expected": "Python 3.12",
+          "status": "PASSED"
+        },
+        {
+          "field": "tech_stack.package_manager",
+          "expected": "uv",
+          "status": "PASSED"
+        },
+        {
+          "field": "tech_stack.graphics_library",
+          "expected": "pygame-ce",
+          "actual_import": "pygame",
+          "note": "pygame-ce is imported as pygame",
+          "status": "PASSED"
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "errors": [],
+  "recommendations": [
+    "Consider adding type hints for better code maintainability",
+    "Consider adding unit tests for core game mechanics",
+    "Consider adding error handling for pygame initialization failures"
+  ]
+}

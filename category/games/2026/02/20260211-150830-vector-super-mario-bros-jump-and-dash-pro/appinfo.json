@@ -1,0 +1,28 @@
+{
+  "app_name": "vector-super-mario-bros-jump-and-dash-pro",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-150830-vector-super-mario-bros-jump-and-dash-pro",
+  "description": "A precision-focused platformer where dash management and jump timing determine survival.",
+  "rationale": "This game targets players who enjoy high-speed platforming and resource management. It provides a challenging environment for AI agents to learn the trade-off between speed (dashing) and precision (landing), which is a core mechanic in modern speedrunning games.",
+  "details": "The game features a side-scrolling environment with a grid-based physics engine. The player controls a character that must navigate across floating platforms of varying widths and heights. Key mechanics include: 1. Variable Jump Height: Holding the jump key longer results in a higher leap. 2. Dash Gauge: A limited energy bar that allows for horizontal bursts in mid-air. 3. Dynamic Obstacles: Moving platforms and stationary spikes. 4. Checkpoint System: Progress is saved at specific intervals to allow for iterative learning. The game state is rendered using a clean, monochromatic vector style to ensure high contrast for computer vision processing.",
+  "tech_stack": {
+    "language": "Python 3.12",
+    "package_manager": "uv",
+    "graphics_library": "pygame-ce",
+    "configuration": "pyproject.toml"
+  },
+  "game_rules": {
+    "gravity": 0.8,
+    "max_fall_speed": 12.0,
+    "dash_cooldown": 60,
+    "score_per_platform": 100,
+    "score_per_coin": 50,
+    "death_penalty": -500
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Goal: Travel as far as possible to the right while collecting coins. Score: Increases based on horizontal distance covered and coins collected. Controls: Left/Right Arrow keys for movement, Spacebar to jump (hold for height), and 'Z' key to dash. Dashing consumes the dash gauge which refills slowly over time. Touching spikes or falling off platforms results in an immediate game over.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/gameplay_preview.png"
+}

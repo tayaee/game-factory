@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-11 | [Vector Super Mario Bros Jump and Dash Pro](category/games/2026/02/20260211-150830-vector-super-mario-bros-jump-and-dash-pro/) | A precision-focused platformer where dash management and jump timing determine survival.
 * 2026-02-11 | [Vector Super Mario Bros Jump and Dash Pro](category/games/2026/02/20260211-145327-vector-super-mario-bros-jump-and-dash-pro/) | Master the art of momentum in this high-speed precision platformer challenge.
 * 2026-02-11 | [Vector Karate Breaking Timing](category/games/2026/02/20260211-051900-vector-karate-breaking-timing/) | Master the art of focus and timing to break solid wood, stone, and ice blocks.
 * 2026-02-11 | [Vector Space Invaders Simple Swarm](category/games/2026/02/20260211-050522-vector-space-invaders-simple-swarm/) | Defend the Earth from rhythmic descending alien swarms in this vector-style arcade shooter.
