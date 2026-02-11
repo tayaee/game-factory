@@ -1,0 +1,29 @@
+{
+  "app_name": "vector-super-mario-bros-underwater-treasure-hunt",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-034800-vector-super-mario-bros-underwater-treasure-hunt",
+  "description": "Navigate the deep sea to collect coins while dodging relentless Bloopers and Cheep Cheeps.",
+  "rationale": "This game focuses on buoyancy-based movement mechanics which differ from standard platformers. It provides a specific challenge for AI agents to master vertical momentum control and obstacle avoidance in a fluid environment, targeting fans of classic underwater levels.",
+  "details": "The game is a simplified 2D underwater platformer. The player character is in a constant state of slowly sinking. Pressing the jump key applies an upward force (swimming). The objective is to navigate from the left side of a scrollable map to the right, collecting coins and avoiding enemies. Enemies include 'Bloopers' that lunge towards the player's position and 'Cheep Cheeps' that swim in a horizontal line. The level contains static obstacles like coral reefs and pipes. Touching an enemy or a hazard results in an immediate game over. Scoring is based on coins collected and the distance traveled.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "fps_target": 60,
+    "state_space": [
+      "player_y",
+      "player_velocity_y",
+      "nearest_enemy_distance",
+      "nearest_coin_pos"
+    ],
+    "action_space": [
+      "swim",
+      "idle"
+    ]
+  },
+  "how_to_build": "uv python install 3.12 && uv venv && source .venv/bin/activate && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Score increases by 100 points for every coin collected and 1 point for every pixel moved to the right. Controls: Use the 'SPACE' key or 'UP' arrow key to swim upward. Release the key to sink. Use 'LEFT' and 'RIGHT' arrow keys to move horizontally. Avoid touching white squids and red fish.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No screenshot available"
+}

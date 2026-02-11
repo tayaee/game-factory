@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-11 | [Vector Super Mario Bros Underwater Treasure Hunt](category/games/2026/02/20260211-034800-vector-super-mario-bros-underwater-treasure-hunt/) | Navigate the deep sea to collect coins while dodging relentless Bloopers and Cheep Cheeps.
 * 2026-02-11 | [Vector Ice Block Pengo Push](category/games/2026/02/20260211-010500-vector-ice-block-pengo-push/) | Strategic block-pushing puzzle where you crush enemies between ice slides.
 * 2026-02-11 | [Vector Lode Runner Gold Collect](category/games/2026/02/20260211-004200-vector-lode-runner-gold-collect/) | Navigate platforms and dig traps to collect all gold pieces while avoiding guards.
 * 2026-02-11 | [Vector Galaxian Swarm Attack](category/games/2026/02/20260211-002415-vector-galaxian-swarm-attack/) | Defend the starship against tactical alien swarms in this high-intensity vector shooter.
