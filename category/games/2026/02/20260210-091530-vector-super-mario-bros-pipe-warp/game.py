@@ -2,6 +2,7 @@
 
 import pygame
 import random
+import math
 from config import *
 
 
@@ -183,7 +184,7 @@ class Coin:
             return
 
         # Spinning effect
-        width_scale = abs(pygame.math.cos(self.anim_offset))
+        width_scale = abs(math.cos(self.anim_offset))
         current_width = int(COIN_SIZE * width_scale)
         if current_width < 2:
             current_width = 2
@@ -259,7 +260,7 @@ class Player:
         visible_pipes = []
         for pipe in pipes:
             screen_x, screen_y = camera.world_to_screen(pipe.x, pipe.y)
-            if -PIPE_HEIGHT < screen_y < WINDOW_HEIGHT + 100:
+            if -PIPE_MAX_HEIGHT < screen_y < WINDOW_HEIGHT + 100:
                 visible_pipes.append(pipe)
 
         for pipe in visible_pipes:
