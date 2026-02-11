@@ -1,0 +1,34 @@
+{
+  "app_name": "vector-super-mario-bros-jump-distance-challenge",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-194548-vector-super-mario-bros-jump-distance-challenge",
+  "description": "Master the art of momentum and timing to clear increasingly wide gaps in this Mario-inspired physics challenge.",
+  "rationale": "This app focuses on the core platforming mechanic of Super Mario Bros: the variable jump. It is designed for reinforcement learning agents to learn the relationship between horizontal velocity (running) and vertical impulse (jumping) to clear gaps that require precise input duration.",
+  "details": "The game features a simplified 2D side-scrolling environment. The player controls a character standing on a platform. To the right is a pit of varying width and a landing platform. The goal is to cross as many pits as possible. The width of the pit increases with each successful jump. The character has a 'run' state which increases horizontal speed over time and a 'jump' state where the height is determined by how long the jump key is held. Physics constants: Gravity = 0.8, Max Run Speed = 6.0, Jump Impulse = 12.0. The game ends if the character falls into the pit.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x400",
+    "fps": 60,
+    "state_space": [
+      "player_x_velocity",
+      "player_y_velocity",
+      "distance_to_pit",
+      "pit_width",
+      "is_grounded"
+    ],
+    "action_space": [
+      "NOOP",
+      "MOVE_RIGHT",
+      "JUMP",
+      "MOVE_RIGHT_AND_JUMP"
+    ]
+  },
+  "pyproject_toml": "[project]\nname = \"vector-super-mario-bros-jump-distance-challenge\"\nversion = \"0.1.0\"\ndependencies = [\"pygame\"]\n[tool.uv]\ndev-dependencies = []",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or close the pygame window",
+  "how_to_play": "Use the RIGHT ARROW key to gain momentum. Press and hold the SPACE BAR to jump. Score increases by 1 for every pit successfully crossed. Score is also weighted by the width of the pit cleared. Falling into a pit resets the game.",
+  "how_to_cleanup": "rm -rf .venv",
+  "reward_function": "Positive reward for distance traveled while in the air and a large bonus for landing on the far platform. Negative reward for falling into the pit.",
+  "screenshot": "assets/gameplay_preview.png"
+}

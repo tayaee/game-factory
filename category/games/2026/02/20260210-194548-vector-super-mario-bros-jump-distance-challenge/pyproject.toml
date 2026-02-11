@@ -1,0 +1,7 @@
+[project]
+name = "vector-super-mario-bros-jump-distance-challenge"
+version = "0.1.0"
+dependencies = ["pygame"]
+
+[tool.uv]
+dev-dependencies = []
