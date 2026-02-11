@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-galaxian-swarm-attack",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-002415-vector-galaxian-swarm-attack",
+  "description": "Defend the starship against tactical alien swarms in this high-intensity vector shooter.",
+  "rationale": "Classic fixed shooters like Galaxian introduced complex enemy maneuvers compared to Space Invaders. This project targets developers interested in state-machine based enemy AI and Reinforcement Learning agents learning to predict diving patterns rather than just horizontal movement.",
+  "details": "The game features a player-controlled ship at the bottom of the screen and a formation of aliens at the top. Unlike static shooters, individual aliens or small groups will break formation and dive toward the player in curved paths. The game environment is a 600x800 grid. Enemy types include Drones (bottom tier), Emissaries (middle), and Flagships (top). Flagships dive with escorts, increasing difficulty. The game ends if the player is hit by an enemy projectile or collides with a diving alien. Performance is optimized for low-latency agent interaction.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "rendering_library": "pygame-ce",
+    "input_type": "Discrete action space",
+    "state_representation": "Pixel-based or Object-coordinate vector",
+    "physics": "Constant velocity for player, Bezier-curve or State-machine movement for enemies"
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Move the ship left and right using ARROW KEYS to avoid incoming fire. Press SPACE to shoot. Scoring: 30 pts for drones in formation, 60 pts while diving; 50 pts for emissaries in formation, 100 pts while diving; 150 pts for Flagships. Bonus points are awarded for destroying a Flagship and its escorts during a single dive. The goal is to maximize the score by prioritizing diving targets while maintaining survival.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "reward_structure": {
+    "hit_enemy": 1.0,
+    "clear_wave": 10.0,
+    "player_death": -5.0,
+    "time_penalty": -0.01
+  },
+  "screenshot": "assets/screenshots/gameplay.png"
+}
