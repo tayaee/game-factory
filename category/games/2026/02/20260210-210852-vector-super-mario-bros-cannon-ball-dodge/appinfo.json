@@ -1,0 +1,33 @@
+{
+  "app_name": "vector-super-mario-bros-cannon-ball-dodge",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-210852-vector-super-mario-bros-cannon-ball-dodge",
+  "description": "Dodge high-speed cannonballs while staying on moving platforms in this classic timing challenge.",
+  "rationale": "This game focuses on vertical and horizontal spatial awareness. It targets players who enjoy high-stakes obstacle avoidance and provides a perfect environment for reinforcement learning agents to learn projectile trajectory prediction and jump timing.",
+  "details": "The game consists of a single screen with three horizontal platforms. A cannon (Bill Blaster) is positioned on either the left or right edge of the screen at varying heights. The player controls a character that can move left, right, and jump. Every 2-3 seconds, a cannonball (Bullet Bill) is fired horizontally across the screen. The player must jump over or move between platforms to avoid contact. Contact with a cannonball results in immediate game over. Platforms may move slowly horizontally to increase difficulty. The game speed and frequency of shots increase as the score rises.",
+  "game_rules": {
+    "score_increment": "10 points for every cannonball successfully avoided (when it leaves the screen).",
+    "game_over_condition": "Collision with any part of a cannonball or falling off the bottom of the screen.",
+    "physics": "Gravity is constant. Jump height is fixed. Cannonballs move at a linear velocity."
+  },
+  "technical_specs": {
+    "language": "Python 3.10+",
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "dependencies": [
+      "pygame",
+      "numpy"
+    ]
+  },
+  "how_to_build": "uv venv && uv pip install pygame numpy",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or press ESC key",
+  "how_to_play": "Use LEFT and RIGHT arrow keys to move. Press SPACE to jump. Avoid the black cannonballs moving across the screen. Score increases by 10 for every cannonball that passes the screen edge without hitting you.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "ai_agent_info": {
+    "observation_space": "Player X/Y, Player Velocity, Cannonball X/Y/Velocity list, Platform positions",
+    "action_space": "0: Stay, 1: Left, 2: Right, 3: Jump",
+    "reward_structure": "Positive reward (+0.1) for every frame alive, large positive (+10) for projectile pass, large negative (-100) for collision."
+  },
+  "screenshot": "category/games/2026/02/screenshots/cannon-dodge.png"
+}

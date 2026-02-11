@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Cannon Ball Dodge](category/games/2026/02/20260210-210852-vector-super-mario-bros-cannon-ball-dodge/) | Dodge high-speed cannonballs while staying on moving platforms in this classic timing challenge.
 * 2026-02-10 | [Vector Super Mario Bros Maze Coin Hunt](category/games/2026/02/20260210-205100-vector-super-mario-bros-maze-coin-hunt/) | Navigate a Mario-themed maze to collect coins while avoiding patrolling Koopas.
 * 2026-02-10 | [Vector Super Mario Bros Power Up Logic](category/games/2026/02/20260210-204015-vector-super-mario-bros-power-up-logic/) | Master the strategic sequence of Mario's growth and power-up transformations.
 * 2026-02-10 | [Vector Super Mario Bros Vine Climb Logic](category/games/2026/02/20260210-200500-vector-super-mario-bros-vine-climb-logic/) | Master the rhythmic vertical ascent by climbing hidden vines while avoiding aerial hazards.
