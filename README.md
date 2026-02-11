@@ -6,6 +6,7 @@ Can we break Mach 10 in software engineering? Breaking the Mach 10 barrier is a 
 
 ### Games
 
+* 2026-02-10 | [Vector Super Mario Bros Infinite Slide](category/games/2026/02/20260210-193300-vector-super-mario-bros-infinite-slide/) | Master momentum physics on icy platforms in this endless sliding challenge with accelerating screen scroll.
 * 2026-02-10 | [Vector Super Mario Bros Turtle Shell Kick](category/games/2026/02/20260210-191500-vector-super-mario-bros-turtle-shell-kick/) | Master the chain reaction by kicking turtle shells to clear waves of enemies.
 * 2026-02-10 | [Vector Super Mario Bros Water Swim Avoid](category/games/2026/02/20260210-163500-vector-super-mario-bros-water-swim-avoid/) | Master neutral buoyancy and navigate a dangerous underwater maze in this classic aquatic challenge.
 * 2026-02-10 | [Vector Super Mario Bros Jump Block Logic](category/games/2026/02/20260210-122500-vector-super-mario-bros-jump-block-logic/) | Master the precision of vertical jumping to activate mystery blocks and collect hidden rewards.

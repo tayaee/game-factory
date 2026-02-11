@@ -1,0 +1,27 @@
+{
+  "app_name": "vector-super-mario-bros-infinite-slide",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-193300-vector-super-mario-bros-infinite-slide",
+  "description": "Master the physics of momentum in an endless icy platform sliding challenge.",
+  "rationale": "This game focuses on friction and momentum mechanics, providing a unique challenge for both human players and RL agents to manage velocity and timing on slippery surfaces. It fills a niche not covered by standard platformers in the existing catalog.",
+  "details": "The game features a simplified Mario-like character on an infinite horizontal scrolling icy stage. The stage consists of floating platforms with varying lengths and gaps. The core mechanic is 'low friction': the character takes time to accelerate and even longer to decelerate. Obstacles include static spikes and gaps. The speed of the screen scroll gradually increases over time. The agent must balance the desire to move fast to stay ahead of the screen with the risk of sliding off platforms due to high momentum.",
+  "game_mechanics": {
+    "gravity": 0.5,
+    "friction": 0.05,
+    "acceleration": 0.2,
+    "max_speed": 6.0,
+    "jump_force": -10.0
+  },
+  "technical_specs": {
+    "resolution": "800x400",
+    "fps": 60,
+    "framework": "pygame-ce",
+    "dependency_management": "uv"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f vector-super-mario-bros-infinite-slide",
+  "how_to_play": "Goal: Survive as long as possible while collecting coins. Score increases by +1 per meter traveled and +50 per coin. Controls: Left/Right Arrow keys to apply force (acceleration), Spacebar to jump. Game ends if the character falls into a gap, hits a spike, or is pushed off the left side of the screen.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/infinite-slide-preview.png"
+}
