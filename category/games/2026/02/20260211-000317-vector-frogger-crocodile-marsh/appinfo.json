@@ -1,0 +1,35 @@
+{
+  "app_name": "vector-frogger-crocodile-marsh",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-000317-vector-frogger-crocodile-marsh",
+  "description": "Navigate a treacherous marsh while dodging crocodiles and snapping turtles in this precision timing challenge.",
+  "rationale": "This game expands on basic road-crossing mechanics by introducing complex river hazards and moving platforms with variable safety states, targeting players and RL agents interested in dynamic obstacle avoidance.",
+  "details": "The game consists of a single-screen vertical progression. The player starts at the bottom safe zone and must reach one of five goal lilypads at the top. The middle section is a river divided into 6 horizontal lanes. Each lane moves at a different speed and direction, containing logs (safe), turtles (safe for 3 seconds, then submerge), and crocodiles (safe on the back, lethal at the mouth). If the player touches the water, moves off-screen, or touches a crocodile's mouth, the game resets. Success requires timing jumps to coincide with moving safe zones.",
+  "game_rules": {
+    "grid_size": "20x20 units",
+    "time_limit": "60 seconds per life",
+    "hazards": [
+      "Water (instant death)",
+      "Crocodile Mouth (instant death)",
+      "Submerged Turtles (instant death)"
+    ],
+    "scoring": {
+      "forward_step": 10,
+      "goal_reached": 1000,
+      "time_bonus": "remaining_seconds * 10"
+    }
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "package_manager": "uv",
+    "rendering_library": "pygame-ce",
+    "input_type": "Discrete (Up, Down, Left, Right)",
+    "state_representation": "RGB Array or Vector-based object coordinates"
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PPID or press ESC/close window",
+  "how_to_play": "Use the Arrow Keys to move the frog. Reach the flashing lilypads at the top of the screen to score. Jumping forward grants 10 points. Avoid water by landing on logs or turtles. Do not stay on turtles when they turn red/sink. Avoid the right side (mouth) of crocodiles. The game ends if the timer hits zero or 3 lives are lost.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
