@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-karate-breaking-timing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-051900-vector-karate-breaking-timing",
+  "description": "Master the art of focus and timing to break solid wood, stone, and ice blocks.",
+  "rationale": "This game focuses on high-precision timing and reaction speed, a core mechanic found in classic arcade bonus stages like Street Fighter. It serves as an excellent environment for Reinforcement Learning agents to learn optimal action timing relative to a moving gauge.",
+  "details": "The player controls a martial artist standing in front of a stack of materials. A vertical power gauge oscillates rapidly between 0 and 100. The center of the gauge (the 'sweet spot') is marked as the target. The player must trigger the 'strike' action when the gauge reaches the designated high-power zone. Success depends on the proximity to the peak value. Materials progress from thin wood to thick stone, then solid ice, each requiring a smaller timing window and higher power threshold.",
+  "game_mechanics": {
+    "gauge_speed": "Increases as the level progresses.",
+    "target_zone": "A specific range (e.g., 90-100) on the 0-100 scale.",
+    "lives": "3 attempts allowed per block type.",
+    "progression": "Successful breaks lead to harder materials and faster moving bars."
+  },
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "state_space": "Current gauge position, target zone bounds, material type, speed.",
+    "action_space": "Discrete(1) - [0: Idle, 1: Strike]"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Watch the moving gauge on the right side of the screen. Press the 'SPACE' key when the slider is inside the red target zone at the top. Breaking a block grants 100 points plus a bonus based on how close you were to the maximum value (100). If you miss the zone, the block remains intact and you lose one life.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "assets/screenshots/karate-breaking.png"
+}

@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-11 | [Vector Karate Breaking Timing](category/games/2026/02/20260211-051900-vector-karate-breaking-timing/) | Master the art of focus and timing to break solid wood, stone, and ice blocks.
 * 2026-02-11 | [Vector Space Invaders Simple Swarm](category/games/2026/02/20260211-050522-vector-space-invaders-simple-swarm/) | Defend the Earth from rhythmic descending alien swarms in this vector-style arcade shooter.
 * 2026-02-11 | [Vector Super Mario Bros Springboard Physics](category/games/2026/02/20260211-044336-vector-super-mario-bros-springboard-physics/) | Master the timing of physics-based spring jumps to reach high-altitude platforms.
 * 2026-02-11 | [Vector Kung Fu Kick Timing](category/games/2026/02/20260211-042627-vector-kung-fu-kick-timing/) | Master the art of the perfect strike in this rhythm-based martial arts defense game.
