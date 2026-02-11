@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-10 | [Vector Mario Bros Hammer Throw](category/games/2026/02/20260210-230500-vector-mario-bros-hammer-throw/) | Master the trajectory to knock down koopas with precision hammer tosses.
 * 2026-02-10 | [Vector Balloon Fight Fish Hazard](category/games/2026/02/20260210-223343-vector-balloon-fight-fish-hazard/) | Master buoyancy and avoid the giant fish in this gravity-defying aerial duel.
 * 2026-02-10 | [Vector Mappy Stolen Item Retrieve](category/games/2026/02/20260210-221412-vector-mappy-stolen-item-retrieve/) | Navigate a multi-story house to retrieve stolen items while outsmarting feline guards with doors and trampolines.
 * 2026-02-10 | [Vector Super Mario Bros Ghost House Logic](category/games/2026/02/20260210-215500-vector-super-mario-bros-ghost-house-logic/) | Navigate a shifting maze while avoiding invisible ghosts that only move when you look away.

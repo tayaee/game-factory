@@ -1,0 +1,41 @@
+{
+  "app_name": "vector-mario-bros-hammer-throw",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-230500-vector-mario-bros-hammer-throw",
+  "description": "Master the trajectory to knock down koopas with precision hammer tosses.",
+  "rationale": "This game focuses on projectile physics and timing, inspired by the classic Hammer Bro mechanics. It provides a specialized environment for RL agents to learn parabolic trajectories, velocity estimation, and lead-target shooting in a 2D space.",
+  "details": "The player controls a character fixed on a multi-tiered platform. Enemies (Koopas and Goombas) move across different levels. The player's primary action is tossing hammers. The hammer follows a parabolic path influenced by an initial velocity vector (angle and power). The game ends if an enemy touches the player or if the player runs out of hammers. To simplify for AI, the environment uses a discrete grid-based state representation but allows continuous value inputs for the throw angle.",
+  "game_mechanics": {
+    "gravity": 9.8,
+    "character_position": [
+      50,
+      400
+    ],
+    "enemy_spawn_rate": "Every 3 seconds",
+    "hitbox_type": "Circular for hammers, Rectangular for enemies",
+    "levels": 3
+  },
+  "state_space": {
+    "player_pos": "x, y coordinates",
+    "enemy_list": "list of {x, y, type, velocity}",
+    "hammer_count": "integer",
+    "active_hammers": "list of {x, y, vx, vy}"
+  },
+  "action_space": {
+    "throw": "boolean",
+    "angle": "float (0 to 90 degrees)",
+    "power": "float (0 to 100)"
+  },
+  "reward_structure": {
+    "enemy_hit": "+10 points",
+    "multi_kill": "+25 points",
+    "missed_throw": "-1 point",
+    "game_over": "-50 points"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Increase score by hitting enemies with hammers. Use 'Up' and 'Down' arrow keys to adjust the throw angle, 'Space' bar to charge power, and release 'Space' to throw. AI agents should use the numerical action space to optimize the arc for hitting moving targets.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}

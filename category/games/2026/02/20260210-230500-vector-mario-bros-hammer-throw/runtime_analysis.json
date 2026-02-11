@@ -1,0 +1,86 @@
+{
+  "overall_status": "PASSED",
+  "tests": [
+    {
+      "category": "Module Imports",
+      "test": "config module import",
+      "status": "PASS"
+    },
+    {
+      "category": "Module Imports",
+      "test": "config constants check",
+      "status": "PASS"
+    },
+    {
+      "category": "Module Imports",
+      "test": "entities module import",
+      "status": "PASS"
+    },
+    {
+      "category": "Module Imports",
+      "test": "game module import",
+      "status": "PASS"
+    },
+    {
+      "category": "Entity Creation",
+      "test": "Player creation",
+      "status": "PASS"
+    },
+    {
+      "category": "Entity Creation",
+      "test": "Hammer creation",
+      "status": "PASS"
+    },
+    {
+      "category": "Entity Creation",
+      "test": "Enemy creation",
+      "status": "PASS"
+    },
+    {
+      "category": "Entity Creation",
+      "test": "Platform creation",
+      "status": "PASS"
+    },
+    {
+      "category": "Physics Simulation",
+      "test": "Hammer physics simulation",
+      "status": "PASS"
+    },
+    {
+      "category": "Physics Simulation",
+      "test": "Enemy movement",
+      "status": "PASS"
+    },
+    {
+      "category": "Physics Simulation",
+      "test": "Enemy boundary bounce",
+      "status": "PASS"
+    },
+    {
+      "category": "Collision Detection",
+      "test": "Hitbox types and collision detection",
+      "status": "PASS",
+      "error": "collision=True"
+    },
+    {
+      "category": "Game State Management",
+      "test": "Game initialization",
+      "status": "PASS"
+    },
+    {
+      "category": "Game State Management",
+      "test": "Player throw mechanic",
+      "status": "PASS"
+    },
+    {
+      "category": "Game State Management",
+      "test": "Angle adjustment",
+      "status": "PASS"
+    },
+    {
+      "category": "Reward System",
+      "test": "Reward constants",
+      "status": "PASS"
+    }
+  ]
+}
