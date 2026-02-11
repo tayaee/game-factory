@@ -1,0 +1,61 @@
+{
+  "overall_status": "PASSED",
+  "app_name": "vector-super-mario-bros-vine-climb-logic",
+  "test_duration_seconds": 120.0,
+  "frames_processed": 330645,
+  "startup": {
+    "initialization": "PASSED",
+    "timestamp": 1770772034.361711,
+    "game_instance_created": "PASSED"
+  },
+  "basic_functionality": {
+    "action_space": "PASSED",
+    "action_space_values": {
+      "ACTION_NOOP": 0,
+      "ACTION_UP": 1,
+      "ACTION_DOWN": 2,
+      "ACTION_LEFT": 3,
+      "ACTION_RIGHT": 4
+    },
+    "reward_function": "PASSED",
+    "reward_returned": 0.1,
+    "observation_space": "PASSED"
+  },
+  "game_states": {
+    "initial_state": {
+      "player_y": 500,
+      "player_vel_y": 0.0,
+      "player_side": -1,
+      "stamina": 100,
+      "altitude": 0
+    },
+    "initial_state_loaded": "PASSED",
+    "game_over_triggered": 599,
+    "final_altitude_reached": 790,
+    "coins_collected": 1,
+    "max_stamina": 99.85,
+    "min_stamina": -0.05
+  },
+  "entities": {
+    "coins_spawned": 1,
+    "obstacles_active": 1,
+    "spawning_system": "PASSED"
+  },
+  "performance": {
+    "fps_samples": [
+      1936.13,
+      3331.5,
+      2999.29,
+      3159.15,
+      3000.11,
+      3129.49,
+      3172.82,
+      3144.39,
+      3155.91,
+      3319.85
+    ],
+    "average_fps": 2757.5
+  },
+  "errors": [],
+  "warnings": []
+}

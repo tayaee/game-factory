@@ -1,0 +1,31 @@
+{
+  "app_name": "vector-super-mario-bros-vine-climb-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-200500-vector-super-mario-bros-vine-climb-logic",
+  "description": "Master the rhythmic vertical ascent by climbing hidden vines while avoiding aerial hazards.",
+  "rationale": "This game focuses on vertical movement mechanics and timing-based obstacle avoidance. It targets developers interested in ladder/climbing physics and provides a focused environment for reinforcement learning agents to learn vertical spatial navigation and rhythmic input patterns.",
+  "details": "The game simulates the classic hidden vine climbing mechanic. The player controls a character on a vertical vine. The screen scrolls upward automatically or as the player climbs. Obstacles like Koopa Paratroopas or Lakitu's Spiny eggs move horizontally across the screen. The player must move up, down, or switch sides of the vine to avoid contact. The game includes a stamina meter that depletes if the player stays still for too long, encouraging constant upward progress.",
+  "technical_specs": {
+    "resolution": "400x600",
+    "fps": 60,
+    "input_type": "keyboard",
+    "entities": [
+      "Player",
+      "Vine",
+      "HorizontalObstacle",
+      "Coin"
+    ],
+    "physics": "Vertical scrolling, fixed-axis movement"
+  },
+  "how_to_build": "uv run python -m build",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use UP/DOWN arrow keys to climb the vine. Use LEFT/RIGHT arrow keys to shift to the left or right side of the vine to dodge enemies. Collect coins placed along the vine for bonus points. Score increases based on the altitude reached. Game ends if the player touches an enemy or the stamina meter reaches zero.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "reinforcement_learning": {
+    "observation_space": "Box(0, 255, (600, 400, 3))",
+    "action_space": "Discrete(5) [Neutral, Up, Down, Left, Right]",
+    "reward_function": "+1 per unit of altitude, +10 per coin, -100 on collision"
+  },
+  "screenshot": "assets/screenshots/vine-climb.png"
+}
