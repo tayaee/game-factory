@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-10 | [Vector Climb Up Donkey Kong Lite](category/games/2026/02/20260210-232635-vector-climb-up-donkey-kong-lite/) | Scale the construction site while dodging rolling barrels in this classic arcade-inspired challenge.
 * 2026-02-10 | [Vector Mario Bros Hammer Throw](category/games/2026/02/20260210-230500-vector-mario-bros-hammer-throw/) | Master the trajectory to knock down koopas with precision hammer tosses.
 * 2026-02-10 | [Vector Balloon Fight Fish Hazard](category/games/2026/02/20260210-223343-vector-balloon-fight-fish-hazard/) | Master buoyancy and avoid the giant fish in this gravity-defying aerial duel.
 * 2026-02-10 | [Vector Mappy Stolen Item Retrieve](category/games/2026/02/20260210-221412-vector-mappy-stolen-item-retrieve/) | Navigate a multi-story house to retrieve stolen items while outsmarting feline guards with doors and trampolines.

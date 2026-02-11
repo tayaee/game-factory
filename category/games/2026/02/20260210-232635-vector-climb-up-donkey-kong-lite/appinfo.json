@@ -1,0 +1,33 @@
+{
+  "app_name": "vector-climb-up-donkey-kong-lite",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260210-232635-vector-climb-up-donkey-kong-lite",
+  "description": "Scale the construction site while dodging rolling barrels in this classic arcade-inspired challenge.",
+  "rationale": "This game focuses on timing, vertical movement, and collision avoidance. It provides a perfect environment for AI agents to learn jump timing and pathfinding in a 2D platforming space with dynamic hazards.",
+  "details": "The game consists of a single-screen construction site with four levels of horizontal girders connected by ladders. The player starts at the bottom-left and must reach the top-right platform. An antagonist at the top releases barrels that roll down the girders and fall down ladders or off edges. Barrels follow a gravity-based movement pattern. The player can walk left/right, climb ladders when aligned, and jump over barrels. Collision with a barrel results in an immediate game over. The game environment is rendered using vector-style graphics with a professional dark theme.",
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or press ESC in the game window",
+  "how_to_play": "Goal: Reach the goal platform at the top. Scoring: +10 points for every barrel jumped over, +500 points for reaching the goal. Controls: Left/Right Arrow keys to move, Up/Down Arrow keys to climb ladders, Spacebar to jump. AI Input: The agent should monitor the x,y coordinates of the player and all active barrels.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "fps": 60,
+    "state_space": [
+      "player_pos",
+      "barrel_positions",
+      "on_ladder_flag",
+      "is_jumping_flag"
+    ],
+    "action_space": [
+      "move_left",
+      "move_right",
+      "climb_up",
+      "climb_down",
+      "jump",
+      "idle"
+    ]
+  },
+  "screenshot": "assets/screenshots/climb-up-lite.png"
+}
