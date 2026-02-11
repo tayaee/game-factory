@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-lode-runner-gold-collect",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260211-004200-vector-lode-runner-gold-collect",
+  "description": "Navigate platforms and dig traps to collect all gold pieces while avoiding guards.",
+  "rationale": "This game is a simplified version of the classic Lode Runner. It serves as an excellent environment for AI agents to practice pathfinding, strategic environmental manipulation (digging), and adversarial evasion in a grid-based platformer.",
+  "details": "The game consists of a 2D grid with platforms, ladders, and gold pieces. The player must collect all gold pieces on the level to reveal the exit ladder and progress. Key mechanics: 1. Gravity: Characters fall if there is no floor or ladder beneath them. 2. Digging: The player can dig holes in the floor to the left or right. Holes stay open for 5 seconds before regenerating. 3. Guards: Simple AI guards chase the player. If a guard falls into a hole, they are trapped for 4 seconds, allowing the player to walk over them. 4. Collision: Touching a guard results in immediate game over.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "grid_size": "20x15",
+    "tile_size": "32px",
+    "state_representation": "Multi-dimensional array containing tile types, player position, enemy positions, and gold locations."
+  },
+  "reward_structure": {
+    "gold_collection": "+50 points",
+    "trapping_enemy": "+20 points",
+    "level_complete": "+500 points",
+    "game_over": "-100 points"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use Left/Right arrows to move, Up/Down arrows to climb ladders. Press 'Z' to dig a hole to the left and 'X' to dig a hole to the right. Collect all gold icons to spawn the exit ladder at the top. Reach the exit to win.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "N/A"
+}
