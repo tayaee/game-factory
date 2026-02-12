@@ -1,11 +1,11 @@
 {
   "app_name": "asteroid-blaster",
-  "analysis_timestamp": "2026-02-12 13:21:54",
+  "analysis_timestamp": "2026-02-12 14:25:15",
   "analysis_duration_seconds": 120,
   "phases": [
     {
       "name": "Menu Navigation",
-      "start_time": 1770920518.1070206,
+      "start_time": 1770924319.0204375,
       "duration_seconds": 10,
       "actions": [
         "Press SPACE to start game"
@@ -14,7 +14,7 @@
     },
     {
       "name": "Basic Gameplay",
-      "start_time": 1770920520.1585732,
+      "start_time": 1770924321.0729105,
       "duration_seconds": 50,
       "actions": [
         "Thrust at 15s",
@@ -31,13 +31,13 @@
     },
     {
       "name": "Extended Stability",
-      "start_time": 1770920570.5123348,
+      "start_time": 1770924371.424095,
       "duration_seconds": 50,
       "status": "COMPLETED"
     },
     {
       "name": "Graceful Shutdown",
-      "start_time": 1770920620.6348257,
+      "start_time": 1770924421.5469682,
       "status": "FORCED"
     }
   ],
@@ -48,7 +48,7 @@
     "pygame_version": "2.5.6",
     "main_py_exists": true,
     "app_launched": true,
-    "app_pid": 3508,
+    "app_pid": 2496,
     "app_running": true,
     "menu_accessible": true,
     "gameplay_stable": true,
