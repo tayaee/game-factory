@@ -1,0 +1,11 @@
+[project]
+name = "vector-battle-city-base-defense"
+version = "0.1.0"
+description = "Defend your base from incoming enemy tanks in this top-down strategic shooter"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-battle-city-base-defense",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260212-041914-vector-battle-city-base-defense",
+  "description": "Defend your base from incoming enemy tanks in this top-down strategic shooter.",
+  "rationale": "This game focuses on spatial awareness, tactical positioning, and defensive strategy. It targets fans of classic arcade tank games and provides a clear reward structure for reinforcement learning agents to optimize pathfinding and target prioritization while protecting a fixed point.",
+  "details": "The game is a simplified 2D top-down tank combat game played on a 13x13 grid. The player controls a gold tank. The objective is to destroy all enemy tanks while preventing them from reaching or shooting the base (represented by an eagle icon) located at the bottom center. Map elements include brick walls (destructible), steel walls (indestructible), and water (impassable but bullets fly over). Enemy tanks spawn at the top of the map. AI agents must manage movement, aiming, and cooldowns for firing bullets. Victory occurs when all 10 enemies are eliminated. Game over occurs if the player tank is destroyed 3 times or if the base is hit once.",
+  "technical_specs": {
+    "resolution": "520x520 pixels",
+    "grid_size": "40x40 pixels per cell",
+    "player_speed": "2 pixels/frame",
+    "bullet_speed": "5 pixels/frame",
+    "max_bullets_on_screen": 1
+  },
+  "how_to_build": "uv run python -m venv .venv && .venv/bin/pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "pkill -f main.py",
+  "how_to_play": "Move the tank using Arrow Keys (Up, Down, Left, Right). Fire bullets using the Spacebar. Scoring: Destroying a normal tank grants 100 points. Protecting the base is mandatory; if the base HP reaches 0, the game ends immediately. For RL agents, the reward function should be: +10 for hitting a brick, +100 for destroying an enemy, -5 for losing a life, and -500 for base destruction.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "N/A"
+}
