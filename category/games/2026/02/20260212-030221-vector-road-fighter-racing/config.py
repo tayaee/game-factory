@@ -1,0 +1,63 @@
+"""Configuration and constants for Road Fighter Racing."""
+
+WINDOW_WIDTH = 400
+WINDOW_HEIGHT = 600
+FPS = 60
+
+# Colors
+COLOR_BG = (34, 139, 34)  # Forest green (grass)
+COLOR_ROAD = (50, 50, 50)  # Dark gray (road)
+COLOR_ROAD_LINE = (255, 255, 255)  # White (lane markings)
+COLOR_PLAYER = (220, 20, 60)  # Crimson (player car)
+COLOR_ENEMY = (70, 130, 180)  # Steel blue (enemy cars)
+COLOR_ERRATIC = (255, 140, 0)  # Dark orange (erratic enemy)
+COLOR_FUEL = (255, 215, 0)  # Gold (fuel tanks)
+COLOR_TEXT = (255, 255, 255)
+COLOR_HUD = (30, 30, 30)
+COLOR_FUEL_BAR = (0, 200, 0)
+COLOR_FUEL_BAR_LOW = (255, 0, 0)
+
+# Game dimensions
+ROAD_WIDTH = 300
+ROAD_LEFT = (WINDOW_WIDTH - ROAD_WIDTH) // 2
+ROAD_RIGHT = ROAD_LEFT + ROAD_WIDTH
+NUM_LANES = 4
+LANE_WIDTH = ROAD_WIDTH // NUM_LANES
+
+# Player settings
+PLAYER_WIDTH = 30
+PLAYER_HEIGHT = 50
+PLAYER_MAX_SPEED = 10.0
+PLAYER_MIN_SPEED = 2.0
+PLAYER_ACCELERATION = 0.2
+PLAYER_BRAKING = 0.3
+PLAYER_LATERAL_SPEED = 5.0
+PLAYER_FRICTION = 0.98
+INITIAL_FUEL = 1000
+MAX_FUEL = 1000
+FUEL_CONSUMPTION_RATE = 0.5
+
+# Enemy settings
+ENEMY_WIDTH = 30
+ENEMY_HEIGHT = 50
+ENEMY_SPEED_MIN = 2.0
+ENEMY_SPEED_MAX = 6.0
+SPAWN_DISTANCE = 300
+
+# Fuel settings
+FUEL_WIDTH = 25
+FUEL_HEIGHT = 25
+FUEL_AMOUNT = 200
+FUEL_SPAWN_INTERVAL = 500
+
+# Scoring
+TARGET_DISTANCE = 10000
+CRASH_PENALTY = 100
+SCORE_PER_DISTANCE = 1
+FUEL_BONUS_MULTIPLIER = 10
+
+# Game states
+STATE_MENU = "menu"
+STATE_PLAYING = "playing"
+STATE_GAME_OVER = "game_over"
+STATE_WIN = "win"

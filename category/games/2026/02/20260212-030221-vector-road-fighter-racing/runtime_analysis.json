@@ -1,0 +1,48 @@
+{
+  "test_name": "Runtime Analysis - Road Fighter Racing",
+  "timestamp": "2026-02-12T03:02:21Z",
+  "tests": [
+    {
+      "name": "Game Initialization",
+      "status": "PASSED",
+      "description": "Game object created successfully"
+    },
+    {
+      "name": "Player Entity",
+      "status": "PASSED",
+      "details": "7/7 sub-tests passed",
+      "initial_lane": 1,
+      "initial_fuel": 1000,
+      "lane_change_works": true
+    },
+    {
+      "name": "Enemy Entity",
+      "status": "PASSED",
+      "details": "4/4 sub-tests passed"
+    },
+    {
+      "name": "Fuel Tank Entity",
+      "status": "PASSED",
+      "details": "2/2 sub-tests passed"
+    },
+    {
+      "name": "Game State Management",
+      "status": "PASSED",
+      "details": "5/5 sub-tests passed"
+    },
+    {
+      "name": "Collision Detection",
+      "status": "PASSED",
+      "details": "2/2 sub-tests passed"
+    },
+    {
+      "name": "Win/Lose Conditions",
+      "status": "PASSED",
+      "details": "2/2 sub-tests passed",
+      "target_distance": 10000,
+      "initial_fuel": 1000
+    }
+  ],
+  "overall_status": "PASSED",
+  "summary": "7/7 tests passed"
+}

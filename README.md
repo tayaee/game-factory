@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-12 | [Vector Road Fighter Racing](category/games/2026/02/20260212-030221-vector-road-fighter-racing/) | Navigate high-speed highways, dodge traffic, and reach the finish line before running out of fuel.
 * 2026-02-11 | [Vector Dig Dug Rock Trap Logic](category/games/2026/02/20260211-181325-vector-dig-dug-rock-trap-logic/) | Outsmart monsters by strategically dropping rocks in this classic underground tactical puzzle.
 * 2026-02-11 | [Vector Urban Champion Street Brawl](category/games/2026/02/20260211-170000-vector-urban-champion-street-brawl/) | A simplified 2D street fighting game focused on timing, spacing, and tactical stamina management.
 * 2026-02-11 | [Vector Track and Field Hurdles](category/games/2026/02/20260211-163544-vector-track-and-field-hurdles/) | A high-speed rhythmic hurdle race challenging your timing and reaction speed.

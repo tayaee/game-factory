@@ -1,0 +1,11 @@
+[project]
+name = "vector-road-fighter-racing"
+version = "0.1.0"
+description = "Navigate high-speed highways, dodge traffic, and reach the finish line before running out of fuel"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

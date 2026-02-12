@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-road-fighter-racing",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260212-030221-vector-road-fighter-racing",
+  "description": "Navigate high-speed highways, dodge traffic, and reach the finish line before running out of fuel.",
+  "rationale": "This game focuses on precision movement and resource management. It targets developers looking to implement top-down driving physics and AI agents learning obstacle avoidance and long-term planning regarding fuel consumption.",
+  "details": "A simplified clone of the classic Road Fighter. The player controls a car on a vertically scrolling 4-lane highway. The goal is to reach a specific distance (finish line) while avoiding collisions with other vehicles (static and moving). Crashing causes a time penalty and fuel loss. Fuel tanks appear periodically and must be collected to prevent a Game Over. The difficulty increases as the car's speed increases and the density of traffic cars grows.",
+  "game_rules": {
+    "win_condition": "Reach the target distance (e.g., 10000 units).",
+    "lose_condition": "Fuel reaches zero.",
+    "scoring": "Distance traveled + time bonus + fuel bonus.",
+    "physics": "Top-down 2D, inertia-based side-to-side movement, constant forward acceleration controlled by the player.",
+    "entities": [
+      "Player Car",
+      "Enemy Car (Regular)",
+      "Enemy Car (Erratic)",
+      "Fuel Tank Item"
+    ]
+  },
+  "technical_specs": {
+    "language": "Python",
+    "framework": "Pygame",
+    "resolution": "400x600",
+    "dependency_management": "uv"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window.",
+  "how_to_play": "Use LEFT and RIGHT arrow keys to steer. Use UP arrow key to accelerate and DOWN arrow key to brake. Avoid other cars to prevent speed loss and fuel depletion. Collect fuel canisters (marked with 'F') to replenish your fuel gauge. Score is based on the distance covered.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "assets/screenshots/road_fighter_sample.png"
+}
