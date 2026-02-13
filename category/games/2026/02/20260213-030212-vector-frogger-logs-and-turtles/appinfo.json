@@ -1,0 +1,53 @@
+{
+  "app_name": "vector-frogger-logs-and-turtles",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260213-030212-vector-frogger-logs-and-turtles",
+  "description": "Cross the treacherous river by hopping on floating logs and diving turtles in this timing-based classic.",
+  "rationale": "This game focuses on the river-crossing mechanic of Frogger, providing a high-stakes environment for AI agents to learn predictive movement and timing. It targets developers interested in grid-based pathfinding and collision detection in dynamic environments.",
+  "details": "The game consists of a 10x10 grid. The bottom row is the starting safe zone, and the top row is the goal zone. Rows 2 through 9 are river lanes. Each lane has platforms (Logs or Turtles) moving horizontally at different speeds and directions. Logs are stable platforms. Turtles are platforms that periodically submerge; if the player is on a turtle when it submerses, they fall into the river. If the player touches the water (any grid cell in the river not occupied by a platform), the game ends. The player must navigate from bottom to top.",
+  "game_rules": {
+    "grid_size": "10x10",
+    "entities": [
+      {
+        "name": "Frog",
+        "type": "Player",
+        "color": "Green"
+      },
+      {
+        "name": "Log",
+        "type": "Platform",
+        "color": "Brown",
+        "behavior": "Stable"
+      },
+      {
+        "name": "Turtle",
+        "type": "Platform",
+        "color": "Red",
+        "behavior": "Submerges every 3 seconds"
+      }
+    ],
+    "physics": "The player moves with the platform they are currently standing on.",
+    "win_condition": "Reach any cell in the top row.",
+    "lose_condition": "Touch water or move off-screen boundaries."
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "dependencies": [
+      "pygame"
+    ],
+    "build_system": "uv",
+    "render_mode": "Vector-style 2D graphics"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Use UP, DOWN, LEFT, RIGHT arrow keys to move the frog one grid square at a time. Score +10 for moving forward to a new row, +100 for reaching the goal. Avoid the blue water areas. Stay on logs or turtles, but jump off turtles before they turn dark blue (submerged).",
+  "how_to_cleanup": "rm -rf .venv",
+  "reward_structure": {
+    "forward_progress": 10,
+    "goal_reached": 100,
+    "death_penalty": -50,
+    "time_penalty": -1
+  },
+  "screenshot": "N/A"
+}

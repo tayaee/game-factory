@@ -1,0 +1,18 @@
+[project]
+name = "vector-frogger-logs-and-turtles"
+version = "1.0.0"
+description = "Cross the treacherous river by hopping on floating logs and diving turtles"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+vector-frogger-logs-and-turtles = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
