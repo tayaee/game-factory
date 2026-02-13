@@ -13,7 +13,7 @@
       "syntax_check": "PASSED",
       "dependencies_available": "PASSED",
       "pygame_version": "2.5.6 (pygame-ce)",
-      "python_version": "3.11.14",
+      "python_version": "3.14.3",
       "all_imports_successful": true,
       "display_init": "OK"
     }
@@ -24,15 +24,15 @@
     "classes_found": {
       "Game": {
         "status": "PRESENT",
-        "methods": ["check_match", "draw", "get_target_color", "handle_click", "init_grid", "new_target", "reset", "run", "spawn_particles", "update"]
+        "methods": ["check_match", "draw", "get_target_color", "handle_click", "init_grid", "new_target", "reset", "run", "spawn_particles", "update", "__init__"]
       },
       "Tile": {
         "status": "PRESENT",
-        "methods": ["get_color", "get_scale", "hue_distance", "update"]
+        "methods": ["get_color", "get_scale", "hue_distance", "update", "__init__"]
       },
       "Particle": {
         "status": "PRESENT",
-        "methods": ["draw", "update"]
+        "methods": ["draw", "update", "__init__"]
       }
     }
   },
@@ -54,11 +54,11 @@
       "status": "PASSED",
       "details": {
         "tile_creation": "PASSED",
-        "hue_generation": "PASSED",
-        "color_conversion": "PASSED",
-        "hue_distance_calculation": "PASSED",
-        "hue_shifting_over_time": "PASSED",
-        "pulsing_animation": "PASSED"
+        "hue_generation": "PASSED - random.random() used for initial hue",
+        "color_conversion": "PASSED - colorsys.hsv_to_rgb conversion",
+        "hue_distance_calculation": "PASSED - circular distance 0 to 0.5",
+        "hue_shifting_over_time": "PASSED - (current_hue + shift_speed * dt) % 1.0",
+        "pulsing_animation": "PASSED - sinusoidal scale with 0.9-1.0 range"
       }
     },
     "color_matching_logic": {
@@ -81,6 +81,12 @@
           "expected": false,
           "actual": false,
           "result": "PASSED"
+        },
+        {
+          "description": "Circular hue wrapping (0.95 vs 0.05)",
+          "expected": true,
+          "actual": true,
+          "result": "PASSED"
         }
       ]
     },
@@ -89,16 +95,19 @@
       "details": {
         "correct_click": {
           "result": "PASSED",
-          "score_increase": "10 + combo bonus",
+          "score_increase": "10 + combo * 5",
           "combo_increment": "+1",
           "particles_spawned": 15,
-          "lives_unchanged": true
+          "lives_unchanged": true,
+          "tile_replaced": true,
+          "new_target_generated": true
         },
         "wrong_click": {
           "result": "PASSED",
           "lives_decrease": -1,
           "combo_reset": true,
-          "miss_particles": 8
+          "miss_particles": 8,
+          "game_over_trigger": "lives <= 0"
         },
         "empty_space_click": {
           "result": "PASSED",
@@ -110,11 +119,12 @@
     "particle_system": {
       "status": "PASSED",
       "details": {
-        "particle_creation": "PASSED",
-        "particle_update": "PASSED",
-        "particle_decay": "PASSED",
-        "decay_time": "~1 second",
-        "rendering": "PASSED (with alpha blending)"
+        "particle_creation": "PASSED - random angle, speed 50-150",
+        "particle_update": "PASSED - velocity-based movement",
+        "particle_decay": "PASSED - decay 1-3 per second",
+        "decay_time": "0.33 to 1 second",
+        "rendering": "PASSED - alpha blending with SRCALPHA",
+        "max_particle_size": "4 pixels"
       }
     },
     "difficulty_progression": {
@@ -123,7 +133,8 @@
         "score_threshold": 50,
         "speed_increase": "+0.005",
         "tolerance_decrease": "-0.003",
-        "minimum_tolerance": 0.05
+        "minimum_tolerance": 0.05,
+        "progression_infinite": true
       }
     },
     "game_over_condition": {
@@ -131,8 +142,10 @@
       "details": {
         "trigger": "lives <= 0",
         "state_change": "game_over = true",
+        "overlay_displayed": true,
         "reset_available": true,
-        "restart_key": "R"
+        "restart_key": "R",
+        "quit_key": "ESC"
       }
     },
     "reset_functionality": {
@@ -143,7 +156,43 @@
         "combo_reset": "0",
         "speed_reset": "0.02",
         "tolerance_reset": "0.08",
-        "game_over_cleared": true
+        "game_over_cleared": true,
+        "particles_cleared": true,
+        "grid_regenerated": true
+      }
+    },
+    "input_handling": {
+      "status": "PASSED",
+      "details": {
+        "mouse_left_click": "PASSED - event.button == 1",
+        "escape_key": "PASSED - pygame.K_ESCAPE",
+        "r_key_restart": "PASSED - pygame.K_R when game_over",
+        "window_close": "PASSED - pygame.QUIT"
+      }
+    },
+    "rendering": {
+      "status": "PASSED",
+      "details": {
+        "background": "PASSED - (20, 20, 30)",
+        "title_display": "PASSED - 'CHROMA SHIFT' at top",
+        "target_color_bar": "PASSED - full width bar at y=100",
+        "tile_rendering": "PASSED - with border_radius=8",
+        "match_highlight": "PASSED - white 3px border",
+        "particle_effects": "PASSED - alpha blended circles",
+        "score_display": "PASSED - top left",
+        "lives_display": "PASSED - top right",
+        "combo_display": "PASSED - top center when > 0",
+        "game_over_screen": "PASSED - overlay with 180 alpha"
+      }
+    },
+    "game_loop": {
+      "status": "PASSED",
+      "details": {
+        "framerate_target": 60,
+        "dt_calculation": "clock.tick(60) / 1000.0",
+        "event_processing": "PASSED",
+        "state_update": "PASSED",
+        "display_flip": "PASSED"
       }
     }
   },
@@ -162,7 +211,16 @@
       "status": "PASSED",
       "details": {
         "hue_shifts_over_time": true,
-        "continuous_animation": true
+        "continuous_animation": true,
+        "wraps_at_1.0": true
+      }
+    },
+    "target_color_selection": {
+      "status": "PASSED",
+      "details": {
+        "selection_method": "center tile +/- 2 indices",
+        "bounds_checking": "max(0, min(center_idx, len(tiles) - 1))",
+        "hue_extraction": "from current tile state"
       }
     }
   },
@@ -170,6 +228,7 @@
   "pygame_integration": {
     "status": "PASSED",
     "modules_verified": {
+      "pygame.init": true,
       "display": true,
       "event": true,
       "font": true,
@@ -181,7 +240,7 @@
 
   "basic_functionality_summary": {
     "color_matching": "WORKING - Tiles correctly match based on hue distance within tolerance",
-    "scoring_system": "WORKING - Points awarded with combo bonus, difficulty increases",
+    "scoring_system": "WORKING - Points awarded with combo bonus, difficulty increases every 50 points",
     "lives_system": "WORKING - Lives decrease on wrong clicks, game over at 0",
     "visual_effects": "WORKING - Particle effects and pulsing animations functional",
     "tile_color_shifting": "WORKING - Colors continuously shift hue over time",
@@ -190,13 +249,14 @@
 
   "runtime_execution_results": {
     "tile_class": {
-      "color_generation": "(45, 229, 229) from hue 0.5",
-      "hue_distance_calculation": "0.00032 (near zero for exact match)",
-      "scale_animation": "0.898 (pulsing effect working)"
+      "color_generation": "hsv_to_rgb conversion working",
+      "hue_distance_calculation": "circular distance 0 to 0.5",
+      "scale_animation": "0.9 + 0.1 * sin(phase)"
     },
     "particle_class": {
       "creation": "PASSED",
-      "update_lifecycle": "PASSED"
+      "update_lifecycle": "PASSED",
+      "velocity_calculation": "cos/sin based random angle"
     },
     "game_initialization": {
       "window_size": "800x700",
