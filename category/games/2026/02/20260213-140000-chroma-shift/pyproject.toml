@@ -1,0 +1,18 @@
+[project]
+name = "chroma-shift"
+version = "1.0.0"
+description = "Color-matching puzzle game with shifting hues"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+chroma-shift = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

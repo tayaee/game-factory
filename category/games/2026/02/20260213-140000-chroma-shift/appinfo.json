@@ -1,0 +1,14 @@
+{
+  "app_name": "chroma-shift",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260213-140000-chroma-shift",
+  "description": "Match colors before they shift in this minimalist color perception puzzle.",
+  "rationale": "This game tests color perception, pattern recognition, and reaction speed under time pressure. It targets players interested in cognitive training, as well as AI agents learning to process visual color information and make rapid classification decisions.",
+  "details": "A grid of colored tiles appears. Each tile slowly shifts its hue over time. The player must click tiles that match the target color shown at the top. As the game progresses, colors shift faster, the grid grows larger, and more colors appear simultaneously. Matching tiles before they shift too far earns bonus points.",
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press ESC or close the window",
+  "how_to_play": "Click tiles that match the target color shown at the top. Tiles continuously shift hue - click before they drift too far from the target. Each correct click scores points and shows a new target. Missing or wrong clicks reduce lives.",
+  "how_to_cleanup": "rm -rf .venv uv.lock",
+  "screenshot": "N/A"
+}
