@@ -1,0 +1,30 @@
+{
+  "app_name": "vector-snake-rattle-coin-dash",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-062200-vector-snake-rattle-coin-dash",
+  "description": "Navigate the isometric grid, collect golden coins, and avoid your growing tail in this classic logic puzzle.",
+  "rationale": "This game targets fans of classic arcade logic and spatial reasoning. It provides a clean, 2.5D isometric perspective challenge that is ideal for testing AI pathfinding and reinforcement learning agents in a constrained environment.",
+  "details": "The game is a simplified 2.5D isometric version of the classic Snake. The player controls a snake moving on a diamond-shaped grid. Goal: Eat coins that appear randomly to grow and increase score. Collision with the screen boundaries or the snake's own body results in Game Over. The speed increases slightly every 5 coins collected. The visuals use high-contrast monochromatic vector lines (white on black) to maintain a professional, minimalist aesthetic.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x600",
+    "grid_size": "20x20",
+    "fps": "15",
+    "color_palette": [
+      "#000000",
+      "#FFFFFF",
+      "#FFD700"
+    ]
+  },
+  "state_space_for_rl": {
+    "observations": "Snake head position (x, y), Coin position (x, y), Relative positions of body segments, Distance to walls",
+    "action_space": "4 discrete actions: Move North, Move South, Move East, Move West (relative to isometric grid)",
+    "reward_structure": "Coin collected: +10, Collision: -100, Step penalty: -0.1"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' key or close the window.",
+  "how_to_play": "Use the Arrow Keys to change the snake's direction on the isometric grid. Up/Down/Left/Right arrows map to the four cardinal directions of the diamond grid. Collect yellow coins to earn 100 points each. Do not hit the edges or your own body. Score is displayed at the top-left corner.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "screenshot": "assets/screenshots/snake_isometric_preview.png"
+}

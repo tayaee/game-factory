@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-14 | [Vector Snake Rattle Coin Dash](category/games/2026/02/20260214-062200-vector-snake-rattle-coin-dash/) | Navigate the isometric grid, collect golden coins, and avoid your growing tail in this classic logic puzzle.
 * 2026-02-14 | [Vector Super Mario Bros Paratroopa Jump](category/games/2026/02/20260214-041000-vector-super-mario-bros-paratroopa-jump/) | Master sequential paratroopa bouncing to reach the highest heights without touching the ground.
 * 2026-02-14 | [Vector Mario Bros Sewer Cleaning](category/games/2026/02/20260214-030500-vector-mario-bros-sewer-cleaning/) | Clear the sewer of pests by flipping enemies from below in this classic arcade reimagining.
 * 2026-02-13 | [Chroma Shift](category/games/2026/02/20260213-140000-chroma-shift/) | Match colors before they shift in this minimalist color perception puzzle.

@@ -1,0 +1,18 @@
+[project]
+name = "vector-snake-rattle-coin-dash"
+version = "1.0.0"
+description = "Navigate the isometric grid, collect golden coins, and avoid your growing tail"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-snake-rattle-coin-dash = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
