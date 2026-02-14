@@ -1,0 +1,39 @@
+{
+  "app_name": "vector-balloon-pop-puzzle",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-105224-vector-balloon-pop-puzzle",
+  "description": "Strategic physics-based puzzle where players pop colored balloons using limited darts to clear the grid.",
+  "rationale": "This game targets puzzle enthusiasts and logic game lovers. It provides a structured environment for AI agents to learn spatial reasoning and trajectory optimization under resource constraints, similar to the classic 'Pooyan' or 'Puzzle Bobble' mechanics but with a static grid-clearing objective.",
+  "details": "The game features a 10x10 grid where balloons of 4 different colors are randomly placed. The player controls a dart launcher at the bottom center. Balloons of the same color adjacent to each other will pop in a chain reaction if one is hit. The objective is to clear all balloons with a limited number of darts. Physics includes dart trajectory and gravity-affected balloon floating (balloons move up to fill empty spaces after a pop).",
+  "game_mechanics": {
+    "grid_size": "10x10",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow"
+    ],
+    "dart_limit": 15,
+    "scoring_formula": "Points = (Number of Popped Balloons)^2 * 10",
+    "win_condition": "All balloons cleared",
+    "lose_condition": "Zero darts remaining with balloons still on grid"
+  },
+  "technical_stack": {
+    "language": "Python 3.10+",
+    "package_manager": "uv",
+    "rendering_library": "pygame",
+    "configuration": "pyproject.toml"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill -9 $(pgrep -f 'uv run main.py')",
+  "how_to_play": "Move the launcher left/right using Arrow Keys. Aim the trajectory. Press SPACE to fire a dart. Hit a balloon to trigger a pop. If the popped balloon has neighbors of the same color, they also pop. Score increases exponentially with the size of the chain reaction. Clear the entire board to win.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "agent_observations": [
+    "launcher_angle",
+    "grid_state_matrix",
+    "remaining_darts",
+    "current_score"
+  ],
+  "screenshot": "assets/screenshots/balloon-pop-preview.png"
+}
