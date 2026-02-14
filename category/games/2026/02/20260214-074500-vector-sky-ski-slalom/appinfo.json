@@ -1,0 +1,21 @@
+{
+  "app_name": "vector-sky-ski-slalom",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-074500-vector-sky-ski-slalom",
+  "description": "Navigate a high-speed downhill descent avoiding obstacles and passing through gates.",
+  "rationale": "This game focuses on precision timing, reaction speed, and path optimization. It is ideal for testing AI agents in continuous space movement and obstacle avoidance scenarios with a constant downward velocity vector.",
+  "details": "The player controls a skier moving down a continuous slope. The screen scrolls upward at a constant speed, simulating downhill movement. Obstacles include pine trees (stationary) and moving snowmobiles. Slalom gates consist of two poles; passing between them awards bonus points. The game difficulty increases over time as the scrolling speed slightly accelerates and obstacle density grows. The game uses a clean vector aesthetic with a monochromatic blue and white palette to ensure clarity for vision-based RL agents.",
+  "technical_specs": {
+    "framework": "Pygame",
+    "resolution": "400x600",
+    "state_space": "Continuous (X-position of player, X/Y of obstacles and gates)",
+    "action_space": "Discrete (Left, Right, Stay)",
+    "reward_structure": "Positive for time alive, high bonus for gates, negative for collisions"
+  },
+  "how_to_build": "uv run python -m pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI, use Ctrl+C.",
+  "how_to_play": "Use the Left and Right arrow keys to move the skier horizontally. The goal is to stay alive as long as possible by avoiding trees and vehicles. Passing between red slalom poles grants +50 points. A collision ends the game instantly. Score is calculated as: Distance + (Gates * 50).",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "Not provided"
+}
