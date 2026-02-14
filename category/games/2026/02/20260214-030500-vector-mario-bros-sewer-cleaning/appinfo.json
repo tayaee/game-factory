@@ -1,0 +1,43 @@
+{
+  "app_name": "vector-mario-bros-sewer-cleaning",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-030500-vector-mario-bros-sewer-cleaning",
+  "description": "Clear the sewer of pests by flipping enemies from below in this classic arcade reimagining.",
+  "rationale": "This game targets fans of retro arcade platformers. It focuses on indirect combat mechanics—attacking from underneath platforms—which provides a unique challenge for AI agents to learn spatial timing and trajectory prediction.",
+  "details": "A single-screen platformer featuring a multi-tier sewer layout. Enemies (pests) emerge from pipes at the top corners and traverse the platforms toward the bottom. The player must jump and hit the platform directly beneath an enemy to flip it over, then kick the stunned enemy to remove it. If an enemy is not kicked in time, it recovers and moves faster. The game includes 'POW' blocks that flip all enemies currently touching a platform. Physics include gravity, momentum-based movement, and wrap-around screen edges (exiting left brings you in from the right).",
+  "technical_requirements": {
+    "language": "Python 3.10+",
+    "framework": "Pygame",
+    "dependencies": [
+      "pygame",
+      "numpy"
+    ],
+    "build_tool": "uv"
+  },
+  "game_rules": {
+    "enemy_types": [
+      "Shellcreeper (standard)",
+      "Sidestepper (requires two hits)"
+    ],
+    "scoring": {
+      "flip_enemy": 10,
+      "kick_enemy": 500,
+      "multiple_kick_bonus": "multiplier for each enemy kicked in one stun cycle",
+      "collect_coin": 200
+    },
+    "lives": 3,
+    "win_condition": "Clear all enemies in the current wave",
+    "loss_condition": "Touching an active (non-stunned) enemy"
+  },
+  "how_to_build": "uv init && uv add pygame numpy",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill the process or press ESC key",
+  "how_to_play": "Use LEFT/RIGHT ARROW keys to move, SPACE to jump. Position yourself under an enemy's platform and jump to hit the ceiling. Once the enemy is upside down, run into it to kick it away. Score points by clearing enemies and collecting coins that emerge from pipes. Use the POW block sparingly by jumping into it from below to flip all enemies on platforms.",
+  "how_to_cleanup": "rm -rf .venv && rm pyproject.toml uv.lock",
+  "ai_agent_info": {
+    "observation_space": "Player coordinates, enemy coordinates/state (active/stunned), platform map, coin positions",
+    "action_space": "Move Left, Move Right, Jump, Idle",
+    "reward_structure": "Positive reward for kicking enemies and clearing waves; negative reward for losing a life or time decay."
+  },
+  "screenshot": "No screenshot available"
+}

@@ -1,0 +1,6 @@
+[project]
+name = "20260214-030500-vector-mario-bros-sewer-cleaning"
+version = "0.1.0"
+description = "Clear the sewer of pests by flipping enemies from below in this classic arcade reimagining."
+requires-python = ">=3.10"
+dependencies = ["pygame", "numpy"]

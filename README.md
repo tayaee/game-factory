@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-14 | [Vector Mario Bros Sewer Cleaning](category/games/2026/02/20260214-030500-vector-mario-bros-sewer-cleaning/) | Clear the sewer of pests by flipping enemies from below in this classic arcade reimagining.
 * 2026-02-13 | [Chroma Shift](category/games/2026/02/20260213-140000-chroma-shift/) | Match colors before they shift in this minimalist color perception puzzle.
 * 2026-02-13 | [Reaction Reflex Test](category/games/2026/02/20260213-130000-reaction-reflex-test/) | Test your reaction speed by clicking targets as quickly as possible before they disappear.
 * 2026-02-13 | [Rhythm Pulse Beat](category/games/2026/02/20260213-120000-rhythm-pulse-beat/) | Hit the beat at the perfect moment in this minimalist rhythm reaction game.
