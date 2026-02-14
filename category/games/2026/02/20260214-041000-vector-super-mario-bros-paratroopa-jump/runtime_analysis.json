@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-14T04:14:55.027387",
+  "timestamp": "2026-02-14T05:18:23.152940",
   "app_name": "vector-super-mario-bros-paratroopa-jump",
   "runtime_seconds": 120,
   "tests": [
     {
       "name": "application_launch",
       "status": "PASSED",
-      "details": "Application started successfully with PID: 9304"
+      "details": "Application started successfully with PID: 8156"
     },
     {
       "name": "process_stability",
@@ -25,5 +25,5 @@
     }
   ],
   "overall_status": "PASSED",
-  "total_runtime": 120.0572509765625
+  "total_runtime": 120.06283831596375
 }
