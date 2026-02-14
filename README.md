@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-14 | [Vector Super Mario Bros Fire Flower Sniping](category/games/2026/02/20260214-131654-vector-super-mario-bros-fire-flower-sniping/) | Master the trajectory of Mario's fireballs to defeat enemies with bouncing physics in a high-stakes sniping challenge.
 * 2026-02-14 | [Vector Balloon Pop Puzzle](category/games/2026/02/20260214-105224-vector-balloon-pop-puzzle/) | Strategic physics-based puzzle where players pop colored balloons using limited darts to clear the grid.
 * 2026-02-14 | [Vector Sky Ski Slalom](category/games/2026/02/20260214-074500-vector-sky-ski-slalom/) | Navigate a high-speed downhill descent avoiding obstacles and passing through gates.
 * 2026-02-14 | [Vector Snake Rattle Coin Dash](category/games/2026/02/20260214-062200-vector-snake-rattle-coin-dash/) | Navigate the isometric grid, collect golden coins, and avoid your growing tail in this classic logic puzzle.

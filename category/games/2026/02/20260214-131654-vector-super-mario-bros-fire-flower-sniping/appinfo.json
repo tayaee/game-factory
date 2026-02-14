@@ -1,0 +1,28 @@
+{
+  "app_name": "vector-super-mario-bros-fire-flower-sniping",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-131654-vector-super-mario-bros-fire-flower-sniping",
+  "description": "Master the trajectory of Mario's fireballs to defeat enemies in a high-stakes sniping challenge.",
+  "rationale": "This game focuses on the projectile physics of Mario's fireballs, which is a unique mechanic distinct from standard jumping or running. It provides a specialized environment for AI agents to learn physics-based prediction and timing, targeting users who enjoy skill-based arcade shooters.",
+  "details": "The game features a stationary Mario in a specialized arena. Piranha Plants and Goombas spawn at varying heights and distances on the right side of the screen. Mario can shoot fireballs that bounce off the floor and platforms according to gravity and coefficient of restitution. Each fireball lasts for a limited number of bounces or time. The goal is to clear waves of enemies with limited ammunition. Advanced levels introduce moving platforms that block or redirect fireballs.",
+  "technical_specs": {
+    "screen_resolution": "800x600",
+    "fps": 60,
+    "physics_engine": "Custom 2D Vector Physics",
+    "fireball_gravity": 0.5,
+    "fireball_bounce_velocity_multiplier": 0.8
+  },
+  "game_rules": {
+    "starting_lives": 3,
+    "fireball_limit_per_stage": 15,
+    "enemy_collision_score": 100,
+    "multi_hit_bonus": 2.0,
+    "stage_clear_bonus": 500
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "pkill -f vector-super-mario-bros-fire-flower-sniping",
+  "how_to_play": "Aim Mario's arm up and down to change the launch angle. Press the Spacebar to shoot a fireball. Use Left/Right arrows to move Mario slightly to adjust the bounce starting point. Score increases by hitting enemies. Direct hits grant standard points, while hits after multiple bounces grant bonus multipliers. Game ends if ammunition runs out before all enemies are cleared or if enemies reach Mario's position.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
