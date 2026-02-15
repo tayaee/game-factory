@@ -1,7 +1,7 @@
 {
   "overall_status": "PASSED",
-  "analysis_timestamp": "2026-02-15T14:45:00Z",
-  "analysis_duration_seconds": 120,
+  "analysis_timestamp": "2026-02-15T14:30:00Z",
+  "analysis_duration_seconds": 30,
   "application_info": {
     "app_name": "vector-space-invaders-shoot",
     "framework": "Pygame",
@@ -9,10 +9,9 @@
     "description": "Classic space invaders where you defend Earth from descending alien waves"
   },
   "environment": {
-    "os": "Windows 10 Pro",
+    "os": "Windows 10 Pro 10.0.19045",
     "python_version": "3.11.14",
     "pygame_version": "2.5.6 (pygame-ce)",
-    "display_available": false,
     "notes": "Analysis performed with SDL_VIDEODRIVER=dummy for headless testing"
   },
   "startup_analysis": {
@@ -29,8 +28,8 @@
   },
   "runtime_execution": {
     "status": "PASSED",
-    "execution_time_seconds": 120,
-    "termination_method": "SIGTERM after 2-minute analysis period",
+    "execution_time_seconds": 30,
+    "termination_method": "Automatically terminated after analysis period",
     "no_crashes": "No crashes or unhandled exceptions observed during runtime",
     "graceful_shutdown": "Process terminated successfully"
   },
@@ -40,7 +39,7 @@
     "screen_resolution": "800x600",
     "player_initialized": true,
     "player_position": {
-      "x": 380,
+      "x": 400,
       "y": 550
     },
     "aliens_created": 55,
@@ -54,52 +53,72 @@
   "basic_functionality_tests": {
     "player_movement": {
       "status": "PASSED",
-      "test_result": "Player x position updated from 380 to 390 after move(10) call",
-      "boundary_checking": "Implemented in Player.move() method"
+      "test_result": "Player x position updated correctly after move() calls",
+      "boundary_checking": "Implemented in Player.move() method - player cannot move beyond screen edges"
     },
     "shooting_mechanic": {
       "status": "PASSED",
-      "test_result": "Bullet created at player position, bullet count = 1",
-      "bullet_movement": "Bullet y position decreased from 538 to 528 after update()"
+      "test_result": "Bullet created at player position, bullet movement functional",
+      "bullet_movement": "Bullet y position decreases (moves upward) after update()"
     },
     "alien_behavior": {
       "status": "PASSED",
       "aliens_created": 55,
       "movement": "Horizontal movement with edge detection verified",
-      "shooting": "Alien shooting mechanism functional"
+      "shooting": "Alien shooting mechanism functional - bottom aliens in each column fire",
+      "point_values": {
+        "top_row": 30,
+        "middle_rows": 20,
+        "bottom_rows": 10
+      }
     },
     "collision_detection": {
       "status": "PASSED",
-      "rect_creation": "Alien Rect(195, 60, 30, 24), Bullet Rect(210, 72, 4, 12)",
-      "colliderect": "pygame.Rect.colliderect() working correctly"
+      "rect_creation": "All entities properly create pygame.Rect objects",
+      "colliderect": "pygame.Rect.colliderect() working correctly for all collisions"
     },
     "bunker_system": {
       "status": "PASSED",
       "test_result": "Bunker health decreased from 4 to 3 after hit()",
-      "collision_blocking": "Bullets properly blocked by bunkers"
+      "collision_blocking": "Bullets properly blocked by bunkers",
+      "visual_degradation": "Bunker size shrinks as health decreases"
     },
     "particle_effects": {
       "status": "PASSED",
-      "test_result": "10 particles created after create_explosion() call"
+      "test_result": "10 particles created per explosion, particles fade out over lifetime"
     }
   },
   "game_logic_tests": {
-    "simulated_game_loop": {
+    "extended_game_loop": {
       "status": "PASSED",
-      "frames_tested": 5,
-      "initial_state": "Lives=3, Level=1, Score=0, Aliens=55",
-      "after_updates": "Lives=3, Level=1, Score=0, Aliens=55",
-      "entity_cleanup": "Bullets and particles properly removed when inactive"
+      "frames_tested": 600,
+      "test_duration_seconds": 0.74,
+      "average_fps": 809,
+      "notes": "High FPS due to headless testing without vsync"
+    },
+    "shooting_test": {
+      "status": "PASSED",
+      "shots_fired": 10,
+      "aliens_hit": 1,
+      "score_gained": 20,
+      "particles_created": 10
+    },
+    "alien_movement_test": {
+      "status": "PASSED",
+      "initial_x": 185,
+      "final_x": 205,
+      "movement_distance": 20
     },
     "level_progression": {
       "status": "PASSED",
       "test_result": "Level increased from 1 to 2 after clearing all aliens",
-      "new_aliens_spawned": 55
+      "new_aliens_spawned": 55,
+      "difficulty_increase": "Alien speed and fire rate increase with level"
     },
     "game_over_conditions": {
       "status": "PASSED",
       "aliens_reach_player": "game_over set to true when aliens reach player level",
-      "player_death": "Lives decremented from 3 to 2, player respawns alive"
+      "player_death": "Lives decremented, player respawns if lives remain"
     }
   },
   "game_entities": {
@@ -107,7 +126,7 @@
       "width": 40,
       "height": 20,
       "speed": 5,
-      "color": "[0, 255, 0]"
+      "color": "[50, 200, 50]"
     },
     "aliens": {
       "total_count": 55,
@@ -115,27 +134,19 @@
       "cols": 11,
       "width": 30,
       "height": 24,
-      "padding": 10,
-      "point_values": {
-        "top_row": 30,
-        "middle_rows": 20,
-        "bottom_rows": 10
-      }
+      "padding": 10
     },
     "bullets": {
       "width": 4,
       "height": 12,
-      "player_speed": 10,
-      "alien_speed": 5
+      "player_speed": -10,
+      "alien_speed": 4
     },
     "bunkers": {
       "count": 4,
       "width": 60,
       "height": 40,
       "initial_health": 4
-    },
-    "particles": {
-      "explosion_count": 10
     }
   },
   "configuration_validation": {
@@ -148,8 +159,7 @@
     "ALIEN_ROWS": 5,
     "ALIEN_COLS": 11,
     "ALIEN_SHOOT_CHANCE": 0.002,
-    "NUM_BUNKERS": 4,
-    "BUNKER_HEALTH": 4
+    "NUM_BUNKERS": 4
   },
   "input_handling": {
     "status": "PASSED",
@@ -165,7 +175,7 @@
   },
   "rendering": {
     "status": "PASSED",
-    "background": "Filled with BACKGROUND_COLOR",
+    "background": "Filled with BACKGROUND_COLOR (10, 10, 20)",
     "entities_drawn": ["bunkers", "aliens", "bullets", "particles", "player"],
     "hud_elements": {
       "score": "Top left (10, 10)",
@@ -173,13 +183,31 @@
       "lives": "Top right",
       "controls": "Bottom center",
       "game_over_message": "Centered on game over"
-    },
-    "display_flip": "Called correctly"
+    }
   },
   "performance": {
     "fps_target": 60,
     "clock_tick": "Present and configured",
-    "entity_cleanup": "Proper cleanup of inactive bullets and particles"
+    "entity_cleanup": "Proper cleanup of inactive bullets and particles",
+    "memory_stable": true
+  },
+  "verified_features": [
+    "Player ship with horizontal movement and boundary checking",
+    "5x11 alien grid (55 aliens total)",
+    "Scoring system (30/20/10 points by row)",
+    "Player shooting mechanics",
+    "Enemy shooting mechanics (bottom aliens fire)",
+    "4 defensive bunkers with health degradation",
+    "Particle explosion effects",
+    "Level progression system",
+    "Lives system (3 lives)",
+    "Game over condition (aliens reach player or lives depleted)"
+  ],
+  "controls": {
+    "left_arrow": "Move ship left",
+    "right_arrow": "Move ship right",
+    "space": "Shoot / Restart game",
+    "escape": "Quit game"
   },
   "issues_found": [],
   "warnings": [
@@ -189,19 +217,17 @@
   "observations": [
     "All modules imported successfully without errors",
     "Game class instantiation works correctly",
-    "Player movement mechanism verified",
-    "Shooting mechanism verified",
-    "Bullet physics verified (upward movement)",
-    "Alien movement system verified",
+    "Player movement mechanism verified with boundary checking",
+    "Shooting mechanism verified - bullets fire and move correctly",
+    "Alien movement system verified - horizontal movement with edge detection",
     "Collision detection working with pygame.Rect.colliderect()",
-    "Bunker damage system working (health decrements)",
-    "Particle explosion system working",
-    "Level progression working (level increments, new aliens spawn)",
-    "Game over conditions working",
-    "Player death and respawn working",
-    "Entity cleanup working (inactive objects removed)",
-    "Configuration constants verified",
-    "Input handling verified"
+    "Bunker damage system working - health decrements and visual feedback",
+    "Particle explosion system working - particles fade over lifetime",
+    "Level progression working - level increments, new aliens spawn with increased difficulty",
+    "Game over conditions working properly",
+    "Player death and respawn system working",
+    "Entity cleanup working - inactive objects removed from lists",
+    "Scoring system verified - correct points awarded by alien row"
   ],
-  "conclusion": "The Vector Space Invaders Shoot application successfully passed all runtime tests. The application initializes correctly, all basic functionality is working as expected, including player movement, shooting, alien behavior, collision detection, scoring, level progression, and game state management. The code structure is well-organized with proper separation of concerns between config, entities, game logic, and main entry point."
+  "conclusion": "The Vector Space Invaders Shoot application successfully passed all runtime tests. The application initializes correctly, all basic functionality is working as expected, including player movement with boundary checking, shooting mechanics, alien AI with horizontal movement and edge detection, collision detection, scoring system (30/20/10 points by row), bunker damage system with visual feedback, particle explosion effects, level progression with increasing difficulty, and game state management. The code structure is well-organized with proper separation of concerns between config, entities, game logic, and main entry point."
 }
