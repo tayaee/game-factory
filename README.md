@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-14 | [Vector Reversi Othello Logic](category/games/2026/02/20260214-221055-vector-reversi-othello-logic/) | Strategic board game of territory and conversion where one move can flip the entire board.
 * 2026-02-14 | [Vector Super Mario Bros Hammer Bro Dodge](category/games/2026/02/20260214-185500-vector-super-mario-bros-hammer-bro-dodge/) | Master the art of dodging and counter-attacking the iconic Hammer Brother's erratic projectile arcs.
 * 2026-02-14 | [Vector Super Mario Bros Infinite Koopa Shell Bounce](category/games/2026/02/20260214-143500-vector-super-mario-bros-infinite-koopa-shell-bounce/) | Master the art of infinite shell bouncing to achieve the highest combo score.
 * 2026-02-14 | [Vector Super Mario Bros Fire Flower Sniping](category/games/2026/02/20260214-131654-vector-super-mario-bros-fire-flower-sniping/) | Master the trajectory of Mario's fireballs to defeat enemies with bouncing physics in a high-stakes sniping challenge.

@@ -1,0 +1,15 @@
+[project]
+name = "vector-reversi-othello-logic"
+version = "0.1.0"
+description = "A strategic board game of territory and conversion where one move can flip the entire board."
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]

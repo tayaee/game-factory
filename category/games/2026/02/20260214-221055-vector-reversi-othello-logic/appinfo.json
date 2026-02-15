@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-reversi-othello-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260214-221055-vector-reversi-othello-logic",
+  "description": "A strategic board game of territory and conversion where one move can flip the entire board.",
+  "rationale": "Reversi (Othello) is a classic strategy game that provides a perfect environment for AI agents to learn tactical positioning, edge control, and long-term planning. It targets puzzle enthusiasts and strategy gamers of all ages.",
+  "details": "The game is played on an 8x8 grid. Two players (Black and White) take turns placing their color piece on the board. A move is valid if it 'outflanks' one or more opponent pieces in at least one straight line (horizontal, vertical, or diagonal). Outflanked pieces are flipped to the current player's color. The game ends when neither player can move or the board is full. The player with the most pieces wins. This version uses a clean vector-based UI with clear indicators for valid moves.",
+  "technical_specs": {
+    "grid_size": "8x8",
+    "winning_condition": "Higher piece count at end-of-game",
+    "input_method": "Mouse click on valid grid coordinates",
+    "state_representation": "2D integer array (0: empty, 1: black, 2: white)"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f 'uv run main.py')",
+  "how_to_play": "1. Use the mouse to click on a highlighted valid square to place your piece. 2. Your goal is to surround the opponent's pieces to flip them to your color. 3. Focus on capturing corners as they cannot be flipped back. 4. The score increases as you convert more opponent pieces to your own. 5. The game automatically skips a player's turn if they have no valid moves.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
