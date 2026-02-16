@@ -1,0 +1,26 @@
+{
+  "app_name": "word-scramble",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260216-210000-word-scramble",
+  "description": "Unscramble letters to form words in this vocabulary puzzle game.",
+  "rationale": "This game challenges players' vocabulary and pattern recognition skills. It helps improve spelling, word formation, and cognitive flexibility by requiring players to identify words from scrambled letters. The game progressively increases in difficulty, making it suitable for both casual players and those seeking a mental workout.",
+  "details": "Players are presented with scrambled letters and must unscramble them to form valid words. The game features: 1. Interactive letter tiles that can be clicked to form words. 2. Hint system that reveals one letter at a time. 3. Multiple lives allowing mistakes. 4. Progressive difficulty with level increases. 5. Score system based on word length and speed. 6. Reset option to try different arrangements.",
+  "technical_specs": {
+    "resolution": "800x600",
+    "frame_rate": 60,
+    "input_type": "Keyboard and Mouse",
+    "state_representation": "Letter position and selection state"
+  },
+  "reward_structure": {
+    "correct_word": "10 points per letter + 50 bonus",
+    "hint_penalty": -20,
+    "wrong_answer": -10,
+    "level_bonus": "Unlocks additional hints"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Close the window or press Escape",
+  "how_to_play": "Click on the letter tiles in the correct order to form a word. You can also type letters directly. Press ENTER to submit your answer, BACKSPACE to undo, H to use a hint (limited), and SPACE to reset the current word selection. Avoid running out of lives by guessing correctly.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}

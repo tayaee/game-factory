@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-16 | [Word Scramble](category/games/2026/02/20260216-210000-word-scramble/) | Unscramble letters to form words in this vocabulary puzzle game.
 * 2026-02-16 | [Vector Donkey Kong Jr Climb](category/games/2026/02/20260216-133000-vector-donkey-kong-jr-climb/) | Rescue the giant by climbing vines, avoiding Snapjaws and birds, and collecting keys to unlock the cage.
 * 2026-02-16 | [Pattern Match](category/games/2026/02/20260216-063732-pattern-match/) | Train your visual memory by memorizing and recreating patterns on a grid of colored symbols.
 * 2026-02-16 | [Vector Hextris Rotate Logic](category/games/2026/02/20260216-030232-vector-hextris-rotate-logic/) | Match colored bars by rotating a central hexagon in this 360-degree puzzle challenge.
