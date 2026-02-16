@@ -1,156 +1,82 @@
 {
   "overall_status": "PASSED",
-  "app_name": "vector-hextris-rotate-logic",
-  "category": "games",
-  "test_timestamp": "2026-02-16T03:05:00.000000+00:00",
-  "test_duration_seconds": 120,
-  "analysis_summary": {
-    "startup": "PASSED",
-    "window_creation": "PASSED",
-    "game_loop": "PASSED",
-    "graceful_termination": "PASSED",
-    "import_tests": "PASSED",
-    "mechanic_tests": "PASSED"
-  },
-  "environment": {
-    "python_version": "3.11.14",
-    "platform": "win32",
-    "pygame_version": "2.5.6 (pygame-ce)"
-  },
-  "runtime_tests": {
-    "basic_startup": {
+  "test_start": 1771257989.8094018,
+  "tests": [
+    {
+      "name": "pygame_import",
       "status": "PASSED",
-      "description": "Application starts without errors",
-      "details": "main.py executes successfully and initializes Pygame"
+      "message": "Pygame 2.5.6 imported successfully",
+      "duration_seconds": 0.20662212371826172
     },
-    "module_imports": {
+    {
+      "name": "module_import",
       "status": "PASSED",
-      "description": "All required modules can be imported",
-      "modules_tested": [
-        "pygame",
-        "config",
-        "entities",
-        "game"
-      ]
+      "message": "All game modules imported successfully",
+      "duration_seconds": 0.004996538162231445
     },
-    "game_initialization": {
+    {
+      "name": "game_init",
       "status": "PASSED",
-      "description": "Game object initializes with correct default state",
-      "verified_attributes": [
-        "hexagon",
-        "falling_bars",
-        "score",
-        "game_over",
-        "spawn_timer",
-        "fall_speed",
-        "spawn_interval"
-      ]
+      "message": "Game initialized: 800x600, 60 FPS",
+      "duration_seconds": 0.025007009506225586
     },
-    "hexagon_functionality": {
+    {
+      "name": "entity_creation",
       "status": "PASSED",
-      "description": "Hexagon rotation and vertex calculations work correctly",
-      "tests_passed": [
-        "Initial rotation is 0",
-        "Sides array has 6 elements",
-        "Rotate clockwise increases rotation by 60",
-        "Rotate counter-clockwise decreases rotation by 60",
-        "get_hexagon_vertices returns 6 vertices"
-      ]
+      "message": "All entities created successfully",
+      "duration_seconds": 0.0
     },
-    "block_functionality": {
+    {
+      "name": "hexagon_rotation",
       "status": "PASSED",
-      "description": "Block and FallingBar entities work correctly",
-      "tests_passed": [
-        "FallingBar initializes with correct side_index and color_index",
-        "FallingBar distance starts at 350",
-        "FallingBar contains 6 blocks",
-        "Block initializes with correct attributes"
-      ]
+      "message": "Hexagon rotation works correctly",
+      "duration_seconds": 0.0
     },
-    "game_mechanics": {
+    {
+      "name": "block_stacking",
       "status": "PASSED",
-      "description": "Core game logic functions correctly",
-      "tests_passed": [
-        "Adding blocks to hexagon sides",
-        "Max stack height calculation",
-        "Hexagon rotation",
-        "Block color matching (3+ consecutive same color)"
-      ]
+      "message": "Block stacking works correctly",
+      "duration_seconds": 0.0
     },
-    "match_detection": {
+    {
+      "name": "match_detection",
       "status": "PASSED",
-      "description": "Game correctly detects matching blocks",
-      "verified": "3 consecutive blocks of same color are detected as a match"
+      "message": "Match detection works correctly",
+      "duration_seconds": 0.0
     },
-    "process_execution": {
+    {
+      "name": "falling_bar_spawn",
       "status": "PASSED",
-      "description": "Game process runs for full 120 seconds without crashing",
-      "runtime_seconds": 120,
-      "exit_method": "Graceful termination via SIGTERM"
+      "message": "Falling bar spawn works correctly",
+      "duration_seconds": 0.0
     },
-    "termination": {
+    {
+      "name": "game_loop",
       "status": "PASSED",
-      "description": "Application terminates gracefully when stopped"
+      "message": "Game loop ran for 120 frames",
+      "duration_seconds": 0.06599617004394531
+    },
+    {
+      "name": "vertices_calculation",
+      "status": "PASSED",
+      "message": "Hexagon vertices calculated correctly",
+      "duration_seconds": 0.0
+    },
+    {
+      "name": "score_calculation",
+      "status": "PASSED",
+      "message": "Score increased from 0 to 39",
+      "duration_seconds": 0.0
+    },
+    {
+      "name": "game_over_detection",
+      "status": "PASSED",
+      "message": "Game over detection works correctly",
+      "duration_seconds": 0.0
     }
-  },
-  "configuration_verified": {
-    "screen": {
-      "width": 800,
-      "height": 600,
-      "fps": 60
-    },
-    "colors": {
-      "background": "(20, 20, 30)",
-      "hexagon": "(80, 80, 100)",
-      "block_colors": 4
-    },
-    "hexagon": {
-      "radius": 80,
-      "sides": 6,
-      "rotation_step": 60
-    },
-    "blocks": {
-      "width": 20,
-      "height": 12,
-      "blocks_per_row": 6,
-      "match_minimum": 3
-    },
-    "game_limits": {
-      "max_stack_height": 10,
-      "fall_speed_initial": 1.5,
-      "fall_speed_max": 4.0
-    },
-    "scoring": {
-      "points_per_block": 10
-    }
-  },
-  "input_handling": {
-    "status": "VERIFIED_VIA_CODE",
-    "controls": {
-      "LEFT_ARROW": "Rotate hexagon counter-clockwise",
-      "RIGHT_ARROW": "Rotate hexagon clockwise",
-      "ESC": "Quit game",
-      "R": "Restart (game over screen)",
-      "Q": "Quit (game over screen)"
-    }
-  },
-  "issues_found": [],
-  "notes": [
-    "Game ran successfully for approximately 120 seconds",
-    "All imports verified working with pygame-ce 2.5.6",
-    "All core game mechanics verified via unit tests",
-    "Process terminates cleanly with SIGTERM",
-    "No crashes or errors during runtime"
   ],
-  "performance_metrics": {
-    "fps_target": 60,
-    "process_ran_for_full_duration": true,
-    "graceful_termination": true
-  },
-  "test_results": {
-    "total_tests": 9,
-    "passed": 9,
-    "failed": 0
-  },
-  "conclusion": "Vector Hextris - Rotate Logic is fully functional. All imports work correctly, all core game mechanics operate as expected, and the application runs stably for the full 120-second test duration. The application starts correctly, processes game logic, handles user input (verified via code inspection), and terminates gracefully."
+  "total_tests": 12,
+  "passed": 12,
+  "failed": 0,
+  "total_duration": 0.30262184143066406
 }
