@@ -1,0 +1,31 @@
+{
+  "app_name": "vector-hextris-rotate-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260216-030232-vector-hextris-rotate-logic",
+  "description": "A fast-paced hexagonal puzzle game where you match colored bars by rotating a central hexagon.",
+  "rationale": "This game challenges spatial reasoning and reaction time. It is targeted at fans of Tetris and match-3 games who want a 360-degree tactical challenge. For AI agents, it provides a complex state space involving rotation and multi-directional gravity.",
+  "details": "The game features a large hexagon in the center of the screen that the player can rotate left or right. Colored bars fall from the six outer edges of the screen towards the center. The goal is to stack these bars on the sides of the hexagon. When three or more bars of the same color touch, they are cleared, and the player earns points. If the bars stack outside the boundary of the hexagonal play area, the game ends. As time progresses, the speed of falling bars increases.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "framework": "Pygame",
+    "resolution": "800x600",
+    "colors": [
+      "#FF4136",
+      "#0074D9",
+      "#2ECC40",
+      "#FFDC00"
+    ],
+    "rotation_step": 60
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window.",
+  "how_to_play": "Use the LEFT and RIGHT arrow keys to rotate the central hexagon. Match 3 or more blocks of the same color on any side to clear them and increase your score. Score is calculated based on the number of blocks cleared and the current game speed multiplier. Game over occurs if any stack reaches the outer limit line.",
+  "how_to_cleanup": "rm -rf .venv",
+  "rl_agent_info": {
+    "observation_space": "1D array of stack heights and colors per side, plus incoming block vector",
+    "action_space": "Discrete(3) [No-op, Rotate Clockwise, Rotate Counter-Clockwise]",
+    "reward_function": "+10 per block cleared, -0.1 per frame (survival penalty), -100 on Game Over"
+  },
+  "screenshot": "N/A"
+}

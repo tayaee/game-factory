@@ -1,0 +1,62 @@
+{
+  "tests": [
+    {
+      "name": "Pygame Initialization",
+      "status": "PASSED",
+      "description": "Pygame initialized successfully"
+    },
+    {
+      "name": "Game Instance Creation",
+      "status": "PASSED",
+      "description": "Game instance created successfully"
+    },
+    {
+      "name": "Initial Game State",
+      "status": "PASSED",
+      "description": "Initial game state is correct"
+    },
+    {
+      "name": "Hexagon Rotation",
+      "status": "PASSED",
+      "description": "Hexagon rotates correctly by 60 degrees"
+    },
+    {
+      "name": "Spawn Falling Bars",
+      "status": "PASSED",
+      "description": "Falling bars spawn correctly"
+    },
+    {
+      "name": "Game Update Loop",
+      "status": "PASSED",
+      "description": "Game update loop runs without errors"
+    },
+    {
+      "name": "Block Matching Detection",
+      "status": "PASSED",
+      "description": "Block matching detection works correctly"
+    },
+    {
+      "name": "Input Handling",
+      "status": "PASSED",
+      "description": "Input handling processes events correctly"
+    },
+    {
+      "name": "Rendering",
+      "status": "PASSED",
+      "description": "Rendering functions execute without errors"
+    },
+    {
+      "name": "Game Reset",
+      "status": "PASSED",
+      "description": "Game resets to initial state correctly"
+    }
+  ],
+  "errors": [],
+  "overall_status": "PASSED",
+  "summary": {
+    "total_tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "success_rate": "100.0%"
+  }
+}

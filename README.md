@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-16 | [Vector Hextris Rotate Logic](category/games/2026/02/20260216-030232-vector-hextris-rotate-logic/) | Match colored bars by rotating a central hexagon in this 360-degree puzzle challenge.
 * 2026-02-15 | [Vector Space Invaders Shoot](category/games/2026/02/20260215-143000-vector-space-invaders-shoot/) | Classic space invaders where you defend Earth from descending alien waves.
 * 2026-02-15 | [Vector Klotski Block Escape](category/games/2026/02/20260215-063520-vector-klotski-block-escape/) | Master the classic sliding block puzzle to guide the main red block to freedom.
 * 2026-02-15 | [Vector Ice Block Pengo Logic](category/games/2026/02/20260215-081030-vector-ice-block-pengo-logic/) | Strategic ice-block sliding puzzle where you crush enemies and align goals.
