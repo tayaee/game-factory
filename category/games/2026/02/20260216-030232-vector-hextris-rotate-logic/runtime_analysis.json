@@ -2,7 +2,7 @@
   "overall_status": "PASSED",
   "app_name": "vector-hextris-rotate-logic",
   "category": "games",
-  "test_timestamp": "2026-02-16T04:20:03Z",
+  "test_timestamp": "2026-02-16T11:41:51.287000+00:00",
   "test_duration_seconds": 120,
   "analysis_summary": {
     "startup": "PASSED",
@@ -12,9 +12,9 @@
   },
   "environment": {
     "python_version": "3.11.14",
-    "pygame_version": "2.5.6",
-    "platform": "Windows 10",
-    "display_available": true
+    "platform": "win32",
+    "display_available": true,
+    "pygame_version": "2.5.6"
   },
   "import_verification": {
     "pygame": {
@@ -50,6 +50,10 @@
       "runtime_duration_seconds": 120,
       "no_crashes": true
     },
+    "termination": {
+      "status": "PASSED",
+      "description": "Application terminates gracefully on SIGTERM"
+    },
     "basic_functionality": {
       "status": "PASSED",
       "description": "Core game mechanics are functional",
@@ -83,7 +87,12 @@
       "radius": 80
     },
     "blocks": {
-      "colors": ["Red", "Blue", "Green", "Yellow"],
+      "colors": [
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow"
+      ],
       "width": 20,
       "height": 12,
       "match_minimum": 3
@@ -95,8 +104,7 @@
       "fall_speed_max": 4.0
     },
     "scoring": {
-      "points_per_block": 10,
-      "combo_multiplier": 1.5
+      "points_per_block": 10
     },
     "game_over": {
       "max_stack_height": 10,
@@ -112,11 +120,7 @@
   },
   "issues_found": [],
   "notes": [
-    "Game runs smoothly for extended periods (2+ minutes tested)",
-    "All core game mechanics function as designed",
-    "Graceful termination works correctly via SIGTERM",
-    "No crashes or errors during testing period",
-    "Frame rate maintains 60 FPS consistently"
+    "Game ran successfully for 120.2 seconds"
   ],
   "conclusion": "Vector Hextris - Rotate Logic is fully functional. All basic game features work as specified in appinfo.json. The application starts correctly, renders the game window, processes game logic, handles user input, and terminates gracefully."
 }

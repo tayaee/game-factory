@@ -1,0 +1,11 @@
+[project]
+name = "pattern-match"
+version = "0.1.0"
+description = "Memory puzzle game - memorize and recreate patterns on a grid"
+requires-python = ">=3.11"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"
