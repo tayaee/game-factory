@@ -1,0 +1,38 @@
+{
+  "app_name": "vector-circus-charlie-tightrope-walk",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-030229-vector-circus-charlie-tightrope-walk",
+  "description": "Master the art of balance and timing in this classic circus tightrope challenge.",
+  "rationale": "This app provides a focused environment for AI agents to learn precision timing and obstacle avoidance. It targets developers interested in physics-lite platformers and reinforcement learning researchers looking for discrete action-space challenges with moving hazards.",
+  "details": "The game is a simplified 2D side-scroller inspired by the tightrope level of Circus Charlie. The player controls a circus performer walking on a high-wire from left to right. Monkeys appear from the right side and move toward the player at varying speeds. The performer must jump over these monkeys to survive. The game ends if the performer touches a monkey or falls off the rope (though in this simplified version, the rope is the only walking plane). The goal is to reach the finish platform at the end of the rope within a time limit. Gravity and jump arcs follow a simple parabolic curve to ensure predictable physics for AI agents.",
+  "game_rules": {
+    "screen_width": 800,
+    "screen_height": 400,
+    "performer_size": [
+      32,
+      48
+    ],
+    "monkey_size": [
+      24,
+      24
+    ],
+    "gravity": 0.8,
+    "jump_strength": -12,
+    "movement_speed": 4,
+    "win_condition": "Reach x-coordinate 2000",
+    "lose_condition": "Collision with monkey or time expires"
+  },
+  "technical_specs": {
+    "language": "Python 3.10+",
+    "rendering_library": "pygame-ce",
+    "dependency_management": "uv",
+    "observation_space": "Player position, Player velocity, List of active monkey positions/speeds",
+    "action_space": "0: Idle, 1: Move Right, 2: Jump"
+  },
+  "how_to_build": "uv venv && uv pip install pygame-ce",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "killall python",
+  "how_to_play": "Score increases based on distance traveled and monkeys successfully jumped over. Use the RIGHT ARROW key to move forward and the SPACEBAR to jump. Avoid all incoming monkeys. Reaching the goal provides a massive score bonus.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
