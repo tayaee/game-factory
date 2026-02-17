@@ -1,0 +1,8 @@
+[project]
+name = "20260217-074100-vector-taito-qix-clone"
+version = "0.1.0"
+description = "Capture territory by drawing lines while avoiding the unpredictable spark"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.6",
+]
