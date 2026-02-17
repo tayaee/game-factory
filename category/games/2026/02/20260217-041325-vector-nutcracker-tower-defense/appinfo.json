@@ -1,0 +1,49 @@
+{
+  "app_name": "vector-nutcracker-tower-defense",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-041325-vector-nutcracker-tower-defense",
+  "description": "Protect the holiday toy box from a relentless march of wind-up mice in this minimalist tower defense strategy.",
+  "rationale": "Tower defense games provide an excellent environment for AI agents to learn strategic resource management, spatial positioning, and priority-based decision making. This simplified version focuses on clean vector graphics and core mechanics to reduce computational overhead during training.",
+  "details": "The game is played on a 16x16 grid. Enemies (wind-up mice) enter from the left and follow a pre-defined path toward the toy box on the right. The player must place 'Nutcracker' units on valid non-path tiles to fire projectiles at enemies. There are three types of units: 1. Basic Scout (fast fire rate, low damage), 2. Heavy Guard (slow fire rate, high damage), and 3. Frost Guard (slows enemy movement). Each unit costs currency earned by defeating enemies. If an enemy reaches the toy box, health is lost. The game ends when health reaches zero.",
+  "mechanics": {
+    "grid_size": "16x16",
+    "initial_currency": 100,
+    "initial_health": 10,
+    "enemy_types": [
+      "Standard",
+      "Fast",
+      "Tank"
+    ],
+    "unit_types": {
+      "Scout": {
+        "cost": 20,
+        "range": 3.0,
+        "damage": 10,
+        "cooldown": 0.5
+      },
+      "Heavy": {
+        "cost": 50,
+        "range": 4.0,
+        "damage": 40,
+        "cooldown": 2.0
+      },
+      "Frost": {
+        "cost": 40,
+        "range": 2.5,
+        "damage": 5,
+        "effect": "slow",
+        "cooldown": 1.5
+      }
+    }
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill the process or press 'ESC' during execution",
+  "how_to_play": "Place Nutcracker units on the grid to prevent mice from reaching the right side. Mouse left-click to select and place units. Use keys '1', '2', '3' to switch between unit types. Score increases based on the number of enemies defeated and the time survived. If the toy box health drops to 0, the game is over.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "required_dependencies": [
+    "pygame",
+    "numpy"
+  ],
+  "screenshot": "assets/screenshots/nutcracker_td_v1.png"
+}

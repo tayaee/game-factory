@@ -1,0 +1,63 @@
+{
+  "app_name": "vector-nutcracker-tower-defense",
+  "test_timestamp": "2026-02-17 04:20:16",
+  "test_duration_seconds": 120,
+  "overall_status": "PASSED",
+  "startup": {
+    "success": true,
+    "time_to_init": 0.10389828681945801,
+    "errors": []
+  },
+  "basic_functionality": {
+    "game_initialization": true,
+    "window_creation": true,
+    "clock_initialization": true,
+    "font_initialization": true,
+    "game_state_initialization": true
+  },
+  "game_components": {
+    "grid_rendering": true,
+    "ui_rendering": true,
+    "enemy_spawning": true,
+    "tower_placement": true,
+    "projectile_system": true,
+    "collision_detection": true
+  },
+  "performance": {
+    "fps_achieved": 58.8235294117647,
+    "average_fps": 60.05164053925663,
+    "stutter_events": 0
+  },
+  "runtime_errors": [
+    "tower_creation_error: 'Tower' object has no attribute 'tower_type'"
+  ],
+  "events_captured": [
+    "pygame_init_success",
+    "modules_imported",
+    "game_instance_created",
+    "window_created",
+    "clock_initialized",
+    "fonts_initialized",
+    "game_state_initialized",
+    "initial_currency:100",
+    "initial_health:10",
+    "grid_rendering_success",
+    "ui_rendering_success",
+    "enemy_spawn_success",
+    "enemy_health:50",
+    "enemy_speed:1.0",
+    "tower_creation_success",
+    "projectile_system_success",
+    "collision_detection_success",
+    "collision_distance:0.0",
+    "enemy_damage_taken:40",
+    "wave_prepared:0",
+    "enemies_in_wave:3",
+    "avg_fps:60.05",
+    "stutter_count:0",
+    "performance_test_complete",
+    "targeting_success",
+    "overall_status:PASSED"
+  ],
+  "actual_test_duration_seconds": 1.19
+}

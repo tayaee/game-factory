@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-17 | [Vector Nutcracker Tower Defense](category/games/2026/02/20260217-041325-vector-nutcracker-tower-defense/) | Place Nutcracker units to defend the holiday toy box from waves of wind-up mice in this minimalist tower defense strategy.
 * 2026-02-17 | [Vector Circus Charlie Tightrope Walk](category/games/2026/02/20260217-030229-vector-circus-charlie-tightrope-walk/) | Walk the tightrope, jump over monkeys, and reach the goal in this classic circus balance challenge.
 * 2026-02-16 | [Word Scramble](category/games/2026/02/20260216-210000-word-scramble/) | Unscramble letters to form words in this vocabulary puzzle game.
 * 2026-02-16 | [Vector Donkey Kong Jr Climb](category/games/2026/02/20260216-133000-vector-donkey-kong-jr-climb/) | Rescue the giant by climbing vines, avoiding Snapjaws and birds, and collecting keys to unlock the cage.
