@@ -1,0 +1,19 @@
+[project]
+name = "vector-volfied-area-capture"
+version = "1.0.0"
+description = "Navigate the void and claim your territory while dodging lethal cosmic entities"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[dependency-groups]
+dev = []

@@ -1,0 +1,26 @@
+{
+  "app_name": "vector-volfied-area-capture",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-085248-vector-volfied-area-capture",
+  "description": "Navigate the void and claim your territory while dodging lethal cosmic entities.",
+  "rationale": "This game focuses on spatial awareness and risk-reward decision-making. It targets casual players who enjoy classic arcade mechanics like 'Qix' or 'Volfied', providing a clear environment for reinforcement learning agents to study boundary-based pathfinding and collision avoidance.",
+  "details": "The game consists of a rectangular 2D field. The player controls a small 'Shield' craft that moves along the perimeter of the claimed territory. When the player moves into the empty (unclaimed) area, they leave a trail. If the craft returns to a claimed boundary, the area enclosed by the trail is filled and claimed. A Boss entity and several smaller sparks move within the unclaimed area; if they touch the player's trail before the area is claimed, the player loses a life. The goal is to claim at least 80% of the total area.",
+  "rules": {
+    "win_condition": "Claimed area >= 80% of total screen.",
+    "lose_condition": "Player lives reach 0 (starting lives: 3).",
+    "collision_penalty": "Touching an enemy or enemy touching the current active trail resets the trail and costs 1 life.",
+    "scoring_system": "Score increases based on the percentage of area claimed in a single move. Larger areas grant exponential point bonuses."
+  },
+  "technical_specs": {
+    "resolution": "800x600",
+    "framework": "Pygame",
+    "state_space": "2D Grid Map (binary: claimed/unclaimed), player position, enemy positions, trail coordinates",
+    "action_space": "Discrete (Up, Down, Left, Right)"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $PPID or press ESC",
+  "how_to_play": "Use Arrow Keys to move the craft. Move outside the boundary to start drawing a trail. Complete a loop back to a boundary to claim the area. Avoid contact between enemies and your trail. Scoring is calculated by: Points = Area_Size * Level_Multiplier.",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
