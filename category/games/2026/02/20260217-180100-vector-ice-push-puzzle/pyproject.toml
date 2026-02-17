@@ -1,0 +1,19 @@
+[project]
+name = "vector-ice-push-puzzle"
+version = "0.1.0"
+description = "Slide ice blocks strategically to reach the goal and solve the frozen maze."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-ice-push-puzzle = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

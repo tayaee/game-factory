@@ -8,6 +8,7 @@ mach-ten-project itself is a private repo.
 
 ### Games
 
+* 2026-02-17 | [Vector Ice Push Puzzle](category/games/2026/02/20260217-180100-vector-ice-push-puzzle/) | Slide ice blocks strategically to reach the goal and solve the frozen maze.
 * 2026-02-17 | [Vector Mappy Rhythm Run](category/games/2026/02/20260217-154500-vector-mappy-rhythm-run/) | Dash through corridors as Mappy, jumping over obstacles to the beat of the music.
 * 2026-02-17 | [Vector Bolat Ball Physics](category/games/2026/02/20260217-143500-vector-bolat-ball-physics/) | Navigate a bouncing ball through a minimalist vector maze using momentum and physics.
 * 2026-02-17 | [Vector Flip Flop Tile Logic](category/games/2026/02/20260217-122000-vector-flip-flop-tile-logic/) | A strategic tile-flipping puzzle game inspired by the classic Lights Out mechanics.

@@ -1,0 +1,33 @@
+{
+  "app_name": "vector-ice-push-puzzle",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-180100-vector-ice-push-puzzle",
+  "description": "Slide ice blocks strategically to reach the goal and solve the frozen maze.",
+  "rationale": "This game targets puzzle enthusiasts who enjoy spatial reasoning and logic challenges. It provides a clean, vector-style implementation of the classic 'ice sliding' mechanic found in titles like Pokemon or Zelda, making it ideal for RL agents to learn pathfinding and state-based logic without complex physics noise.",
+  "details": "The game consists of a 2D grid containing walls, sliding ice blocks, and a target exit. When the player pushes an ice block in a direction, it continues to slide until it hits a wall or another block. The player character also moves with the same sliding physics: once a move is initiated, the character slides until obstructed. The objective is to navigate the character to the goal position. Levels increase in complexity with the introduction of multiple movable blocks that must be positioned to create stop-points for the player.",
+  "game_rules": {
+    "grid_size": "10x10",
+    "movement": "Four-directional sliding (Up, Down, Left, Right)",
+    "win_condition": "Player coordinates match Goal coordinates",
+    "lose_condition": "None (Move count increases, but no game over unless time-limited mode is enabled)",
+    "obstacles": [
+      "Wall: Permanent obstruction",
+      "Ice Block: Movable obstruction that slides when pushed"
+    ]
+  },
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "dependencies": [
+      "pygame",
+      "numpy"
+    ],
+    "build_system": "uv",
+    "rendering": "Vector-based 2D shapes"
+  },
+  "how_to_build": "uv sync",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py') or press ESC in-game",
+  "how_to_play": "Use Arrow Keys to move the character. Each press triggers a slide until an obstacle is hit. Score is calculated based on (Base Level Points - Number of Moves). Reaching the goal with fewer moves results in a higher score. RL agents should maximize the reward which is (+100 for goal reach, -1 for each move).",
+  "how_to_cleanup": "rm -rf .venv",
+  "screenshot": "N/A"
+}
