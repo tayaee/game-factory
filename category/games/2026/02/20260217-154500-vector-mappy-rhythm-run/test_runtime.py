@@ -28,7 +28,7 @@ print(f"[{time.strftime('%H:%M:%S')}] Launching Vector Mappy Rhythm Run...")
 process = None
 try:
     process = subprocess.Popen(
-        [os.path.join(".venv", "Scripts", "python.exe"), "main.py"],
+        [sys.executable, "main.py"],
         cwd=os.getcwd(),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
