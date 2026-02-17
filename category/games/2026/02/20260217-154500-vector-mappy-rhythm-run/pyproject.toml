@@ -1,0 +1,19 @@
+[project]
+name = "vector-mappy-rhythm-run"
+version = "0.1.0"
+description = "Dash through the corridors as Mappy, jumping over hurdles to the beat of the music in this rhythmic platformer."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-mappy-rhythm-run = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

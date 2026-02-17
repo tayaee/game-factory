@@ -1,0 +1,32 @@
+{
+  "app_name": "vector-mappy-rhythm-run",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-154500-vector-mappy-rhythm-run",
+  "description": "Dash through the corridors as Mappy, jumping over hurdles to the beat of the music in this rhythmic platformer.",
+  "rationale": "Rhythm-based games offer a high engagement level and a clear reward system for AI training. This game combines classic arcade aesthetics with timing-based mechanics, making it an excellent environment for testing precision agents and timing algorithms.",
+  "details": "The game is a simplified 2D side-scrolling rhythmic platformer. The player controls Mappy, who moves forward automatically at a constant speed. Obstacles (cats and pits) appear at intervals synchronized with a background BPM. The background is a clean, dark grey grid with neon-line characters. The environment is procedurally generated but remains consistent with the music tempo. Performance is tracked via a combo system based on perfect timing.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "resolution": "800x400",
+    "fps": 60,
+    "bpm": 120,
+    "state_space": [
+      "player_y",
+      "next_obstacle_dist",
+      "next_obstacle_type",
+      "rhythm_offset"
+    ]
+  },
+  "how_to_build": "uv run python -m pip install pygame && uv run python -m build",
+  "how_to_start": "uv run python main.py",
+  "how_to_stop": "kill $(pgrep -f 'python main.py') or press ESC in the game window",
+  "how_to_play": "Score increases by 10 for every obstacle successfully jumped. A 'Perfect' jump (within 50ms of the beat) yields a 2x combo. Use the 'SPACE' key to jump. The player must avoid colliding with 'Nyamco' cats or falling into pits. If a collision occurs, the game resets and the final score is recorded.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "reward_function": {
+    "survival": "+0.1 per frame",
+    "successful_jump": "+10.0",
+    "perfect_timing_bonus": "+5.0",
+    "collision_penalty": "-50.0"
+  },
+  "screenshot": "assets/previews/mappy_rhythm_run.png"
+}
