@@ -1,0 +1,12 @@
+[project]
+name = "vector-color-flow-puzzle"
+version = "0.1.0"
+description = "Connect matching colors with pipes to fill the entire grid and create a perfect flow"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame>=2.5.0",
+]
+
+[project.scripts]
+start = "main:main"

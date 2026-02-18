@@ -1,0 +1,22 @@
+{
+  "app_name": "vector-color-flow-puzzle",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260218-090200-vector-color-flow-puzzle",
+  "description": "Connect matching colors with pipes to fill the entire grid and create a perfect flow.",
+  "rationale": "This game targets puzzle enthusiasts who enjoy spatial reasoning and logic. It offers a clean, minimalist aesthetic that focuses on pure problem-solving without distractions. For AI agents, it provides a deterministic environment to practice pathfinding and constraint satisfaction algorithms.",
+  "details": "The game consists of an NxN grid with pairs of colored dots placed in various cells. The objective is to draw lines (pipes) connecting dots of the same color. Rules: 1. Every pair of dots must be connected. 2. Pipes cannot cross each other. 3. Every single cell in the grid must be occupied by a pipe. 4. Pipes can only move horizontally and vertically. The game starts with a 5x5 grid and increases in complexity. The UI is rendered using a single-color background (dark grey) with high-contrast solid colors for the pipes and dots.",
+  "technical_specs": {
+    "language": "Python 3.12+",
+    "display": "Pygame 2.5.0+",
+    "grid_logic": "Matrix-based path validation",
+    "dependency_management": "uv"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press 'ESC' or close the window. For CLI termination, use Ctrl+C.",
+  "how_to_play": "Goal: Fill 100% of the grid by connecting all color pairs. Score: Each completed connection adds 100 points. Completing the board gives a bonus based on time remaining. Controls: Click and drag from one colored dot to its match. Use 'R' to reset the current level. Pathfinding agents should minimize the length of pipes while ensuring no cells remain empty.",
+  "how_to_cleanup": "rm -rf .venv && find . -type d -name '__pycache__' -exec rm -rf {} +",
+  "rl_observation_space": "NxN matrix where each cell contains a color ID or 0 for empty. Current head positions of each color pipe are tracked separately.",
+  "rl_action_space": "4 discrete actions (Up, Down, Left, Right) applied to the currently selected color head.",
+  "screenshot": "assets/screenshots/color-flow-preview.png"
+}
