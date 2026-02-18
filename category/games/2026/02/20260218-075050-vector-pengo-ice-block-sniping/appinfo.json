@@ -1,0 +1,20 @@
+{
+  "app_name": "vector-pengo-ice-block-sniping",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260218-075050-vector-pengo-ice-block-sniping",
+  "description": "Calculate trajectories and slide ice blocks to eliminate moving targets in this precision puzzle action game.",
+  "rationale": "This game targets users who enjoy a mix of strategic planning and timing. It provides a rich environment for RL agents to learn about vector mathematics, collision physics, and predictive movement of dynamic obstacles.",
+  "details": "The game is set on a 2D grid representing an icy arena. The player controls a character who can push ice blocks located in the environment. Unlike standard sokoban or basic push games, the objective here is to 'snipe' enemies by sliding blocks across the grid. Rules: 1. Ice blocks slide until they hit a wall, another block, or an enemy. 2. Enemies move in predictable patterns (back and forth or circular). 3. Eliminating an enemy requires timing the slide so the block occupies the same grid cell as the enemy during movement. 4. Multiple enemies can be crushed with a single slide for combo points. 5. If an enemy touches the player, the game ends. 6. Levels are cleared when all enemies are eliminated.",
+  "technical_specs": {
+    "engine": "Pygame",
+    "state_space": "Grid matrix (N x M) containing player pos, block positions, and enemy trajectories.",
+    "action_space": "Discrete: [0: Up, 1: Down, 2: Left, 3: Right, 4: Wait]",
+    "reward_structure": "+100 for hitting enemy, +500 for level clear, -1 per step to encourage efficiency, -1000 for death."
+  },
+  "how_to_build": "uv run python -m venv .venv && source .venv/bin/activate && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "Press ESC or close the window. For agents, send SIGINT.",
+  "how_to_play": "Use ARROW KEYS to move the character. When adjacent to an ice block, move toward it to push it in that direction. Your goal is to slide these blocks into moving enemies. Scores increase based on the number of enemies destroyed and the speed of level completion.",
+  "how_to_cleanup": "rm -rf .venv && rm -rf __pycache__",
+  "screenshot": "No screenshot available. UI consists of a 16x16 grid with blue blocks, red enemy circles, and a green player square."
+}
