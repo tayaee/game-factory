@@ -1,0 +1,28 @@
+{
+  "app_name": "vector-fire-extinguish-logic",
+  "category": "games",
+  "folder_name": "category/games/2026/02/20260217-191000-vector-fire-extinguish-logic",
+  "description": "Tactical water-pressure puzzle to extinguish spreading flames in a grid warehouse.",
+  "rationale": "This game focuses on resource management and spatial logic. It targets users who enjoy puzzle-solving and provides a clear environment for RL agents to learn optimal pathfinding and priority-based decision making.",
+  "details": "The game consists of a 10x10 grid warehouse. Some cells contain flammable boxes, some are empty floor, and some are obstacles. Fire starts at a random box and spreads to adjacent flammable cells every 5 seconds. The player controls a fire-extinguishing bot with limited water capacity. The bot must move to a fire cell and spend 1 unit of water to extinguish it. Refilling is only possible at designated water stations at the corners. The game ends if all flammable boxes are destroyed or if the fire covers the entire grid.",
+  "game_rules": {
+    "grid_size": "10x10",
+    "spread_rate": "1 cell per 5 seconds",
+    "water_capacity": "5 units",
+    "extinguish_time": "0.5 seconds per cell",
+    "scoring": "100 points per extinguished box, -10 points per box lost to fire"
+  },
+  "technical_stack": {
+    "language": "Python 3.10+",
+    "framework": "Pygame",
+    "manager": "uv"
+  },
+  "how_to_build": "uv venv && uv pip install pygame",
+  "how_to_start": "uv run main.py",
+  "how_to_stop": "kill $(pgrep -f main.py) or press ESC in the game window",
+  "how_to_play": "Use Arrow Keys to move the bot. Press SPACE to extinguish fire in the current cell. Move to the blue squares at the corners to refill water. The goal is to maximize the number of boxes saved and minimize fire spread.",
+  "how_to_cleanup": "rm -rf .venv",
+  "observation_space_for_rl": "10x10 grid matrix with values: 0 (empty), 1 (box), 2 (fire), 3 (obstacle), 4 (bot), 5 (refill station)",
+  "action_space_for_rl": "0: Up, 1: Down, 2: Left, 3: Right, 4: Extinguish",
+  "screenshot": "assets/game_preview.png"
+}

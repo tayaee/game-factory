@@ -1,0 +1,19 @@
+[project]
+name = "vector-fire-extinguish-logic"
+version = "0.1.0"
+description = "Tactical water-pressure puzzle to extinguish spreading flames in a grid warehouse."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.0",
+]
+
+[project.scripts]
+vector-fire-extinguish-logic = "main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
